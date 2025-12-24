@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Link AI Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+    <style>
+        /* Accordion styles */
+        .accordion {
+            margin-bottom: 1rem;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: #f5f5f7;
+            border-radius: 12px 12px 0 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: #ebebed;
+        }
+
+        .accordion-header.collapsed {
+            border-radius: 12px;
+        }
+
+        .accordion-header .arrow {
+            transition: transform 0.3s;
+        }
+
+        .accordion-header.collapsed .arrow {
+            transform: rotate(-90deg);
+        }
+
+        .accordion-content {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+            padding: 1.5rem;
+        }
+
+        .accordion-content.hidden {
+            display: none;
+        }
+
+        /* Service card editor */
+        .service-card-edit {
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card-edit h4 {
+            margin: 0 0 1rem 0;
+            font-size: 0.9rem;
+            color: #7c3aed;
+        }
+
+        /* Media upload */
+        .media-upload {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            transition: all 0.2s;
+        }
+
+        .media-upload:hover {
+            border-color: #7c3aed;
+        }
+
+        .media-upload img,
+        .media-upload video {
+            max-width: 100%;
+            max-height: 150px;
+            border-radius: 8px;
+        }
+
+        .media-upload input[type="file"] {
+            display: none;
+        }
+
+        /* Toggle switch */
+        .toggle-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .toggle-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e5e5e5;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+        }
+
+        .toggle-btn.active {
+            background: #7c3aed;
+            color: white;
+            border-color: #7c3aed;
+        }
+
+        /* Process step editor */
+        .process-step-edit {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #fafafa;
+            border-radius: 10px;
+        }
+
+        .process-step-edit .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .process-step-edit .step-fields {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <h1 class="logo">LINK <span>AI</span> CMS</h1>
+        </div>
+        <div class="topbar-right">
+            <button class="btn btn-secondary" id="previewBtn">👁️ Preview</button>
+            <button class="btn btn-secondary" id="saveDraftBtn">💾 Save Draft</button>
+            <button class="btn btn-primary" id="publishBtn">🚀 Publish</button>
+            <button class="btn btn-export" id="exportBtn" style="background:#16a34a;color:white;">📦 Export for
+                GoDaddy</button>
+            <div class="user-menu">
+                <span id="userEmail">admin@linkai.agency</span>
+                <button class="btn btn-ghost" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <h3>Pages</h3>
+                <ul class="nav-list">
+                    <li class="nav-item active" data-page="home">🏠 Home</li>
+                    <li class="nav-item" data-page="services">📦 Services</li>
+                    <li class="nav-item" data-page="process">⚙️ Process</li>
+                    <li class="nav-item" data-page="contact">📧 Contact</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+
+            <!-- ==================== HOME PAGE ==================== -->
+            <div class="page-editor" id="page-home">
+                <h2>🏠 Home Page</h2>
+
+                <!-- HERO SECTION -->
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Hero Section</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <!-- Media Type Toggle -->
+                        <label style="font-weight:500;margin-bottom:0.5rem;display:block;">Background Media Type</label>
+                        <div class="toggle-group">
+                            <button type="button" class="toggle-btn active" data-mode="video"
+                                onclick="setMediaMode('video')">Video</button>
+                            <button type="button" class="toggle-btn" data-mode="image"
+                                onclick="setMediaMode('image')">Image</button>
+                        </div>
+
+                        <!-- Video Upload (default) -->
+                        <div id="videoUploadGroup">
+                            <label style="font-weight:500;margin-bottom:0.5rem;display:block;">Hero Video</label>
+                            <div class="media-upload" onclick="document.getElementById('heroVideo').click()">
+                                <video id="heroVideoPreview" src="../assets/hero-header.mp4" muted
+                                    style="max-height:150px;"></video>
+                                <p style="margin:0.5rem 0 0;font-size:0.8rem;color:#999;">Click to replace (MP4, max
+                                    50MB)</p>
+                            </div>
+                            <input type="file" id="heroVideo" accept="video/mp4,video/webm"
+                                onchange="handleVideoUpload(this)">
+                        </div>
+
+                        <!-- Image Upload (hidden initially) -->
+                        <div id="imageUploadGroup" style="display:none;">
+                            <label style="font-weight:500;margin-bottom:0.5rem;display:block;">Hero Image</label>
+                            <div class="media-upload" onclick="document.getElementById('heroImage').click()">
+                                <img id="heroImagePreview" src="" alt="Upload image" style="max-height:150px;">
+                                <p style="margin:0.5rem 0 0;font-size:0.8rem;color:#999;">Click to upload (JPG/PNG/WebP,
+                                    max 5MB)</p>
+                            </div>
+                            <input type="file" id="heroImage" accept="image/jpeg,image/png,image/webp"
+                                onchange="handleImageUpload(this, 'heroImagePreview', 'home.hero.backgroundImage')">
+                        </div>
+
+                        <div class="form-stack" style="margin-top:1rem;">
+                            <div class="form-group">
+                                <label>Eyebrow Text</label>
+                                <input type="text" data-field="home.hero.eyebrowText" maxlength="50">
+                                <span class="char-count">0/50</span>
+                            </div>
+                            <div class="form-group">
+                                <label>Main Headline</label>
+                                <input type="text" data-field="home.hero.headline" maxlength="100">
+                                <span class="char-count">0/100</span>
+                            </div>
+                            <div class="form-group">
+                                <label>Subheadline</label>
+                                <textarea data-field="home.hero.subheadline" maxlength="200" rows="2"></textarea>
+                                <span class="char-count">0/200</span>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Primary Button Label</label>
+                                    <input type="text" data-field="home.hero.primaryButtonLabel" maxlength="20">
+                                </div>
+                                <div class="form-group">
+                                    <label>Secondary Button Label</label>
+                                    <input type="text" data-field="home.hero.secondaryButtonLabel" maxlength="20">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NAVIGATION -->
+                <div class="accordion">
+                    <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
+                        <span>Navigation Labels</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content hidden">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Services Label</label>
+                                <input type="text" data-field="home.nav.servicesLabel" maxlength="20">
+                            </div>
+                            <div class="form-group">
+                                <label>Process Label</label>
+                                <input type="text" data-field="home.nav.processLabel" maxlength="20">
+                            </div>
+                            <div class="form-group">
+                                <label>Contact Label</label>
+                                <input type="text" data-field="home.nav.contactLabel" maxlength="20">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== SERVICES PAGE ==================== -->
+            <div class="page-editor hidden" id="page-services">
+                <h2>📦 Services Page</h2>
+                <p style="color:#666;margin-bottom:1.5rem;">Edit the 6 service cards shown on the homepage.</p>
+
+                <!-- Service Cards -->
+                <div id="serviceCardsContainer">
+                    <!-- Cards will be generated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- ==================== PROCESS PAGE ==================== -->
+            <div class="page-editor hidden" id="page-process">
+                <h2>⚙️ Process Page</h2>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Process Steps</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div id="processStepsContainer">
+                            <!-- Steps will be generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== CONTACT PAGE ==================== -->
+            <div class="page-editor hidden" id="page-contact">
+                <h2>📧 Contact Page</h2>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Contact Section</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="form-stack">
+                            <div class="form-group">
+                                <label>Section Title</label>
+                                <input type="text" data-field="contact.title" maxlength="50">
+                                <span class="char-count">0/50</span>
+                            </div>
+                            <div class="form-group">
+                                <label>Subtitle</label>
+                                <textarea data-field="contact.subtitle" maxlength="200" rows="2"></textarea>
+                                <span class="char-count">0/200</span>
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Label</label>
+                                <input type="text" data-field="contact.ctaLabel" maxlength="30">
+                            </div>
+                            <div class="form-group">
+                                <label>Contact Email</label>
+                                <input type="email" data-field="contact.email" maxlength="100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification hidden" id="notification">
+        <span id="notificationText"></span>
+    </div>
+
+    <script>
+        // =============================================
+        // CMS ADMIN - FULL VERSION
+        // =============================================
+
+        // Default content schema
+        const DEFAULT_CONTENT = {
+            home: {
+                nav: {
+                    servicesLabel: 'Services',
+                    processLabel: 'Process',
+                    contactLabel: 'Contact'
+                },
+                hero: {
+                    eyebrowText: 'LINK AI AGENCY',
+                    headline: 'INTELLIGENT SYSTEMS. BUILT FOR REAL BUSINESSES.',
+                    subheadline: 'AI chatbots, voice agents and automations that replace manual work.',
+                    primaryButtonLabel: 'Services',
+                    secondaryButtonLabel: 'Process',
+                    mediaMode: 'video',
+                    backgroundImage: '',
+                    backgroundVideo: 'assets/hero-header.mp4'
+                }
+            },
+            services: {
+                cards: [
+                    { title: 'AI AGENTS', subtitle: '24/7 Intelligent Support', image: 'AI_AGENTS.png', imageAlt: 'AI Agents' },
+                    { title: 'CHATBOTS', subtitle: 'Automated Conversations', image: 'CHATBOTS.png', imageAlt: 'Chatbots' },
+                    { title: 'VOICE AGENTS', subtitle: 'Human-like Voice AI', image: 'VOICE_AGENTS.png', imageAlt: 'Voice Agents' },
+                    { title: 'AUTOMATION', subtitle: 'Workflows & Integrations', image: 'AUTOMATION_WORKFLOWS.png', imageAlt: 'Automation' },
+                    { title: 'AI VISUALS', subtitle: 'High-end Creative Output', image: 'AI_VISUALS.png', imageAlt: 'AI Visuals' },
+                    { title: 'AI AVATARS', subtitle: 'AI Personas & Presenters', image: 'AI_AVATARS.png', imageAlt: 'AI Avatars' }
+                ]
+            },
+            process: {
+                steps: [
+                    { title: 'DISCOVERY & DIRECTION', description: 'Clarifies goals, scope and constraints.' },
+                    { title: 'AI FOUNDATION', description: 'Defines agent logic, tone, knowledge and behavior.' },
+                    { title: 'SYSTEM INTEGRATION', description: 'Connects CRM, calendars, WhatsApp and workflows into one system.' },
+                    { title: 'OPTIMIZATION & GROWTH', description: 'Continuous monitoring, improvement and expansion.' }
+                ]
+            },
+            contact: {
+                title: 'READY TO TRANSFORM?',
+                subtitle: 'Take the first step towards systems that actually work — built, deployed, and optimized by Link AI Agency.',
+                ctaLabel: 'BOOK FREE CONSULTATION',
+                email: 'info@linkaiagency.com'
+            }
+        };
+
+        let content = {};
+        let hasUnsavedChanges = false;
+
+        // Check authentication
+        if (localStorage.getItem('cms_logged_in') !== 'true') {
+            window.location.href = 'login.html';
+        }
+
+        // Initialize
+        function init() {
+            document.getElementById('userEmail').textContent = localStorage.getItem('cms_user_email') || 'admin';
+            loadContent();
+            renderServiceCards();
+            renderProcessSteps();
+            setupEventListeners();
+            setupCharCounters();
+        }
+
+        // Load content
+        function loadContent() {
+            const savedDraft = localStorage.getItem('cms_draft');
+            if (savedDraft) {
+                content = JSON.parse(savedDraft);
+                // Merge with defaults for any missing fields
+                content = deepMerge(JSON.parse(JSON.stringify(DEFAULT_CONTENT)), content);
+            } else {
+                content = JSON.parse(JSON.stringify(DEFAULT_CONTENT));
+            }
+            populateFields();
+        }
+
+        // Deep merge objects
+        function deepMerge(target, source) {
+            for (const key in source) {
+                if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+                    if (!target[key]) target[key] = {};
+                    deepMerge(target[key], source[key]);
+                } else {
+                    target[key] = source[key];
+                }
+            }
+            return target;
+        }
+
+        // Populate form fields
+        function populateFields() {
+            document.querySelectorAll('[data-field]').forEach(field => {
+                const path = field.dataset.field;
+                const value = getNestedValue(content, path) || '';
+                field.value = value;
+                updateCharCount(field);
+            });
+
+            // Set media mode toggle
+            const mode = content.home?.hero?.mediaMode || 'video';
+            setMediaMode(mode);
+        }
+
+        // Get nested value
+        function getNestedValue(obj, path) {
+            return path.split('.').reduce((curr, key) =>
+                curr && curr[key] !== undefined ? curr[key] : null, obj);
+        }
+
+        // Set nested value
+        function setNestedValue(obj, path, value) {
+            const keys = path.split('.');
+            const lastKey = keys.pop();
+            const target = keys.reduce((curr, key) => {
+                if (!curr[key]) curr[key] = {};
+                return curr[key];
+            }, obj);
+            target[lastKey] = value;
+        }
+
+        // Render service cards editor
+        function renderServiceCards() {
+            const container = document.getElementById('serviceCardsContainer');
+            const cards = content.services?.cards || DEFAULT_CONTENT.services.cards;
+
+            container.innerHTML = cards.map((card, i) => `
+                <div class="accordion">
+                    <div class="accordion-header ${i > 0 ? 'collapsed' : ''}" onclick="toggleAccordion(this)">
+                        <span>${i + 1}. ${card.title}</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content ${i > 0 ? 'hidden' : ''}">
+                        <div class="form-stack">
+                            <div class="form-group">
+                                <label>Card Title</label>
+                                <input type="text" data-field="services.cards.${i}.title" value="${card.title || ''}" maxlength="30" oninput="updateServiceCard(${i}, 'title', this.value)">
+                            </div>
+                            <div class="form-group">
+                                <label>Subtitle</label>
+                                <input type="text" data-field="services.cards.${i}.subtitle" value="${card.subtitle || ''}" maxlength="50" oninput="updateServiceCard(${i}, 'subtitle', this.value)">
+                            </div>
+                            <div class="form-group">
+                                <label>Card Image</label>
+                                <div class="media-upload" onclick="document.getElementById('cardImage${i}').click()">
+                                    <img id="cardImagePreview${i}" src="../${card.image}" alt="${card.imageAlt}" style="max-height:100px;">
+                                    <p style="margin:0.5rem 0 0;font-size:0.8rem;color:#999;">Click to replace</p>
+                                </div>
+                                <input type="file" id="cardImage${i}" accept="image/*" onchange="handleCardImageUpload(this, ${i})">
+                            </div>
+                            <div class="form-group">
+                                <label>Image Alt Text</label>
+                                <input type="text" value="${card.imageAlt || ''}" maxlength="50" oninput="updateServiceCard(${i}, 'imageAlt', this.value)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update service card
+        function updateServiceCard(index, field, value) {
+            if (!content.services) content.services = { cards: [] };
+            if (!content.services.cards[index]) content.services.cards[index] = {};
+            content.services.cards[index][field] = value;
+            hasUnsavedChanges = true;
+        }
+
+        // Handle card image upload
+        function handleCardImageUpload(input, index) {
+            const file = input.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const dataUrl = e.target.result;
+                document.getElementById(`cardImagePreview${index}`).src = dataUrl;
+                updateServiceCard(index, 'image', dataUrl);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Render process steps
+        function renderProcessSteps() {
+            const container = document.getElementById('processStepsContainer');
+            const steps = content.process?.steps || DEFAULT_CONTENT.process.steps;
+
+            container.innerHTML = steps.map((step, i) => `
+                <div class="process-step-edit">
+                    <div class="step-number">0${i + 1}</div>
+                    <div class="step-fields">
+                        <div class="form-group" style="margin-bottom:0.5rem;">
+                            <label>Step Title</label>
+                            <input type="text" value="${step.title || ''}" maxlength="40" oninput="updateProcessStep(${i}, 'title', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" value="${step.description || ''}" maxlength="100" oninput="updateProcessStep(${i}, 'description', this.value)">
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update process step
+        function updateProcessStep(index, field, value) {
+            if (!content.process) content.process = { steps: [] };
+            if (!content.process.steps[index]) content.process.steps[index] = {};
+            content.process.steps[index][field] = value;
+            hasUnsavedChanges = true;
+        }
+
+        // Toggle accordion
+        function toggleAccordion(header) {
+            header.classList.toggle('collapsed');
+            const content = header.nextElementSibling;
+            content.classList.toggle('hidden');
+        }
+
+        // Set media mode (image/video)
+        function setMediaMode(mode) {
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mode === mode);
+            });
+            document.getElementById('videoUploadGroup').style.display = mode === 'video' ? 'block' : 'none';
+            document.getElementById('imageUploadGroup').style.display = mode === 'image' ? 'block' : 'none';
+
+            setNestedValue(content, 'home.hero.mediaMode', mode);
+            hasUnsavedChanges = true;
+        }
+
+        // Handle image upload
+        function handleImageUpload(input, previewId, fieldPath) {
+            const file = input.files[0];
+            if (!file) return;
+
+            if (file.size > 5 * 1024 * 1024) {
+                alert('Image must be less than 5MB');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const dataUrl = e.target.result;
+                document.getElementById(previewId).src = dataUrl;
+                setNestedValue(content, fieldPath, dataUrl);
+                hasUnsavedChanges = true;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Handle video upload
+        function handleVideoUpload(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            if (file.size > 50 * 1024 * 1024) {
+                alert('Video must be less than 50MB');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('heroVideoPreview').src = e.target.result;
+                setNestedValue(content, 'home.hero.backgroundVideo', e.target.result);
+                hasUnsavedChanges = true;
+                showNotification('Video uploaded! Save draft to keep changes.', 'success');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Navigation
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const page = item.dataset.page;
+                    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                    document.querySelectorAll('.page-editor').forEach(editor => {
+                        editor.classList.toggle('hidden', editor.id !== `page-${page}`);
+                    });
+                });
+            });
+
+            // Field changes
+            document.querySelectorAll('[data-field]').forEach(field => {
+                field.addEventListener('input', () => {
+                    hasUnsavedChanges = true;
+                    setNestedValue(content, field.dataset.field, field.value);
+                    updateCharCount(field);
+                });
+            });
+
+            // Save, Preview, Publish, Logout
+            document.getElementById('saveDraftBtn').addEventListener('click', saveDraft);
+            document.getElementById('publishBtn').addEventListener('click', publish);
+            document.getElementById('previewBtn').addEventListener('click', () => {
+                saveDraft();
+                window.open('../index.html?preview=true', '_blank');
+            });
+            document.getElementById('logoutBtn').addEventListener('click', () => {
+                localStorage.removeItem('cms_logged_in');
+                localStorage.removeItem('cms_user_email');
+                window.location.href = 'login.html';
+            });
+
+            // Unsaved changes warning
+            window.addEventListener('beforeunload', (e) => {
+                if (hasUnsavedChanges) {
+                    e.preventDefault();
+                    e.returnValue = '';
+                }
+            });
+        }
+
+        // Setup char counters
+        function setupCharCounters() {
+            document.querySelectorAll('[data-field]').forEach(field => updateCharCount(field));
+        }
+
+        function updateCharCount(field) {
+            const counter = field.parentElement.querySelector('.char-count');
+            if (counter) {
+                const max = field.maxLength || 999;
+                counter.textContent = `${field.value.length}/${max}`;
+            }
+        }
+
+        // Save draft
+        function saveDraft() {
+            localStorage.setItem('cms_draft', JSON.stringify(content));
+            hasUnsavedChanges = false;
+            showNotification('✅ Draft saved!', 'success');
+        }
+
+        // Publish
+        function publish() {
+            saveDraft();
+            localStorage.setItem('cms_published', JSON.stringify(content));
+            showNotification('🚀 Published! Changes are now live.', 'success');
+        }
+
+        // Show notification
+        function showNotification(message, type = '') {
+            const notification = document.getElementById('notification');
+            const text = document.getElementById('notificationText');
+            text.textContent = message;
+            notification.className = 'notification';
+            if (type) notification.classList.add(type);
+            notification.classList.remove('hidden');
+            setTimeout(() => notification.classList.add('hidden'), 3000);
+        }
+
+        // Export for production (GoDaddy)
+        function exportForProduction() {
+            // Save current content first
+            saveDraft();
+
+            // Generate the content-loader.js with embedded content
+            const embeddedContent = JSON.stringify(content, null, 2);
+
+            const contentLoaderCode = `/**
+ * CMS Content Loader - Production Version
+ * Generated on: ${new Date().toISOString()}
+ * This file contains your published content embedded for static hosting.
+ */
+(function() {
+    'use strict';
+
+    // EMBEDDED CONTENT
+    const EMBEDDED_CONTENT = ${embeddedContent};
+
+    console.log('CMS: Loading embedded content');
+
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => applyContent(EMBEDDED_CONTENT));
+    } else {
+        applyContent(EMBEDDED_CONTENT);
+    }
+
+    function applyContent(content) {
+        // HOME PAGE - HERO SECTION
+        if (content.home?.hero) {
+            const hero = content.home.hero;
+
+            const eyebrow = document.querySelector('.hero-label');
+            if (eyebrow && hero.eyebrowText) {
+                eyebrow.textContent = hero.eyebrowText;
+            }
+
+            const titleSpans = document.querySelectorAll('.hero-title span');
+            if (titleSpans.length >= 2 && hero.headline) {
+                const parts = hero.headline.split('. ');
+                if (parts.length >= 2) {
+                    titleSpans[0].textContent = parts[0] + '.';
+                    titleSpans[1].textContent = parts[1];
+                } else {
+                    titleSpans[0].textContent = hero.headline;
+                    titleSpans[1].textContent = '';
+                }
+            }
+
+            const subtitle = document.querySelector('.hero-subtitle');
+            if (subtitle && hero.subheadline) {
+                subtitle.textContent = hero.subheadline;
+            }
+
+            const primaryBtn = document.querySelector('.hero-actions .hero-btn:first-child');
+            if (primaryBtn && hero.primaryButtonLabel) {
+                primaryBtn.textContent = hero.primaryButtonLabel;
+            }
+
+            const secondaryBtn = document.querySelector('.hero-actions .hero-btn:last-child');
+            if (secondaryBtn && hero.secondaryButtonLabel) {
+                secondaryBtn.textContent = hero.secondaryButtonLabel;
+            }
+        }
+
+        // NAVIGATION LABELS
+        if (content.home?.nav) {
+            const nav = content.home.nav;
+            const navLinks = document.querySelectorAll('.nav-links .nav-btn');
+            
+            if (navLinks[0] && nav.servicesLabel) navLinks[0].textContent = nav.servicesLabel;
+            if (navLinks[1] && nav.processLabel) navLinks[1].textContent = nav.processLabel;
+            if (navLinks[2] && nav.contactLabel) navLinks[2].textContent = nav.contactLabel;
+        }
+
+        // SERVICES SECTION
+        if (content.services?.cards) {
+            const serviceCards = document.querySelectorAll('.svc-card');
+            content.services.cards.forEach((card, index) => {
+                if (serviceCards[index]) {
+                    const cardEl = serviceCards[index];
+                    const title = cardEl.querySelector('.svc-text h3');
+                    if (title && card.title) title.textContent = card.title;
+                    const subtitle = cardEl.querySelector('.svc-text p');
+                    if (subtitle && card.subtitle) subtitle.textContent = card.subtitle;
+                }
+            });
+        }
+
+        // PROCESS SECTION
+        if (content.process?.steps) {
+            const processSteps = document.querySelectorAll('.proc-step');
+            content.process.steps.forEach((step, index) => {
+                if (processSteps[index]) {
+                    const stepEl = processSteps[index];
+                    const title = stepEl.querySelector('.proc-name');
+                    if (title && step.title) title.textContent = step.title;
+                    const desc = stepEl.querySelector('.proc-desc');
+                    if (desc && step.description) desc.textContent = step.description;
+                }
+            });
+        }
+
+        // CONTACT SECTION
+        if (content.contact) {
+            const ctaTitle = document.querySelector('.final-titleFill');
+            if (ctaTitle && content.contact.title) {
+                ctaTitle.textContent = content.contact.title;
+                const ctaTitleGlow = document.querySelector('.final-titleGlow');
+                if (ctaTitleGlow) ctaTitleGlow.textContent = content.contact.title;
+            }
+            const ctaSub = document.querySelector('.final-sub');
+            if (ctaSub && content.contact.subtitle) ctaSub.textContent = content.contact.subtitle;
+            const ctaBtn = document.querySelector('.final-btnLabel');
+            if (ctaBtn && content.contact.ctaLabel) ctaBtn.textContent = content.contact.ctaLabel;
+        }
+
+        console.log('CMS: Content applied successfully');
+    }
+})();
+`;
+
+            // Create download
+            const blob = new Blob([contentLoaderCode], { type: 'text/javascript' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'content-loader.js';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showNotification('📦 Exported! Replace js/content-loader.js with the downloaded file, then upload to GoDaddy.', 'success');
+
+            // Show instructions modal
+            alert(`EXPORT COMPLETE!
+
+Instructions for GoDaddy:
+1. Replace the file "js/content-loader.js" in your website folder with the downloaded file
+2. Upload ALL files from the link-ai-website folder to your GoDaddy public_html folder via FTP
+3. Your content changes will now work on your live website!
+
+Note: The admin panel will still work locally for future edits. Just export again and re-upload when you make changes.`);
+        }
+
+        // Start
+        init();
+
+        // Add export button listener after init
+        document.getElementById('exportBtn').addEventListener('click', exportForProduction);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Consultancy - Link AI Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        .scroller {
+            overflow-y: auto;
+            scroll-snap-type: none;
+            height: auto;
+        }
+
+        .section {
+            height: auto;
+            min-height: 80vh;
+            padding-top: 8rem;
+            justify-content: flex-start;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 100px;
+            left: 3rem;
+            text-decoration: none;
+            color: #666;
+            font-weight: 600;
+            z-index: 10;
+        }
+
+        .back-link:hover {
+            color: var(--primary-purple);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="../index.html" class="nav-logo"><img src="../logo.png" class="nav-logo-img"></a>
+        <a href="../index.html#contact" class="nav-btn">Get Started</a>
+    </nav>
+
+    <a href="../index.html" class="back-link">← Back</a>
+
+    <main class="scroller">
+        <section class="section">
+            <div class="content-wrapper centered">
+                <div class="card-icon">💡</div>
+                <h1>Free AI Consultancy</h1>
+                <p style="max-width: 700px; margin-bottom: 3rem;">
+                    Unsure where to start? We guide you through the AI landscape.
+                </p>
+
+                <div
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; text-align: left; max-width: 900px;">
+                    <div>
+                        <h3>Strategy Session</h3>
+                        <p>A completely free session to understand your business bottlenecks.</p>
+                    </div>
+                    <div>
+                        <h3>Roadmap</h3>
+                        <p>We provide a clear plan on how AI can automate your specific workflows.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 4rem;">
+                    <a href="../index.html#contact" class="btn btn-primary">Book Free Session</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

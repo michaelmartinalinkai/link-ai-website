@@ -1,0 +1,244 @@
+/* ================================================
+   LINK AI AGENCY - HERO HEADER REDESIGN
+   Premium, Centered Overlay on Video Background
+   ================================================ */
+
+/* ---- HERO SECTION ---- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---- VIDEO BACKGROUND ---- */
+#hero-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* ---- HIDE CANVAS (not needed for this design) ---- */
+#hero-bg-canvas {
+    display: none;
+}
+
+/* ---- HERO CONTAINER: Centered Overlay ---- */
+.hero-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+    max-width: 900px;
+}
+
+/* ---- REMOVE RIGHT COLUMN ---- */
+.hero-right {
+    display: none !important;
+}
+
+/* ---- LEFT COLUMN: Now Full Width Centered ---- */
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+/* ---- BRAND LABEL ---- */
+.hero-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+/* ---- MAIN HEADLINE: 3D Premium Typography ---- */
+.hero-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+
+    /* Base color: Very light lavender/white */
+    color: #f8f6ff;
+
+    /* 3D Depth Effect */
+    text-shadow:
+        /* Inner highlight (top-left bevel) */
+        -1px -1px 0 rgba(255, 255, 255, 0.4),
+        /* Depth shadow (bottom-right) */
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        3px 3px 6px rgba(0, 0, 0, 0.2),
+        /* Purple ambient glow */
+        0 0 40px rgba(139, 92, 246, 0.4),
+        0 0 80px rgba(139, 92, 246, 0.2),
+        0 0 120px rgba(139, 92, 246, 0.1);
+}
+
+.hero-title span {
+    display: block;
+}
+
+.hero-title span:first-child {
+    /* Slight glow enhancement on first line */
+    text-shadow:
+        -1px -1px 0 rgba(255, 255, 255, 0.4),
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        3px 3px 6px rgba(0, 0, 0, 0.2),
+        0 0 50px rgba(139, 92, 246, 0.5),
+        0 0 100px rgba(139, 92, 246, 0.25);
+}
+
+/* ---- SUPPORTING TEXT ---- */
+.hero-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+}
+
+/* ---- BUTTONS CONTAINER ---- */
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ---- BUTTON BASE ---- */
+.hero-btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.85rem 2.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+    cursor: url('../images/chain-cursor.svg') 12 12, pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ---- BUTTON 1: Services (Dark Purple Solid) ---- */
+.hero-btn:first-child {
+    background: linear-gradient(135deg, #6b21a8 0%, #581c87 100%);
+    color: #fff;
+    box-shadow:
+        0 4px 15px rgba(107, 33, 168, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.hero-btn:first-child::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.15) 50%,
+            transparent 100%);
+    transition: left 0.5s ease;
+}
+
+.hero-btn:first-child:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 25px rgba(107, 33, 168, 0.5),
+        0 0 40px rgba(139, 92, 246, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.hero-btn:first-child:hover::before {
+    left: 100%;
+}
+
+/* ---- BUTTON 2: Process (Outlined/Lighter) ---- */
+.hero-btn:last-child {
+    background: rgba(139, 92, 246, 0.15);
+    color: #e9d5ff;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.hero-btn:last-child:hover {
+    transform: translateY(-2px);
+    background: rgba(139, 92, 246, 0.25);
+    border-color: rgba(139, 92, 246, 0.6);
+    box-shadow:
+        0 8px 25px rgba(139, 92, 246, 0.25),
+        0 0 30px rgba(139, 92, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ================================================
+   RESPONSIVE ADJUSTMENTS
+   ================================================ */
+
+@media (max-width: 768px) {
+    .hero-container {
+        padding: 0 1.5rem;
+    }
+
+    .hero-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.25em;
+    }
+
+    .hero-title {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-btn {
+        padding: 0.75rem 1.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .hero-btn {
+        width: 100%;
+        max-width: 220px;
+    }
+}

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link AI Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/services-grid.css">
+    <link rel="stylesheet" href="styles/process-flow.css">
+    <link rel="stylesheet" href="styles/cta-finale.css">
+    <link rel="stylesheet" href="styles/hero-redesign.css?v=4">
+</head>
+
+<body>
+
+    <!-- Background Watermark -->
+    <div class="watermark-container">
+        <img src="logo.png" alt="Link AI Watermark">
+    </div>
+
+    <!-- Navigation with Partner Marquee -->
+    <nav class="navbar">
+        <!-- Fixed Logo -->
+        <a href="#home" class="nav-logo">
+            <img src="logo.png" alt="Link AI" class="nav-logo-img">
+        </a>
+
+        <!-- Partner Marquee Strip -->
+        <div class="nav-marquee-container">
+            <div class="nav-marquee-track">
+                <!-- Set 1 -->
+                <a href="https://liquidbeauty.nl/" target="_blank" class="nav-partner-link">
+                    <img src="partner_liquid_beauty.png" alt="Liquid Beauty" class="nav-partner-logo">
+                </a>
+                <a href="https://november.nl/" target="_blank" class="nav-partner-link">
+                    <img src="partner_november.png" alt="November" class="nav-partner-logo">
+                </a>
+                <a href="https://thegym.amsterdam/" target="_blank" class="nav-partner-link">
+                    <img src="partner_the_gym.png" alt="The Gym" class="nav-partner-logo">
+                </a>
+                <a href="https://baliluxeconcierge.com/" target="_blank" class="nav-partner-link">
+                    <img src="partner_bali_luxe.png" alt="Bali Luxe" class="nav-partner-logo nav-partner-logo-lg">
+                </a>
+                <a href="https://liquidbeautyshop.com/" target="_blank" class="nav-partner-link">
+                    <img src="partner_liquid_shop.png" alt="Liquid Shop" class="nav-partner-logo nav-partner-logo-lg">
+                </a>
+                <a href="https://hi-tec.com/" target="_blank" class="nav-partner-link">
+                    <img src="partner_hitec.png" alt="Hi-Tec" class="nav-partner-logo">
+                </a>
+                <!-- Set 2 (Duplicate for seamless loop) -->
+                <a href="https://liquidbeauty.nl/" target="_blank" class="nav-partner-link">
+                    <img src="partner_liquid_beauty.png" alt="Liquid Beauty" class="nav-partner-logo">
+                </a>
+                <a href="https://november.nl/" target="_blank" class="nav-partner-link">
+                    <img src="partner_november.png" alt="November" class="nav-partner-logo">
+                </a>
+                <a href="https://thegym.amsterdam/" target="_blank" class="nav-partner-link">
+                    <img src="partner_the_gym.png" alt="The Gym" class="nav-partner-logo">
+                </a>
+                <a href="https://baliluxeconcierge.com/" target="_blank" class="nav-partner-link">
+                    <img src="partner_bali_luxe.png" alt="Bali Luxe" class="nav-partner-logo nav-partner-logo-lg">
+                </a>
+                <a href="https://liquidbeautyshop.com/" target="_blank" class="nav-partner-link">
+                    <img src="partner_liquid_shop.png" alt="Liquid Shop" class="nav-partner-logo nav-partner-logo-lg">
+                </a>
+                <a href="https://hi-tec.com/" target="_blank" class="nav-partner-link">
+                    <img src="partner_hitec.png" alt="Hi-Tec" class="nav-partner-logo">
+                </a>
+            </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a href="#services" class="nav-btn">Services</a>
+            <a href="#process" class="nav-btn">Process</a>
+            <a href="#contact" class="nav-btn">Contact</a>
+        </div>
+    </nav>
+
+
+    <!-- Scroll Snap Container -->
+    <main class="scroller">
+
+        <!-- SECTION 1: HERO HEADER (Premium Centered Overlay) -->
+        <section id="home" class="section hero-section">
+            <!-- Video Background -->
+            <video autoplay muted loop playsinline preload="auto" id="hero-video-bg">
+                <source src="assets/hero-header.mp4" type="video/mp4">
+            </video>
+
+            <!-- Centered Content Overlay -->
+            <div class="hero-container">
+                <div class="hero-left">
+                    <div class="hero-label">LINK AI AGENCY</div>
+                    <h1 class="hero-title">
+                        <span>INTELLIGENT SYSTEMS.</span>
+                        <span>BUILT FOR REAL BUSINESSES.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        AI chatbots, voice agents and automations that replace manual work.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#services" class="hero-btn">Services</a>
+                        <a href="#process" class="hero-btn">Process</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 2: SERVICES -->
+        <section id="services" class="section">
+            <div class="content-wrapper centered">
+                <h2>Our Expertise</h2>
+                <div class="svc-grid">
+
+                    <a class="svc-card is-agents" href="services/chat-ai.html">
+                        <div class="svc-media">
+                            <img src="AI_AGENTS.png" alt="AI Agents">
+                            <div class="svc-overlay" aria-hidden="true"></div>
+                        </div>
+                        <div class="svc-text">
+                            <h3>AI AGENTS</h3>
+                            <p>24/7 Intelligent Support</p>
+                        </div>
+                    </a>
+
+                    <a class="svc-card is-chatbots" href="services/chat-ai.html">
+                        <div class="svc-media">
+                            <img src="CHATBOTS.png" alt="Chatbots">
+                            <div class="svc-overlay" aria-hidden="true"></div>
+                        </div>
+                        <div class="svc-text">
+                            <h3>CHATBOTS</h3>
+                            <p>Automated Conversations</p>
+                        </div>
+                    </a>
+
+                    <a class="svc-card is-voice" href="services/voice-ai.html">
+                        <div class="svc-media">
+                            <img src="VOICE_AGENTS.png" alt="Voice Agents">
+                            <div class="svc-overlay" aria-hidden="true"></div>
+                        </div>
+                        <div class="svc-text">
+                            <h3>VOICE AGENTS</h3>
+                            <p>Human-like Voice AI</p>
+                        </div>
+                    </a>
+
+                    <a class="svc-card is-automation" href="services/workflow.html">
+                        <div class="svc-media">
+                            <img src="AUTOMATION_WORKFLOWS.png" alt="Automation">
+                            <div class="svc-overlay" aria-hidden="true"></div>
+                        </div>
+                        <div class="svc-text">
+                            <h3>AUTOMATION</h3>
+                            <p>Workflows & Integrations</p>
+                        </div>
+                    </a>
+
+                    <a class="svc-card is-visuals" href="services/visual-media.html">
+                        <div class="svc-media">
+                            <img src="AI_VISUALS.png" alt="AI Visuals">
+                            <div class="svc-overlay" aria-hidden="true"></div>
+                        </div>
+                        <div class="svc-text">
+                            <h3>AI VISUALS</h3>
+                            <p>High-end Creative Output</p>
+                        </div>
+                    </a>
+
+                    <a class="svc-card is-avatars" href="services/ai-avatars.html">
+                        <div class="svc-media">
+                            <img src="AI_AVATARS.png" alt="AI Avatars">
+                            <div class="svc-overlay" aria-hidden="true"></div>
+                        </div>
+                        <div class="svc-text">
+                            <h3>AI AVATARS</h3>
+                            <p>AI Personas & Presenters</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: PROCESS NAVIGATION -->
+        <!-- SECTION 3: PROCESS NAVIGATION -->
+        <!-- SECTION 3: PROCESS (PREMIUM TECHNICAL) -->
+        <section class="section proc" id="process">
+            <!-- Dark Technical Background -->
+            <canvas id="proc-canvas"></canvas>
+
+            <div class="proc-wrap">
+
+                <header class="proc-head">
+                    <!-- Title: Expressive, Architectural -->
+                    <h2 class="proc-title-tech">
+                        HOW WE BUILD<br>
+                        <span class="proc-title-highlight">OUR PROCESS</span>
+                    </h2>
+                </header>
+
+                <!-- Active Progress Line with Nodes -->
+                <div class="proc-progress-container">
+                    <div class="proc-line-base"></div>
+                    <div class="proc-line-fill" id="proc-line-fill"></div>
+                    <!-- Nodes will be positioned via CSS on top -->
+                    <div class="proc-nodes">
+                        <div class="proc-node" data-step="1"></div>
+                        <div class="proc-node" data-step="2"></div>
+                        <div class="proc-node" data-step="3"></div>
+                        <div class="proc-node" data-step="4"></div>
+                    </div>
+                </div>
+
+                <div class="proc-steps">
+                    <!-- Step 1 -->
+                    <div class="proc-step" data-step="1">
+                        <div class="proc-step-glow"></div>
+                        <div class="proc-step-content">
+                            <span class="proc-idx">01</span>
+                            <h3 class="proc-name">DISCOVERY & DIRECTION</h3>
+                            <p class="proc-desc">
+                                Clarifies goals, scope and constraints.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="proc-step" data-step="2">
+                        <div class="proc-step-glow"></div>
+                        <div class="proc-step-content">
+                            <span class="proc-idx">02</span>
+                            <h3 class="proc-name">AI FOUNDATION</h3>
+                            <p class="proc-desc">
+                                Defines agent logic, tone, knowledge and behavior.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="proc-step" data-step="3">
+                        <div class="proc-step-glow"></div>
+                        <div class="proc-step-content">
+                            <span class="proc-idx">03</span>
+                            <h3 class="proc-name">SYSTEM INTEGRATION</h3>
+                            <p class="proc-desc">
+                                Connects CRM, calendars, WhatsApp and workflows into one system.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="proc-step" data-step="4">
+                        <div class="proc-step-glow"></div>
+                        <div class="proc-step-content">
+                            <span class="proc-idx">04</span>
+                            <h3 class="proc-name">OPTIMIZATION & GROWTH</h3>
+                            <p class="proc-desc">
+                                Continuous monitoring, improvement and expansion.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 4: CTA / FINAL SECTION (Premium Conversion Finale) -->
+        <section class="final" id="contact">
+            <div class="final-bg" aria-hidden="true">
+                <div class="final-blob b1"></div>
+                <div class="final-blob b2"></div>
+                <div class="final-blob b3"></div>
+                <div class="final-dots"></div>
+            </div>
+
+            <div class="final-wrap">
+                <header class="final-head">
+                    <h2 class="final-title">
+                        <span class="final-titleFill">READY TO TRANSFORM?</span>
+                        <span class="final-titleGlow" aria-hidden="true">READY TO TRANSFORM?</span>
+                    </h2>
+
+                    <p class="final-sub">
+                        Take the first step towards systems that actually work — built, deployed,
+                        and optimized by Link AI Agency.
+                    </p>
+
+                    <!-- Optional: Social proof -->
+                    <p class="final-proof">
+                        Trusted by <strong>20+</strong> businesses — from local service companies
+                        to fast-growing teams.
+                    </p>
+                </header>
+
+                <div class="final-actions">
+                    <a class="final-btn" href="https://wa.me/31686447995" target="_blank">
+                        <span class="final-btnLabel">BOOK FREE CONSULTATION</span>
+                        <span class="final-btnGlow" aria-hidden="true"></span>
+                    </a>
+
+                    <!-- Optional: small reassurance line -->
+                    <p class="final-note">
+                        No spam. No sales circus. Just a clear plan within 15 minutes.
+                    </p>
+                </div>
+
+                <div class="final-meta">
+                    <div class="final-contact">
+                        <a class="final-item" href="https://maps.google.com/?q=Den%20Haag%2C%20NL" target="_blank"
+                            rel="noreferrer">
+                            <span class="final-ico" aria-hidden="true">📍</span>
+                            <span>Den Haag, NL</span>
+                        </a>
+
+                        <a class="final-item" href="https://wa.me/31686447995" target="_blank">
+                            <span class="final-ico" aria-hidden="true">📞</span>
+                            <span>+31 6 86447995</span>
+                        </a>
+
+                        <a class="final-item" href="mailto:info@linkaiagency.com">
+                            <span class="final-ico" aria-hidden="true">✉️</span>
+                            <span>info@linkaiagency.com</span>
+                        </a>
+                    </div>
+
+                    <div class="final-social">
+                        <a class="final-socialBtn" href="https://www.instagram.com/ai_visionamsterdam" target="_blank"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20"
+                                height="20">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a class="final-socialBtn" href="https://www.tiktok.com/@aivisionamsterdam" target="_blank"
+                            aria-label="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20"
+                                height="20">
+                                <path
+                                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v6.14c0 3.48-2.63 6.51-6.08 6.93-3.21.41-6.27-1.84-6.96-4.79-.66-2.82 1.12-5.78 3.93-6.47 1.43-.35 2.95-.12 4.24.5v4.02c-.93-.84-2.31-1.03-3.49-.52-1.2.53-1.84 1.9-1.46 3.16.32 1.05 1.41 1.73 2.51 1.58 1.41-.2 2.5-1.44 2.53-2.92v-15.7h.7z" />
+                            </svg>
+                        </a>
+                        <a class="final-socialBtn" href="https://www.linkedin.com/in/mike-martina-310942372/"
+                            target="_blank" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20"
+                                height="20">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTNER MARQUEE -->
+        <section class="partner-section">
+            <div class="marquee-title">Trusted by</div>
+            <div class="marquee-container">
+                <div class="marquee-track">
+                    <!-- Set 1 -->
+                    <a href="https://liquidbeauty.nl/" target="_blank" class="partner-link">
+                        <img src="partner_liquid_beauty.png" alt="Liquid Beauty" class="partner-logo-img">
+                    </a>
+                    <a href="https://november.nl/" target="_blank" class="partner-link">
+                        <img src="partner_november.png" alt="November" class="partner-logo-img">
+                    </a>
+                    <a href="https://thegym.amsterdam/" target="_blank" class="partner-link">
+                        <img src="partner_the_gym.png" alt="The Gym Amsterdam" class="partner-logo-img">
+                    </a>
+                    <a href="https://baliluxeconcierge.com/" target="_blank" class="partner-link">
+                        <img src="partner_bali_luxe.png" alt="Bali Luxe Concierge"
+                            class="partner-logo-img partner-logo-large">
+                    </a>
+                    <a href="https://liquidbeautyshop.com/" target="_blank" class="partner-link">
+                        <img src="partner_liquid_shop.png" alt="Liquid Beauty Shop"
+                            class="partner-logo-img partner-logo-large">
+                    </a>
+                    <a href="https://hi-tec.com/" target="_blank" class="partner-link">
+                        <img src="partner_hitec.png" alt="Hi-Tec" class="partner-logo-img">
+                    </a>
+
+                    <!-- Set 2 (Duplicate) -->
+                    <a href="https://liquidbeauty.nl/" target="_blank" class="partner-link">
+                        <img src="partner_liquid_beauty.png" alt="Liquid Beauty" class="partner-logo-img">
+                    </a>
+                    <a href="https://november.nl/" target="_blank" class="partner-link">
+                        <img src="partner_november.png" alt="November" class="partner-logo-img">
+                    </a>
+                    <a href="https://thegym.amsterdam/" target="_blank" class="partner-link">
+                        <img src="partner_the_gym.png" alt="The Gym Amsterdam" class="partner-logo-img">
+                    </a>
+                    <a href="https://baliluxeconcierge.com/" target="_blank" class="partner-link">
+                        <img src="partner_bali_luxe.png" alt="Bali Luxe Concierge"
+                            class="partner-logo-img partner-logo-large">
+                    </a>
+                    <a href="https://liquidbeautyshop.com/" target="_blank" class="partner-link">
+                        <img src="partner_liquid_shop.png" alt="Liquid Beauty Shop"
+                            class="partner-logo-img partner-logo-large">
+                    </a>
+                    <a href="https://hi-tec.com/" target="_blank" class="partner-link">
+                        <img src="partner_hitec.png" alt="Hi-Tec" class="partner-logo-img">
+                    </a>
+
+                    <!-- Set 3 (Duplicate) -->
+                    <a href="https://liquidbeauty.nl/" target="_blank" class="partner-link">
+                        <img src="partner_liquid_beauty.png" alt="Liquid Beauty" class="partner-logo-img">
+                    </a>
+                    <a href="https://november.nl/" target="_blank" class="partner-link">
+                        <img src="partner_november.png" alt="November" class="partner-logo-img">
+                    </a>
+                    <a href="https://thegym.amsterdam/" target="_blank" class="partner-link">
+                        <img src="partner_the_gym.png" alt="The Gym Amsterdam" class="partner-logo-img">
+                    </a>
+                    <a href="https://baliluxeconcierge.com/" target="_blank" class="partner-link">
+                        <img src="partner_bali_luxe.png" alt="Bali Luxe Concierge"
+                            class="partner-logo-img partner-logo-large">
+                    </a>
+                    <a href="https://liquidbeautyshop.com/" target="_blank" class="partner-link">
+                        <img src="partner_liquid_shop.png" alt="Liquid Beauty Shop"
+                            class="partner-logo-img partner-logo-large">
+                    </a>
+                    <a href="https://hi-tec.com/" target="_blank" class="partner-link">
+                        <img src="partner_hitec.png" alt="Hi-Tec" class="partner-logo-img">
+                    </a>
+                </div>
+            </div>
+            <!-- Footer with Admin Login -->
+            <div class="partner-footer">
+                <span class="copyright">© 2024 Link AI Agency</span>
+                <a href="admin/login.html" class="admin-login-link">Admin</a>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/content-loader.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/process-animation.js"></script>
+
+    <!-- ElevenLabs Voice Widget -->
+    <elevenlabs-convai agent-id="agent_01jzzvcvgxekzrafhqzfpw8y29"></elevenlabs-convai>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+    <script>
+        // OPTIONAL: mouse tilt on the header (works for both text + image wrapper)
+        (function () {
+            const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            if (reduce) return;
+
+            const target = document.querySelector(".la-headImgWrap") || document.querySelector(".la-head");
+            if (!target) return;
+
+            target.addEventListener("mousemove", (e) => {
+                const r = target.getBoundingClientRect();
+                const x = (e.clientX - r.left) / r.width - 0.5;
+                const y = (e.clientY - r.top) / r.height - 0.5;
+                target.style.transform = `rotateX(${(-y * 7).toFixed(2)}deg) rotateY(${(x * 9).toFixed(2)}deg) translateY(-2px)`;
+            });
+
+            target.addEventListener("mouseleave", () => {
+                target.style.transform = "";
+            });
+        })();
+    </script>
+</body>
+
+</html>

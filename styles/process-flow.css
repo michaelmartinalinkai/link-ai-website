@@ -1,0 +1,261 @@
+/* PROCESS SECTION - PREMIUM TECHNICAL (DARK PURPLE) */
+
+/* Override vars for this section scope */
+.proc {
+    position: relative;
+    padding: 100px 0;
+    color: #fff;
+    background: #0f0a1e;
+    /* Fallback deep purple */
+    overflow: hidden;
+    /* Ensure it stands out from light theme */
+    isolation: isolate;
+}
+
+/* CANVAS BACKGROUND - Technical Blueprint Video Vibe */
+#proc-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.6;
+    /* Blend with dark bg */
+}
+
+.proc-wrap {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* HEADER & TITLE */
+.proc-head {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.proc-title-tech {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    /* Architectural thinness */
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.proc-title-highlight {
+    font-weight: 800;
+    /* Bold impact */
+    font-size: clamp(3rem, 6vw, 5rem);
+    color: #d946ef;
+    /* Bright Neon Purple */
+    display: block;
+    margin-top: 0.5rem;
+    letter-spacing: -0.02em;
+    /* Subtle Glow */
+    text-shadow: 0 0 30px rgba(217, 70, 239, 0.4);
+    background: linear-gradient(135deg, #e879f9 0%, #a21caf 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* PROGRESS LINE STRUCTURE */
+.proc-progress-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    /* Align with cards roughly */
+    margin: 0 auto 50px;
+    height: 4px;
+    /* Line thickness */
+}
+
+.proc-line-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    /* Inactive trace */
+    border-radius: 4px;
+}
+
+.proc-line-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    /* JS will animate this */
+    background: linear-gradient(90deg, #7c3aed, #d946ef);
+    box-shadow: 0 0 15px #d946ef;
+    border-radius: 4px;
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.proc-nodes {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    padding: 0 12%;
+    /* Offset to align nodes approx center of 4 cards */
+}
+
+.proc-node {
+    width: 12px;
+    height: 12px;
+    background: #1a1029;
+    /* Dark center */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+/* Active Node State */
+.proc-node.active {
+    background: #d946ef;
+    border-color: #fff;
+    box-shadow: 0 0 15px #d946ef;
+    transform: scale(1.3);
+}
+
+/* CARDS GRID */
+.proc-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.proc-step {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    /* Glassy dark */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem 1.5rem;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: url('../images/chain-cursor.svg') 12 12, auto !important;
+
+    /* Depth */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Glow Element */
+.proc-step-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+/* Hover Interaction */
+.proc-step:hover {
+    transform: translateY(-10px);
+    border-color: rgba(217, 70, 239, 0.5);
+    /* Neon border */
+    box-shadow: 0 20px 50px rgba(124, 58, 237, 0.25);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.proc-step:hover .proc-step-glow {
+    opacity: 1;
+}
+
+/* Gloss Sweep on Card Hover */
+.proc-step::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: skewX(-20deg);
+    transition: none;
+    pointer-events: none;
+}
+
+.proc-step:hover::after {
+    animation: cardGloss 0.6s ease-out forwards;
+}
+
+@keyframes cardGloss {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 200%;
+    }
+}
+
+.proc-step-content {
+    position: relative;
+    z-index: 2;
+}
+
+.proc-idx {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--hero-purple-light, #a78bfa);
+    /* Light violet */
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.proc-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.proc-desc {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 900px) {
+    .proc-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .proc-progress-container {
+        display: none;
+        /* Hide horizontal progress line on mobile/tablet wrapper */
+    }
+}
+
+@media (max-width: 600px) {
+    .proc-steps {
+        grid-template-columns: 1fr;
+    }
+}

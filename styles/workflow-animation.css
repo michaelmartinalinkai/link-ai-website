@@ -1,0 +1,1040 @@
+/* ================================================
+   WORKFLOW AUTOMATION - GEAR & ICONS
+   Works within cva-hero container
+   ================================================ */
+
+/* Override cva-hero height for workflow page */
+.cva-hero:has(.wf-icons-row) {
+    height: 400px;
+}
+
+/* Fallback for browsers without :has() support */
+body.detail-page-body .cva-hero {
+    height: 400px;
+}
+
+/* ---- ICONS ROW - Positioned at top of hero ---- */
+.wf-icons-row {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 10;
+}
+
+.wf-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wf-icon-circle {
+    width: 55px;
+    height: 55px;
+    border: 2px solid rgba(124, 58, 237, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.15);
+    transition: all 0.3s ease;
+}
+
+.wf-icon-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.25);
+}
+
+.wf-icon-circle svg {
+    width: 24px;
+    height: 24px;
+    color: #7c3aed;
+}
+
+/* Connector lines from icons to gear */
+.wf-icon-connector {
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(180deg, rgba(124, 58, 237, 0.5) 0%, rgba(124, 58, 237, 0.1) 100%);
+    margin-top: 5px;
+}
+
+/* ---- GEAR BACKGROUND ---- */
+.wf-gear-bg {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: wf-gear-slow-rotate 60s linear infinite;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+@keyframes wf-gear-slow-rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* ---- TITLE OVERLAY - Big text over gear ---- */
+.wf-title-overlay {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+}
+
+.wf-big-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 800;
+    color: #1a0a2e;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin: 0;
+}
+
+/* Icon positions (matching reference) */
+/* Icon 1: CALENDAR - top-left */
+.wf-icon-1 {
+    top: -5%;
+    left: 5%;
+}
+
+.wf-icon-1 .wf-icon-line {
+    width: 100px;
+    height: 2px;
+    top: 50%;
+    left: 100%;
+    transform: rotate(40deg);
+    transform-origin: left center;
+}
+
+.wf-icon-1 .wf-icon-circle {
+    animation-delay: 0s;
+}
+
+/* Icon 2: CHECKLIST - top */
+.wf-icon-2 {
+    top: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wf-icon-2 .wf-icon-line {
+    width: 2px;
+    height: 80px;
+    top: 100%;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.wf-icon-2 .wf-icon-circle {
+    animation-delay: 0.4s;
+}
+
+/* Icon 3: CLIPBOARD - top-right */
+.wf-icon-3 {
+    top: -5%;
+    right: 5%;
+}
+
+.wf-icon-3 .wf-icon-line {
+    width: 100px;
+    height: 2px;
+    top: 50%;
+    right: 100%;
+    transform: rotate(-40deg);
+    transform-origin: right center;
+}
+
+.wf-icon-3 .wf-icon-circle {
+    animation-delay: 0.8s;
+}
+
+/* Icon 4: CPU - left */
+.wf-icon-4 {
+    top: 50%;
+    left: -8%;
+    transform: translateY(-50%);
+}
+
+.wf-icon-4 .wf-icon-line {
+    width: 80px;
+    height: 2px;
+    top: 50%;
+    left: 100%;
+    margin-top: -1px;
+}
+
+.wf-icon-4 .wf-icon-circle {
+    animation-delay: 1.2s;
+}
+
+/* Icon 5: TIMER - bottom-left */
+.wf-icon-5 {
+    bottom: -5%;
+    left: 5%;
+}
+
+.wf-icon-5 .wf-icon-line {
+    width: 100px;
+    height: 2px;
+    bottom: 50%;
+    left: 100%;
+    transform: rotate(-40deg);
+    transform-origin: left center;
+}
+
+.wf-icon-5 .wf-icon-circle {
+    animation-delay: 1.6s;
+}
+
+/* Icon 6: EMAIL - bottom-right */
+.wf-icon-6 {
+    bottom: -5%;
+    right: 5%;
+}
+
+.wf-icon-6 .wf-icon-line {
+    width: 80px;
+    height: 2px;
+    bottom: 50%;
+    right: 100%;
+    transform: rotate(30deg);
+    transform-origin: right center;
+}
+
+.wf-icon-6 .wf-icon-circle {
+    animation-delay: 2s;
+}
+
+/* Icon 7: CODE - right */
+.wf-icon-7 {
+    top: 50%;
+    right: -8%;
+    transform: translateY(-50%);
+}
+
+.wf-icon-7 .wf-icon-line {
+    width: 80px;
+    height: 2px;
+    top: 50%;
+    right: 100%;
+    margin-top: -1px;
+}
+
+.wf-icon-7 .wf-icon-circle {
+    animation-delay: 2.4s;
+}
+
+/* ---- CONTENT WRAPPER ---- */
+.wf-wrapper {
+    position: relative;
+    z-index: 10;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* ---- WORKFLOW HUB ICON (Background Visual) ---- */
+.wf-hero {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.wf-hub {
+    position: relative;
+    width: 1200px;
+    height: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7;
+}
+
+/* Ambient glow */
+.wf-ambient {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+    filter: blur(40px);
+    animation: wf-ambient-pulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes wf-ambient-pulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: scale(1.3);
+        opacity: 0.6;
+    }
+}
+
+/* ---- CENTRAL GEAR ---- */
+.wf-gear-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    z-index: 10;
+}
+
+.wf-main-gear {
+    width: 100%;
+    height: 100%;
+    animation: wf-gear-rotate 20s linear infinite;
+    filter: drop-shadow(0 5px 15px rgba(124, 58, 237, 0.3));
+}
+
+.wf-gear-path {
+    transition: all 0.3s ease;
+}
+
+@keyframes wf-gear-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.wf-gear-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
+    filter: blur(15px);
+    animation: wf-gear-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes wf-gear-pulse {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    100% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* ---- CONNECTED ICONS ---- */
+.wf-connected-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.wf-icon-node {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Icon Circles */
+.wf-icon-circle {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(124, 58, 237, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:
+        0 4px 15px rgba(124, 58, 237, 0.15),
+        inset 0 1px 3px rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    animation: wf-icon-float 4s ease-in-out infinite;
+}
+
+.wf-icon-circle svg {
+    width: 24px;
+    height: 24px;
+    color: #7c3aed;
+}
+
+.wf-icon-circle:hover {
+    transform: scale(1.1);
+    border-color: rgba(124, 58, 237, 0.7);
+    box-shadow: 0 6px 25px rgba(124, 58, 237, 0.3);
+}
+
+@keyframes wf-icon-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Connecting Lines */
+.wf-icon-line {
+    position: absolute;
+    background: linear-gradient(90deg,
+            rgba(124, 58, 237, 0.2) 0%,
+            rgba(124, 58, 237, 0.6) 50%,
+            rgba(124, 58, 237, 0.2) 100%);
+    transform-origin: center center;
+}
+
+/* Position each icon node around the center gear */
+/* Icon 1: Calendar - Top Left */
+.wf-icon-1 {
+    top: 8%;
+    left: 12%;
+    animation-delay: 0s;
+}
+
+.wf-icon-1 .wf-icon-line {
+    width: 200px;
+    height: 3px;
+    top: 50%;
+    left: 100%;
+    transform: rotate(40deg);
+    margin-top: -1px;
+    margin-left: 10px;
+}
+
+.wf-icon-1 .wf-icon-circle {
+    animation-delay: 0s;
+}
+
+/* Icon 2: Checklist - Top Center */
+.wf-icon-2 {
+    top: -2%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wf-icon-2 .wf-icon-line {
+    width: 3px;
+    height: 150px;
+    top: 100%;
+    left: 50%;
+    margin-left: -1px;
+    margin-top: 10px;
+    background: linear-gradient(180deg,
+            rgba(124, 58, 237, 0.2) 0%,
+            rgba(124, 58, 237, 0.6) 50%,
+            rgba(124, 58, 237, 0.2) 100%);
+}
+
+.wf-icon-2 .wf-icon-circle {
+    animation-delay: 0.3s;
+}
+
+/* Icon 3: Clipboard - Top Right */
+.wf-icon-3 {
+    top: 8%;
+    right: 12%;
+}
+
+.wf-icon-3 .wf-icon-line {
+    width: 200px;
+    height: 3px;
+    top: 50%;
+    right: 100%;
+    transform: rotate(-40deg);
+    margin-top: -1px;
+    margin-right: 10px;
+}
+
+.wf-icon-3 .wf-icon-circle {
+    animation-delay: 0.6s;
+}
+
+/* Icon 4: Chip/CPU - Left */
+.wf-icon-4 {
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+}
+
+.wf-icon-4 .wf-icon-line {
+    width: 180px;
+    height: 3px;
+    top: 50%;
+    left: 100%;
+    margin-top: -1px;
+    margin-left: 10px;
+}
+
+.wf-icon-4 .wf-icon-circle {
+    animation-delay: 0.9s;
+}
+
+/* Icon 5: Email - Bottom Left */
+.wf-icon-5 {
+    bottom: 12%;
+    left: 12%;
+}
+
+.wf-icon-5 .wf-icon-line {
+    width: 200px;
+    height: 3px;
+    bottom: 50%;
+    left: 100%;
+    transform: rotate(-40deg);
+    margin-bottom: -1px;
+    margin-left: 10px;
+}
+
+.wf-icon-5 .wf-icon-circle {
+    animation-delay: 1.2s;
+}
+
+/* Icon 6: Code - Right */
+.wf-icon-6 {
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+}
+
+.wf-icon-6 .wf-icon-line {
+    width: 180px;
+    height: 3px;
+    top: 50%;
+    right: 100%;
+    margin-top: -1px;
+    margin-right: 10px;
+}
+
+.wf-icon-6 .wf-icon-circle {
+    animation-delay: 1.5s;
+}
+
+/* Icon 7: Timer - Bottom */
+.wf-icon-7 {
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wf-icon-7 .wf-icon-line {
+    width: 3px;
+    height: 150px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -1px;
+    margin-bottom: 10px;
+    background: linear-gradient(180deg,
+            rgba(124, 58, 237, 0.2) 0%,
+            rgba(124, 58, 237, 0.6) 50%,
+            rgba(124, 58, 237, 0.2) 100%);
+}
+
+.wf-icon-7 .wf-icon-circle {
+    animation-delay: 1.8s;
+}
+
+/* Line animation - data flowing */
+.wf-icon-line::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #7c3aed;
+    border-radius: 50%;
+    animation: wf-data-flow 2s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(124, 58, 237, 0.6);
+}
+
+@keyframes wf-data-flow {
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        left: calc(100% - 6px);
+        opacity: 0;
+    }
+}
+
+/* Stagger the data flow animations */
+.wf-icon-1 .wf-icon-line::after {
+    animation-delay: 0s;
+}
+
+.wf-icon-2 .wf-icon-line::after {
+    animation-delay: 0.3s;
+    top: 0;
+    left: auto;
+}
+
+.wf-icon-3 .wf-icon-line::after {
+    animation-delay: 0.6s;
+}
+
+.wf-icon-4 .wf-icon-line::after {
+    animation-delay: 0.9s;
+}
+
+.wf-icon-5 .wf-icon-line::after {
+    animation-delay: 1.2s;
+}
+
+.wf-icon-6 .wf-icon-line::after {
+    animation-delay: 1.5s;
+}
+
+.wf-icon-7 .wf-icon-line::after {
+    animation-delay: 1.8s;
+    top: 0;
+    left: auto;
+}
+
+/* Data Flow Particles */
+.wf-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.wf-particles span {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #a78bfa;
+    border-radius: 50%;
+    animation: wf-particle-flow 3s ease-in-out infinite;
+}
+
+.wf-particles span:nth-child(1) {
+    top: 30%;
+    left: 25%;
+    animation-delay: 0s;
+}
+
+.wf-particles span:nth-child(2) {
+    top: 25%;
+    right: 30%;
+    animation-delay: 0.5s;
+}
+
+.wf-particles span:nth-child(3) {
+    bottom: 30%;
+    right: 25%;
+    animation-delay: 1s;
+}
+
+.wf-particles span:nth-child(4) {
+    bottom: 25%;
+    left: 30%;
+    animation-delay: 1.5s;
+}
+
+.wf-particles span:nth-child(5) {
+    top: 45%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.wf-particles span:nth-child(6) {
+    top: 45%;
+    right: 20%;
+    animation-delay: 2.5s;
+}
+
+@keyframes wf-particle-flow {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(15px, -10px) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(30px, 0) scale(0.5);
+    }
+}
+
+/* Pulse Rings */
+.wf-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 50%;
+    animation: wf-pulse-expand 3s ease-out infinite;
+}
+
+.wf-pulse-1 {
+    width: 400px;
+    height: 400px;
+    animation-delay: 0s;
+}
+
+.wf-pulse-2 {
+    width: 400px;
+    height: 400px;
+    animation-delay: 1.5s;
+}
+
+@keyframes wf-pulse-expand {
+    0% {
+        width: 400px;
+        height: 400px;
+        opacity: 0.6;
+    }
+
+    100% {
+        width: 1000px;
+        height: 1000px;
+        opacity: 0;
+    }
+}
+
+/* ---- HEADER AREA ---- */
+.wf-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.wf-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+    font-weight: 800;
+    color: #1a0a2e;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+    line-height: 1;
+}
+
+.wf-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #5a4a6a;
+    max-width: 600px;
+    margin: 0 auto 0.75rem;
+    line-height: 1.5;
+}
+
+.wf-desc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #777;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.wf-desc strong {
+    color: #1a0a2e;
+    font-weight: 600;
+}
+
+/* ---- GLASSMORPHISM CARDS GRID ---- */
+.wf-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.wf-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    box-shadow:
+        0 4px 30px rgba(139, 92, 246, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: url('../images/chain-cursor.svg') 12 12, pointer;
+    overflow: hidden;
+}
+
+/* Subtle gradient border effect */
+.wf-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(135deg,
+            rgba(139, 92, 246, 0.2) 0%,
+            rgba(217, 70, 239, 0.15) 50%,
+            rgba(139, 92, 246, 0.25) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+}
+
+/* Shine sweep effect */
+.wf-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            transparent 100%);
+    transform: skewX(-20deg);
+    pointer-events: none;
+    transition: none;
+}
+
+.wf-card:hover::after {
+    animation: cardShineEffect 0.6s ease-out forwards;
+}
+
+@keyframes cardShineEffect {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+.wf-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 25px 60px rgba(139, 92, 246, 0.2),
+        0 0 50px rgba(217, 70, 239, 0.12),
+        0 0 80px rgba(139, 92, 246, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+    border-color: rgba(139, 92, 246, 0.35);
+}
+
+.wf-card:hover::before {
+    opacity: 1;
+}
+
+.wf-card-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a0a2e;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+}
+
+.wf-card p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ---- NEXT-GEN BUTTONS ---- */
+.wf-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0;
+}
+
+/* Primary Button */
+.wf-btn {
+    position: relative;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 1.1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    border: none;
+    cursor: url('../images/chain-cursor.svg') 12 12, auto !important;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wf-btn-primary {
+    background: linear-gradient(145deg,
+            #6d28d9 0%,
+            #5b21b6 40%,
+            #4c1d95 100%);
+    color: #fff;
+    box-shadow:
+        0 4px 25px rgba(109, 40, 217, 0.35),
+        0 0 50px rgba(139, 92, 246, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Light sweep animation */
+.wf-btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.25) 50%,
+            transparent 100%);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+}
+
+.wf-btn-primary:hover::before {
+    left: 150%;
+}
+
+.wf-btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 8px 35px rgba(109, 40, 217, 0.45),
+        0 0 70px rgba(139, 92, 246, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.wf-btn-primary:active {
+    transform: translateY(-2px) scale(0.98);
+    box-shadow:
+        0 4px 20px rgba(109, 40, 217, 0.4),
+        0 0 40px rgba(139, 92, 246, 0.2);
+}
+
+/* Secondary Button */
+.wf-btn-secondary {
+    background: rgba(255, 255, 255, 0.7);
+    color: #5b21b6;
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    box-shadow:
+        0 4px 20px rgba(139, 92, 246, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.wf-btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(139, 92, 246, 0.15) 50%,
+            transparent 100%);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+}
+
+.wf-btn-secondary:hover::before {
+    left: 150%;
+}
+
+.wf-btn-secondary:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow:
+        0 8px 30px rgba(139, 92, 246, 0.15),
+        0 0 50px rgba(139, 92, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.wf-btn-secondary:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+/* ---- BACK LINK ---- */
+.wf-back {
+    position: fixed;
+    top: 100px;
+    left: 2rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #999;
+    text-decoration: none;
+    z-index: 100;
+    transition: color 0.3s ease;
+}
+
+.wf-back:hover {
+    color: #8b5cf6;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+    .wf-cards {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .wf-section {
+        padding: 7rem 1.5rem 4rem;
+    }
+
+    .wf-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .wf-btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+}

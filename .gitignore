@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Database files
+data/*.db
+*.db
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+
+# Large video files (too big for GitHub, upload separately)
+assets/avatar-showcase.mp4
+assets/hero-background.mp4
+assets/website1-showcase.mp4

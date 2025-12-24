@@ -1,0 +1,318 @@
+/* HERO NEW - REFERENCE STYLE MATCH
+   Deep Purple + Volumetric White Text + Light Flares
+*/
+
+:root {
+    --hero-purple-deep: #2e0249;
+    /* Very dark purple base */
+    --hero-purple-mid: #5b21b6;
+    /* Mid tone */
+    --hero-purple-glow: #a78bfa;
+    /* Glow tone */
+    --hero-text-3d: #e2e8f0;
+    /* Silver/White for 3D */
+    --hero-text-shadow: #1e1b4b;
+    /* Dark shadow for depth */
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0f0720;
+    /* Fallback */
+    overflow: hidden;
+    padding: 0 !important;
+}
+
+/* CANVAS BACKGROUND - Abstract Purple Waves */
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* VIDEO SUPPORT */
+#hero-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+/* CINEMATIC LIGHT FLARES (Reference Layers) */
+.hero-flare-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: radial-gradient(ellipse at 50% 0%, rgba(167, 139, 250, 0.4) 0%, transparent 60%);
+    z-index: 2;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+.hero-flare-center {
+    position: absolute;
+    top: 30%;
+    /* Behind text roughly */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    /* Stretch wide */
+    height: 300px;
+    background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+    filter: blur(40px);
+    z-index: 2;
+    pointer-events: none;
+    mix-blend-mode: plus-lighter;
+    opacity: 0.6;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    padding: 0 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* BRAND LABEL */
+.hero-brand-small {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    animation: fadeUp 1s ease-out 0.2s forwards;
+}
+
+/* 3D VOLUMETRIC TYPOGRAPHY (Reference Match: White/Silver, Embossed) */
+.hero-title-3d-ref {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    /* Max bold */
+    font-size: clamp(3.5rem, 6.5vw, 6rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0;
+    position: relative;
+    text-transform: uppercase;
+
+    /* THE 3D LOOK: Gradient Text + Layered Shadows */
+    color: #fff;
+    text-shadow:
+        0 1px 0 #ccc,
+        0 2px 0 #bbb,
+        0 3px 0 #aaa,
+        0 4px 0 #999,
+        0 5px 0 #555,
+        0 6px 1px rgba(0, 0, 0, 0.1),
+        0 0 5px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.3),
+        0 3px 5px rgba(0, 0, 0, 0.2),
+        0 5px 10px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.2),
+        0 20px 20px rgba(0, 0, 0, 0.15),
+        /* Purple Glow Halo behind */
+        0 0 60px rgba(139, 92, 246, 0.6);
+
+    opacity: 0;
+    animation: fadeUp 1s ease-out 0.4s forwards;
+}
+
+/* Internal Gradient overlay for "Metallic" feel */
+.hero-title-3d-ref::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* Subtle silver/white gradient */
+    background: linear-gradient(to bottom, #ffffff 0%, #e2e8f0 50%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: 1;
+    /* On top of base text shadow */
+    opacity: 0.95;
+    pointer-events: none;
+}
+
+/* Light Sweep Animation */
+.hero-title-3d-ref::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(110deg, transparent 40%, rgba(255, 255, 255, 0.8) 45%, rgba(255, 255, 255, 0.2) 50%, transparent 55%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textSweep 5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: overlay;
+}
+
+@keyframes textSweep {
+    0% {
+        background-position: -100% 0;
+    }
+
+    50%,
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+
+.hero-sub {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    color: #e2e8f0;
+    /* Light gray/whiteish */
+    max-width: 700px;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    /* Readable against dark */
+    opacity: 0;
+    animation: fadeUp 1s ease-out 0.6s forwards;
+}
+
+
+/* BUTTONS - GLASS / FROSTED PILL (Reference Match) */
+.hero-nav-pills {
+    display: flex;
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeUp 1s ease-out 0.8s forwards;
+    position: relative;
+    z-index: 20;
+}
+
+.nav-pill-glass {
+    padding: 1rem 3.5rem;
+
+    /* Frosted Glass Look */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    /* "Services" not "SERVICES" in ref? Ref says "Services" */
+
+    /* Inner light for 3D pill feel */
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 4px 10px rgba(0, 0, 0, 0.2),
+        0 0 15px rgba(139, 92, 246, 0.2);
+    /* Soft purple outer glow */
+
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.nav-pill-glass:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        0 10px 20px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(255, 255, 255, 0.4);
+    /* Brighter glow */
+}
+
+/* Light Sweep on Button Hover */
+.nav-pill-glass::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-20deg);
+    transition: none;
+}
+
+.nav-pill-glass:hover::after {
+    animation: btnSweep 0.5s ease-out forwards;
+}
+
+@keyframes btnSweep {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 200%;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero-title-3d-ref {
+        font-size: 3rem;
+    }
+
+    .hero-nav-pills {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-pill-glass {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
+}

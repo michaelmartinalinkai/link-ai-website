@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Agents - Link AI Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/voice-agents.css">
+</head>
+
+<body class="detail-page-body">
+
+    <div class="nav-links">
+        <a href="../index.html#services" class="nav-btn">Services</a>
+        <a href="../index.html#process" class="nav-btn">Process</a>
+        <a href="../index.html#contact" class="nav-btn">Contact</a>
+    </div>
+
+    <a href="../index.html" class="back-link">← Back</a>
+
+    <main class="detail-scroller">
+        <section class="va6" id="voice-agents">
+            <div class="va6-bg" aria-hidden="true"></div>
+
+            <!-- HERO -->
+            <div class="va6-hero">
+                <div class="va6-core" id="va6Core" aria-label="Voice agent avatar">
+                    <!-- Ambient glow -->
+                    <div class="va6-ambient" aria-hidden="true"></div>
+
+                    <!-- AI Head Avatar -->
+                    <div class="va6-avatar" aria-hidden="true">
+                        <!-- Head shape -->
+                        <div class="va6-head">
+                            <!-- Eyes -->
+                            <div class="va6-eyes">
+                                <span class="va6-eye"></span>
+                                <span class="va6-eye"></span>
+                            </div>
+
+                            <!-- Mouth area with speech indicator -->
+                            <div class="va6-mouth">
+                                <span class="va6-mouth-wave"></span>
+                                <span class="va6-mouth-wave"></span>
+                                <span class="va6-mouth-wave"></span>
+                            </div>
+                        </div>
+
+                        <!-- Outer ring -->
+                        <div class="va6-head-ring"></div>
+                    </div>
+
+                    <!-- Speech waves emanating -->
+                    <div class="va6-speech" aria-hidden="true">
+                        <div class="va6-speech-wave"></div>
+                        <div class="va6-speech-wave"></div>
+                        <div class="va6-speech-wave"></div>
+                    </div>
+
+                    <!-- Floating particles around -->
+                    <div class="va6-particles" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+
+                <h1 class="va6-title">VOICE AGENTS</h1>
+                <p class="va6-sub">
+                    Human-like voice AI that runs real workflows — inbound support, outbound campaigns, booking, and
+                    smart handoffs.
+                    Built to sound natural and convert.
+                </p>
+
+                <div class="va6-pills" aria-label="Voice agent capabilities">
+                    <span class="va6-pill">Inbound support</span>
+                    <span class="va6-pill">Outbound calling</span>
+                    <span class="va6-pill">Calendar booking</span>
+                    <span class="va6-pill">CRM sync</span>
+                    <span class="va6-pill">Human handoff</span>
+                    <span class="va6-pill">24/7 coverage</span>
+                </div>
+            </div>
+
+            <!-- FEATURES -->
+            <div class="va6-grid" aria-label="Voice agent features">
+
+                <article class="va6-card">
+                    <div class="va6-cardTop">
+                        <div class="va6-miniIcon">
+                            <span class="va6-dot"></span><span class="va6-dot"></span><span class="va6-dot"></span>
+                        </div>
+                        <h3>Inbound Handling</h3>
+                    </div>
+                    <p>Automatically answer calls, handle FAQs, check availability, and book appointments directly into
+                        your calendar.</p>
+                    <div class="va6-cardFx" aria-hidden="true"></div>
+                </article>
+
+                <article class="va6-card">
+                    <div class="va6-cardTop">
+                        <div class="va6-miniIcon va6-miniWave">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <h3>Outbound Campaigns</h3>
+                    </div>
+                    <p>Scale outreach with AI that can call thousands of leads for qualification, surveys, reminders, or
+                        follow-ups.</p>
+                    <div class="va6-cardFx" aria-hidden="true"></div>
+                </article>
+
+                <article class="va6-card">
+                    <div class="va6-cardTop">
+                        <div class="va6-miniIcon va6-miniPulse"></div>
+                        <h3>Natural Conversation</h3>
+                    </div>
+                    <p>Powered by ElevenLabs + advanced LLMs: smooth pacing, natural turn-taking, low-latency responses.
+                    </p>
+                    <div class="va6-cardFx" aria-hidden="true"></div>
+                </article>
+
+                <article class="va6-card">
+                    <div class="va6-cardTop">
+                        <div class="va6-miniIcon va6-miniLink"></div>
+                        <h3>Seamless Handoff</h3>
+                    </div>
+                    <p>Handles routine tasks, then intelligently transfers calls to your team when complexity or emotion
+                        spikes.</p>
+                    <div class="va6-cardFx" aria-hidden="true"></div>
+                </article>
+
+            </div>
+
+            <div class="va6-ctaRow">
+                <a class="va6-cta" href="../index.html#contact">IMPLEMENT VOICE AGENTS</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        /* Interactive tilt effect for the AI head avatar */
+        (function () {
+            const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            if (reduce) return;
+
+            const wrap = document.getElementById("va6Core");
+            if (!wrap) return;
+
+            wrap.addEventListener("mousemove", (e) => {
+                const r = wrap.getBoundingClientRect();
+                const mx = (e.clientX - r.left) / r.width;
+                const my = (e.clientY - r.top) / r.height;
+
+                // subtle tilt on the whole core
+                const x = mx - 0.5;
+                const y = my - 0.5;
+                wrap.style.transform = `rotateX(${(-y * 8).toFixed(2)}deg) rotateY(${(x * 10).toFixed(2)}deg) translateY(-10px)`;
+            });
+
+            wrap.addEventListener("mouseleave", () => {
+                wrap.style.transform = "";
+            });
+        })();
+    </script>
+</body>
+
+</html>

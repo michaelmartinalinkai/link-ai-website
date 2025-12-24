@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Visuals & Video - Link AI Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/visuals-video.css">
+</head>
+
+<body>
+
+    <section class="vv2" id="ai-visuals-video">
+        <a class="vv2-back" href="../index.html" aria-label="Back">← Back</a>
+
+        <div class="vv2-wrap">
+
+            <section class="vv5-top" id="ai-visuals-top">
+                <div class="vv5-mark" aria-label="AI Visuals hero mark">
+                    <div class="vv5-markCard" id="vv5Mark">
+
+                        <!-- TV/Monitor Screen -->
+                        <div class="vv5-screen" aria-hidden="true">
+                            <!-- Screen frame -->
+                            <div class="vv5-screen-frame">
+                                <!-- Color bars (like TV test pattern) -->
+                                <div class="vv5-color-bars">
+                                    <span></span><span></span><span></span>
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <!-- Screen content / image preview -->
+                                <div class="vv5-screen-content">
+                                    <div class="vv5-image-icon">
+                                        <span class="vv5-mountain"></span>
+                                        <span class="vv5-sun"></span>
+                                    </div>
+                                </div>
+                                <!-- Scan line effect -->
+                                <div class="vv5-scanline"></div>
+                            </div>
+                            <!-- Screen stand -->
+                            <div class="vv5-screen-stand"></div>
+                        </div>
+
+                        <!-- Camera flash effects -->
+                        <div class="vv5-flash" aria-hidden="true"></div>
+                        <div class="vv5-flash vv5-flash-2" aria-hidden="true"></div>
+
+                        <!-- Floating creative elements -->
+                        <div class="vv5-float-elements" aria-hidden="true">
+                            <span class="vv5-star">✦</span>
+                            <span class="vv5-star">✦</span>
+                            <span class="vv5-star">✦</span>
+                        </div>
+
+                        <!-- Ambient glow -->
+                        <div class="vv5-ambient" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="vv5-label">AI VISUALS STUDIO</div>
+                </div>
+
+                <h1 class="vv5-title">AI VISUALS &amp; VIDEO</h1>
+
+                <p class="vv5-sub">
+                    Premium AI visuals for brands — product photography, ad creatives, campaigns, avatars, and cinematic
+                    video concepts.
+                    Built fast. Finished to look expensive.
+                </p>
+
+                <div class="vv5-chips" aria-label="Capabilities">
+                    <span class="vv5-chip">Product Photography</span>
+                    <span class="vv5-chip">AI Avatars &amp; Twins</span>
+                    <span class="vv5-chip">Ad Creatives</span>
+                    <span class="vv5-chip">Cinematic Concepts</span>
+                    <span class="vv5-chip">Social Content</span>
+                    <span class="vv5-chip">Visual Effects</span>
+                </div>
+
+                <div class="vv5-panel">
+                    Give us your product photos, brand style, or just a rough idea — we’ll generate a clean visual
+                    direction,
+                    produce multiple variants, and deliver ready-to-post assets for web, ads, and socials.
+                </div>
+            </section>
+
+            <!-- Gallery (8 images) -->
+            <div class="vv2-gallery" aria-label="Portfolio gallery">
+                <figure class="vv2-shot" data-full="../assets/visuals/s1.jpg"><img src="../assets/visuals/s1.jpg"
+                        alt="Visual example 1"></figure>
+                <figure class="vv2-shot" data-full="../assets/visuals/s2.jpg"><img src="../assets/visuals/s2.jpg"
+                        alt="Visual example 2"></figure>
+                <figure class="vv2-shot" data-full="../assets/visuals/s3.jpg"><img src="../assets/visuals/s3.jpg"
+                        alt="Visual example 3"></figure>
+                <figure class="vv2-shot" data-full="../assets/visuals/s4.jpg"><img src="../assets/visuals/s4.jpg"
+                        alt="Visual example 4"></figure>
+                <figure class="vv2-shot" data-full="../assets/visuals/new1.jpg"><img src="../assets/visuals/new1.jpg"
+                        alt="Visual example 5"></figure>
+                <figure class="vv2-shot" data-full="../assets/visuals/new2.jpg"><img src="../assets/visuals/new2.jpg"
+                        alt="Visual example 6"></figure>
+                <figure class="vv2-shot" data-full="../assets/visuals/new3.jpg"><img src="../assets/visuals/new3.jpg"
+                        alt="Visual example 7"></figure>
+                <figure class="vv2-shot" data-full="../assets/visuals/new4.jpg"><img src="../assets/visuals/new4.jpg"
+                        alt="Visual example 8"></figure>
+            </div>
+
+            <div class="vv2-cta">
+                <a class="vv2-btn" href="../index.html#contact"><span class="vv2-btnLabel">START CREATING</span></a>
+            </div>
+
+        </div>
+
+        <!-- Ambient background -->
+        <div class="vv2-bg" aria-hidden="true">
+            <span class="vv2-blob b1"></span>
+            <span class="vv2-blob b2"></span>
+            <span class="vv2-blob b3"></span>
+            <span class="vv2-dots"></span>
+            <span class="vv2-sheen"></span>
+        </div>
+
+        <!-- Fullscreen lightbox -->
+        <div class="vv2-lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+            <button class="vv2-close" aria-label="Close">×</button>
+            <img class="vv2-lightImg" alt="Expanded visual" />
+        </div>
+    </section>
+
+    <script>
+        (function () {
+            const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            // 1) Orb parallax tilt (mouse move)
+            const orb = document.getElementById("vv5Mark"); // Updated for vv5
+            if (orb && !reduce) {
+                orb.addEventListener("mousemove", (e) => {
+                    const r = orb.getBoundingClientRect();
+                    const x = (e.clientX - r.left) / r.width - 0.5;
+                    const y = (e.clientY - r.top) / r.height - 0.5;
+                    orb.style.transform = `rotateX(${(-y * 10).toFixed(2)}deg) rotateY(${(x * 12).toFixed(2)}deg) translateY(-10px)`;
+                });
+                orb.addEventListener("mouseleave", () => {
+                    orb.style.transform = "";
+                });
+            }
+
+            // 2) Gallery parallax tilt + hover
+            const shots = Array.from(document.querySelectorAll(".vv2-shot"));
+            if (!reduce) {
+                shots.forEach((shot) => {
+                    shot.addEventListener("mousemove", (e) => {
+                        const r = shot.getBoundingClientRect();
+                        const x = (e.clientX - r.left) / r.width - 0.5;
+                        const y = (e.clientY - r.top) / r.height - 0.5;
+                        shot.style.transform =
+                            `translateY(-6px) rotateX(${(-y * 6).toFixed(2)}deg) rotateY(${(x * 8).toFixed(2)}deg)`;
+                    });
+                    shot.addEventListener("mouseleave", () => {
+                        shot.style.transform = "";
+                    });
+                });
+            }
+
+            // 3) Fullscreen lightbox (hover makes it zoom; click makes it FULL)
+            const box = document.querySelector(".vv2-lightbox");
+            const img = document.querySelector(".vv2-lightImg");
+            const close = document.querySelector(".vv2-close");
+
+            const openBox = (src) => {
+                if (!box || !img) return;
+                img.src = src;
+                box.classList.add("is-open");
+                box.setAttribute("aria-hidden", "false");
+                document.body.style.overflow = "hidden";
+            };
+
+            const closeBox = () => {
+                if (!box) return;
+                box.classList.remove("is-open");
+                box.setAttribute("aria-hidden", "true");
+                document.body.style.overflow = "";
+                if (img) img.src = "";
+            };
+
+            shots.forEach((shot) => {
+                shot.addEventListener("click", () => {
+                    const full = shot.getAttribute("data-full") || shot.querySelector("img")?.src;
+                    if (full) openBox(full);
+                });
+            });
+
+            if (close) close.addEventListener("click", closeBox);
+            if (box) box.addEventListener("click", (e) => {
+                if (e.target === box) closeBox();
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") closeBox();
+            });
+        })();
+    </script>
+</body>
+
+</html>
