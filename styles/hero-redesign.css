@@ -241,4 +241,28 @@
         width: 100%;
         max-width: 220px;
     }
+
+    .hero-container {
+        padding: 0 1rem;
+    }
+
+    .hero-title {
+        font-size: 1.5rem !important;
+        line-height: 1.2;
+    }
+
+    .hero-title span {
+        margin-bottom: 0.25rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+        margin-bottom: 1rem;
+    }
 }

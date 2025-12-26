@@ -151,6 +151,26 @@
       line-height: 1.5;
   }
 
+  /* Mobile text sizes */
+  @media (max-width: 640px) {
+      .svc-text h3 {
+          font-size: 18px;
+      }
+
+      .svc-text p {
+          font-size: 14px;
+      }
+
+      .svc-card {
+          padding: 20px 18px 18px;
+      }
+
+      .svc-media {
+          width: 100%;
+          aspect-ratio: 16 / 10;
+      }
+  }
+
   /* IDLE FLOAT (very subtle) */
   @keyframes svc-float {
 

@@ -816,10 +816,6 @@ p {
     box-shadow: 0 5px 20px rgba(176, 45, 253, 0.4);
 }
 
-.cta-section .process-line-bg,
-.cta-section .partner-section {
-    /* Adjustments if needed, but partner is separate */
-}
 
 @keyframes moveMesh {
     0% {
@@ -878,6 +874,160 @@ p {
     .btn {
         width: 100%;
         text-align: center;
+    }
+
+    /* Fix navbar for mobile */
+    .navbar {
+        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+        z-index: 1000;
+    }
+
+    .nav-logo-img {
+        height: 35px;
+    }
+
+    /* Hide partner marquee on mobile to prevent overlap */
+    .nav-marquee-container {
+        display: none;
+    }
+
+    /* CRITICAL: Disable scroll-snap on mobile to prevent section bleeding */
+    .scroller {
+        scroll-snap-type: none !important;
+        padding-top: 60px;
+        overflow-y: auto;
+    }
+
+    /* Disable scroll-snap-align on all sections */
+    .section {
+        scroll-snap-align: none !important;
+        min-height: auto;
+        height: auto;
+        padding: 2rem 1rem;
+        overflow: visible;
+        position: relative;
+    }
+
+    /* Hero section - must have solid background and proper z-index */
+    .hero-section {
+        min-height: 100vh;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        background: #1a0a2e;
+        /* Solid dark purple fallback */
+    }
+
+    /* Video background on mobile */
+    #hero-video-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    /* Hero content above video */
+    .hero-container {
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Services section - solid white background, higher z-index */
+    #services {
+        background: var(--bg-white) !important;
+        position: relative;
+        z-index: 10;
+        min-height: auto;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    /* Hide the "Our Expertise" h2 watermark issue */
+    #services h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Service cards solid background */
+    .svc-card {
+        background: rgba(255, 255, 255, 0.95) !important;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Process section solid background */
+    .proc {
+        background: #0a0a0a !important;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Final/Contact section */
+    .final {
+        background: linear-gradient(180deg, #1e0b24 0%, #0a0a0a 100%) !important;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Partner section */
+    .partner-section {
+        background: #fafafa !important;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Watermark hidden on mobile */
+    .watermark-container {
+        display: none;
+    }
+}
+
+/* Extra small mobile */
+@media(max-width: 480px) {
+    .navbar {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .nav-logo-img {
+        height: 30px;
+    }
+
+    .scroller {
+        padding-top: 50px;
+    }
+
+    .section {
+        padding: 0.75rem;
+    }
+
+    /* Services section adjustments */
+    #services {
+        padding-top: 2rem;
+    }
+
+    #services h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Hero title smaller on mobile */
+    .hero-title {
+        font-size: 1.6rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem !important;
+    }
+
+    .hero-label {
+        font-size: 0.65rem;
     }
 }
 
