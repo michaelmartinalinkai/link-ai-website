@@ -98,11 +98,17 @@
                     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
 
                     <!-- Video 1 -->
-                    <div class="media-item"
-                        style="border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); height: 500px; cursor: pointer; position: relative;">
-                        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="media-item video-container"
+                        style="border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); height: 500px; cursor: pointer; position: relative; background: #1a1029;">
+                        <video autoplay muted loop playsinline webkit-playsinline preload="auto"
+                            poster="../images/avatar_1.jpg"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
                             <source src="../assets/avatar-showcase.mp4" type="video/mp4">
                         </video>
+                        <div class="play-overlay"
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: opacity 0.3s;">
+                            <span style="font-size: 24px; margin-left: 4px;">▶</span>
+                        </div>
                     </div>
 
                     <!-- Photo 1 -->
@@ -134,11 +140,17 @@
                     </div>
 
                     <!-- Video 2 (New) -->
-                    <div class="media-item"
-                        style="border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); height: 500px; cursor: pointer; position: relative;">
-                        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="media-item video-container"
+                        style="border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); height: 500px; cursor: pointer; position: relative; background: #1a1029;">
+                        <video autoplay muted loop playsinline webkit-playsinline preload="auto"
+                            poster="../images/avatar_2.jpg"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
                             <source src="../assets/website1-showcase.mp4" type="video/mp4">
                         </video>
+                        <div class="play-overlay"
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: opacity 0.3s;">
+                            <span style="font-size: 24px; margin-left: 4px;">▶</span>
+                        </div>
                     </div>
 
                 </div>
@@ -175,25 +187,37 @@
         // Mobile video autoplay fix - play videos on first touch/scroll
         document.addEventListener('DOMContentLoaded', function () {
             const videos = document.querySelectorAll('video');
+            const overlays = document.querySelectorAll('.play-overlay');
+
+            function hideOverlays() {
+                overlays.forEach(o => { o.style.opacity = '0'; o.style.pointerEvents = 'none'; });
+            }
+
+            function showOverlays() {
+                overlays.forEach(o => { o.style.opacity = '1'; o.style.pointerEvents = 'auto'; });
+            }
 
             function playVideos() {
                 videos.forEach(video => {
-                    video.play().catch(e => console.log('Video play failed:', e));
+                    video.play().then(() => hideOverlays()).catch(e => {
+                        console.log('Video play failed:', e);
+                        showOverlays();
+                    });
                 });
-                // Remove listeners after first interaction
-                document.removeEventListener('touchstart', playVideos);
-                document.removeEventListener('scroll', playVideos);
-                document.removeEventListener('click', playVideos);
             }
 
-            // Try to play on various user interactions
+            // Handle click on video containers
+            document.querySelectorAll('.video-container').forEach(container => {
+                container.addEventListener('click', playVideos);
+            });
+
+            // Try to play on user interactions
             document.addEventListener('touchstart', playVideos, { once: true });
             document.addEventListener('scroll', playVideos, { once: true });
-            document.addEventListener('click', playVideos, { once: true });
 
-            // Also try playing immediately (works on desktop)
+            // Try playing immediately (works on desktop)
             videos.forEach(video => {
-                video.play().catch(e => { });
+                video.play().then(() => hideOverlays()).catch(e => showOverlays());
             });
         });
     </script>
