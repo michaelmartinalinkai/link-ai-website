@@ -25,7 +25,11 @@
         radial-gradient(760px 460px at 88% 55%,
             rgba(124, 58, 237, .10),
             transparent 60%);
-    min-height: 100vh;
+    height: 100vh;
+    /* FIX: Fixed height allows internal scrolling */
+    min-height: 0;
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scroll on iOS */
 }
 
 .vv2-wrap {
