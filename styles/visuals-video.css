@@ -8,13 +8,21 @@
     --shadowH: 0 30px 110px rgba(26, 16, 41, .18);
 }
 
+/* CRITICAL: Override body overflow from main.css for this page */
+body:has(.vv2) {
+    overflow: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important;
+}
+
 /* SECTION */
 .vv2 {
     position: relative;
-    padding: 12px 14px 40px;
-    /* Tighter padding */
+    padding: 12px 14px 60px;
+    /* Added more bottom padding */
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: visible;
+    /* Changed to visible - let body handle scroll */
     background:
         radial-gradient(980px 560px at 50% 0%,
             rgba(124, 58, 237, .16),
@@ -25,11 +33,10 @@
         radial-gradient(760px 460px at 88% 55%,
             rgba(124, 58, 237, .10),
             transparent 60%);
-    height: 100vh;
-    /* FIX: Fixed height allows internal scrolling */
-    min-height: 0;
-    -webkit-overflow-scrolling: touch;
-    /* Smooth scroll on iOS */
+    min-height: 100vh;
+    /* Min height, not fixed */
+    height: auto;
+    /* Auto height to fit content */
 }
 
 .vv2-wrap {
