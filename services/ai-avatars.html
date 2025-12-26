@@ -52,6 +52,19 @@
                 height: 350px !important;
             }
 
+            /* Ensure videos are visible on mobile */
+            .media-item video {
+                display: block !important;
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+            }
+
+            /* Hide play overlay by default - JS will show if needed */
+            .play-overlay {
+                display: none !important;
+            }
+
             .avatar-gallery {
                 grid-template-columns: 1fr !important;
             }
