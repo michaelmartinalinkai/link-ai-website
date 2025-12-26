@@ -30,6 +30,40 @@
             font-size: 1rem;
             line-height: 1.4;
         }
+
+        /* Mobile fixes */
+        @media (max-width: 768px) {
+            body {
+                overflow: auto !important;
+            }
+
+            .scroller {
+                height: auto !important;
+                overflow: visible !important;
+                scroll-snap-type: none !important;
+            }
+
+            .section {
+                padding-top: 80px;
+                scroll-snap-align: none !important;
+            }
+
+            .media-item {
+                height: 350px !important;
+            }
+
+            .avatar-gallery {
+                grid-template-columns: 1fr !important;
+            }
+
+            .detail-boxes {
+                grid-template-columns: 1fr !important;
+            }
+
+            .compact-title {
+                font-size: 2rem !important;
+            }
+        }
     </style>
 </head>
 
@@ -137,6 +171,32 @@
         </section>
     </main>
     <script src="../js/video-sync.js"></script>
+    <script>
+        // Mobile video autoplay fix - play videos on first touch/scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const videos = document.querySelectorAll('video');
+
+            function playVideos() {
+                videos.forEach(video => {
+                    video.play().catch(e => console.log('Video play failed:', e));
+                });
+                // Remove listeners after first interaction
+                document.removeEventListener('touchstart', playVideos);
+                document.removeEventListener('scroll', playVideos);
+                document.removeEventListener('click', playVideos);
+            }
+
+            // Try to play on various user interactions
+            document.addEventListener('touchstart', playVideos, { once: true });
+            document.addEventListener('scroll', playVideos, { once: true });
+            document.addEventListener('click', playVideos, { once: true });
+
+            // Also try playing immediately (works on desktop)
+            videos.forEach(video => {
+                video.play().catch(e => { });
+            });
+        });
+    </script>
 </body>
 
 </html>
