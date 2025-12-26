@@ -1058,31 +1058,34 @@ body:has(.vv2) {
 /* ===== LIGHTBOX ===== */
 .vv2-lightbox {
     position: fixed;
-    inset: 0;
-    background: rgba(18, 10, 28, .88);
-    /* Darker overlay */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(18, 10, 28, .95);
     backdrop-filter: blur(14px);
     display: none;
-    place-items: center;
+    align-items: center;
+    justify-content: center;
     z-index: 9999;
-    padding: 24px;
+    padding: 20px;
+    overflow: auto;
 }
 
 .vv2-lightbox.is-open {
-    display: grid;
+    display: flex;
 }
 
 .vv2-lightImg {
+    max-width: 90vw;
+    max-height: 85vh;
     width: auto;
     height: auto;
-    max-width: 94vw;
-    max-height: 92vh;
     object-fit: contain;
-    /* FIX: prevent crop */
     border-radius: 8px;
-    /* Sharper corners for clean look */
     box-shadow: 0 40px 140px rgba(0, 0, 0, .65);
     border: 1px solid rgba(255, 255, 255, .12);
+    margin: auto;
 }
 
 .vv2-close {
