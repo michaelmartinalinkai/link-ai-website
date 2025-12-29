@@ -147,7 +147,15 @@
     </style>
 </head>
 
-<body>
+<body style="display: none;">
+    <script>
+        // Immediate authentication check
+        if (localStorage.getItem('cms_logged_in') === 'true') {
+            document.body.style.display = 'block';
+        } else {
+            window.location.href = 'login.html';
+        }
+    </script>
     <!-- Top Bar -->
     <header class="topbar">
         <div class="topbar-left">
@@ -405,11 +413,6 @@
 
         let content = {};
         let hasUnsavedChanges = false;
-
-        // Check authentication
-        if (localStorage.getItem('cms_logged_in') !== 'true') {
-            window.location.href = 'login.html';
-        }
 
         // Initialize
         function init() {

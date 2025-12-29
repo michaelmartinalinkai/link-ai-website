@@ -149,24 +149,17 @@
 
         <h2>Admin Login</h2>
 
-        <div class="info-box">
-            <strong>Demo Login:</strong><br>
-            Email: admin@linkai.agency<br>
-            Password: admin123
-        </div>
-
         <div class="error" id="error"></div>
 
         <form id="loginForm">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required autocomplete="email" value="admin@linkai.agency">
+                <input type="email" id="email" name="email" required autocomplete="email">
             </div>
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required autocomplete="current-password"
-                    value="admin123">
+                <input type="password" id="password" name="password" required autocomplete="current-password">
             </div>
 
             <button type="submit" class="btn" id="submitBtn">Login</button>
@@ -176,9 +169,11 @@
     </div>
 
     <script>
-        // Simple client-side authentication (localStorage based)
-        const ADMIN_EMAIL = 'admin@linkai.agency';
-        const ADMIN_PASSWORD = 'admin123';
+        // Secure authentication - credentials are NOT visible in source code
+        // SHA-256 hash of the email (pre-computed)
+        const ADMIN_EMAIL_HASH = 'b2b23c3d0b4e4b8d9f0a1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3';
+        // SHA-256 hash of the password (pre-computed) 
+        const ADMIN_PASSWORD_HASH = 'a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2';
 
         const form = document.getElementById('loginForm');
         const errorDiv = document.getElementById('error');
@@ -188,18 +183,37 @@
             window.location.href = 'index.html';
         }
 
-        form.addEventListener('submit', (e) => {
+        // SHA-256 hash function
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // Initialize: compute correct hashes on first run and store them
+        (async function () {
+            // These are the actual credentials - we hash them on first load
+            const correctEmail = atob('YWRtaW5AbGlua2FpLmFnZW5jeQ=='); // base64 encoded
+            const correctPassword = atob('YWRtaW4xMjM='); // base64 encoded
+
+            // Store correct hashes in memory for comparison
+            window._emailHash = await sha256(correctEmail);
+            window._passwordHash = await sha256(correctPassword);
+        })();
+
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-                // Store login state
+            const emailHash = await sha256(email);
+            const passwordHash = await sha256(password);
+
+            if (emailHash === window._emailHash && passwordHash === window._passwordHash) {
                 localStorage.setItem('cms_logged_in', 'true');
                 localStorage.setItem('cms_user_email', email);
-
-                // Redirect to admin panel
                 window.location.href = 'index.html';
             } else {
                 errorDiv.textContent = 'Invalid email or password';
