@@ -128,78 +128,65 @@
 }
 
 /* ---- BUTTON BASE ---- */
+/* ---- UNIFIED HERO BUTTONS (Services & Process) ---- */
 .hero-btn {
     font-family: 'Outfit', sans-serif;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     padding: 0.85rem 2.2rem;
     border-radius: 50px;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+    transition: all 0.3s ease;
     cursor: url('../images/chain-cursor.svg') 12 12, pointer;
     position: relative;
     overflow: hidden;
+    margin: 0.5rem;
+    /* Add spacing */
+
+    /* Lighter Glowing Purple Style */
+    /* Lighter Glowing Purple Style - Forced for Mobile */
+    background: rgba(139, 92, 246, 0.25) !important;
+    /* Light purple glass */
+    border: 1px solid rgba(167, 139, 250, 0.5) !important;
+    /* Lighter border */
+    color: #fff !important;
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 4px 20px rgba(124, 58, 237, 0.25),
+        /* Purple glow */
+        0 0 15px rgba(139, 92, 246, 0.15),
+        inset 0 0 20px rgba(167, 139, 250, 0.1) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-/* ---- BUTTON 1: Services (Dark Purple Solid) ---- */
-.hero-btn:first-child {
-    background: linear-gradient(135deg, #6b21a8 0%, #581c87 100%);
-    color: #fff;
+.hero-btn:hover {
+    transform: translateY(-3px);
+    background: rgba(139, 92, 246, 0.45) !important;
+    border-color: rgba(167, 139, 250, 0.8) !important;
     box-shadow:
-        0 4px 15px rgba(107, 33, 168, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 8px 30px rgba(124, 58, 237, 0.45),
+        /* Stronger glow */
+        0 0 25px rgba(139, 92, 246, 0.3),
+        inset 0 0 20px rgba(167, 139, 250, 0.3) !important;
+    color: #fff !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Remove old specific child overrides */
+.hero-btn:first-child,
+.hero-btn:last-child {
+    background: inherit;
+    color: inherit;
+    box-shadow: inherit;
+    border: inherit;
 }
 
 .hero-btn:first-child::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg,
-            transparent 0%,
-            rgba(255, 255, 255, 0.15) 50%,
-            transparent 100%);
-    transition: left 0.5s ease;
-}
-
-.hero-btn:first-child:hover {
-    transform: translateY(-2px);
-    box-shadow:
-        0 8px 25px rgba(107, 33, 168, 0.5),
-        0 0 40px rgba(139, 92, 246, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-.hero-btn:first-child:hover::before {
-    left: 100%;
-}
-
-/* ---- BUTTON 2: Process (Outlined/Lighter) ---- */
-.hero-btn:last-child {
-    background: rgba(139, 92, 246, 0.15);
-    color: #e9d5ff;
-    border: 1px solid rgba(139, 92, 246, 0.4);
-    box-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-.hero-btn:last-child:hover {
-    transform: translateY(-2px);
-    background: rgba(139, 92, 246, 0.25);
-    border-color: rgba(139, 92, 246, 0.6);
-    box-shadow:
-        0 8px 25px rgba(139, 92, 246, 0.25),
-        0 0 30px rgba(139, 92, 246, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    display: none;
 }
 
 /* ================================================
@@ -227,6 +214,9 @@
     .hero-btn {
         padding: 0.75rem 1.8rem;
         font-size: 0.9rem;
+        /* Ensure styles persist on mobile */
+        background: rgba(139, 92, 246, 0.25) !important;
+        border: 1px solid rgba(167, 139, 250, 0.5) !important;
     }
 }
 
@@ -240,6 +230,9 @@
     .hero-btn {
         width: 100%;
         max-width: 220px;
+        /* Force styling again for smallest screens */
+        background: rgba(139, 92, 246, 0.25) !important;
+        border: 1px solid rgba(167, 139, 250, 0.5) !important;
     }
 
     .hero-container {

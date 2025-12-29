@@ -343,9 +343,70 @@
     inset: 0;
     z-index: 1;
     background: radial-gradient(240px 90px at 50% 45%, rgba(37, 211, 102, .25), transparent 65%);
-    /* WhatsApp green */
-    opacity: .55;
+}
+
+/* Strong Green Pulse Button */
+.btn-pulse-green {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    min-width: min(280px, 85vw);
+    border-radius: 999px;
+    /* Vivid Green Gradient Background */
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: .08em;
+    transform: translateZ(0);
+    transition: transform .2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    /* Green shadow */
+    animation: pulse-zoom-green 2.5s ease-in-out infinite;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    z-index: 10;
+}
+
+/* Inner sheen/glow ring */
+.btn-pulse-green::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+    opacity: 0.3;
     pointer-events: none;
+}
+
+@keyframes pulse-zoom-green {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    50% {
+        transform: scale(1.06);
+        box-shadow: 0 0 30px 10px rgba(37, 211, 102, 0.3);
+    }
+}
+
+.btn-pulse-green:hover {
+    animation-play-state: paused;
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+    filter: brightness(1.1);
+}
+
+.final-btnLabel {
+    position: relative;
+    z-index: 2;
 }
 
 .final-btn:hover {
@@ -354,6 +415,16 @@
 }
 
 .final-btn:hover::after {
+    content: "";
+    position: absolute;
+    inset: -30% -30%;
+    background: linear-gradient(115deg,
+            transparent 30%,
+            rgba(255, 255, 255, .72) 45%,
+            rgba(134, 239, 172, .30) 50%,
+            /* Light green tint */
+            rgba(255, 255, 255, .38) 55%,
+            transparent 70%);
     opacity: .95;
     animation: final-sweep .75s ease-out 1;
 }
@@ -386,7 +457,16 @@
         transform: translateX(30%);
         opacity: 0;
     }
+
+    border-radius: 999px;
+    background: radial-gradient(closest-side, rgba(74, 222, 128, .55), transparent 70%);
+    opacity: .8;
+    filter: blur(15px);
+    pointer-events: none;
+    animation: inherit;
+    /* Sync with parent */
 }
+
 
 .final-note {
     margin: 0;
