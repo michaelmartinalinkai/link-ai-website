@@ -146,17 +146,13 @@
     margin: 0.5rem;
     /* Add spacing */
 
-    /* Lighter Glowing Purple Style */
     /* Lighter Glowing Purple Style - Forced for Mobile */
     background: rgba(139, 92, 246, 0.25) !important;
-    /* Light purple glass */
     border: 1px solid rgba(167, 139, 250, 0.5) !important;
-    /* Lighter border */
     color: #fff !important;
     backdrop-filter: blur(10px);
     box-shadow:
         0 4px 20px rgba(124, 58, 237, 0.25),
-        /* Purple glow */
         0 0 15px rgba(139, 92, 246, 0.15),
         inset 0 0 20px rgba(167, 139, 250, 0.1) !important;
     text-transform: uppercase;
@@ -169,7 +165,6 @@
     border-color: rgba(167, 139, 250, 0.8) !important;
     box-shadow:
         0 8px 30px rgba(124, 58, 237, 0.45),
-        /* Stronger glow */
         0 0 25px rgba(139, 92, 246, 0.3),
         inset 0 0 20px rgba(167, 139, 250, 0.3) !important;
     color: #fff !important;
