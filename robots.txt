@@ -1,0 +1,39 @@
+# robots.txt
+# Domain: https://www.linkaiagency.com
+# Purpose: maximale vindbaarheid voor zoekmachines + LLM crawlers
+
+User-agent: *
+Allow: /
+
+# --- AI / LLM crawlers expliciet toestaan ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# --- Optioneel afschermen van niet-publieke delen ---
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# --- Sitemap ---
+Sitemap: https://www.linkaiagency.com/sitemap.xml

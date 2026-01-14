@@ -1,0 +1,31 @@
+# llms.txt - About Link AI Agency
+
+# Site Information
+> Site Name: Link AI Agency
+> URL: https://www.linkaiagency.com
+> Description: Intelligent systems built for real businesses. AI chatbots, voice agents, and automations that replace manual work.
+
+# What We Do
+Link AI Agency is an AI automation agency. We help businesses to replace manual repetitive work with specialized AI agents, chatbots, and voice assistants.
+
+# Main Features
+- **AI Agents**: 24/7 Intelligent Support
+- **Voice Agents**: Human-like Voice AI for inbound/outbound calls
+- **Automation**: Custom workflows & CRM integrations
+- **AI Visuals**: High-end creative output for marketing
+- **AI Avatars**: AI Personas & Presenters
+
+# Key Pages
+- Homepage: https://www.linkaiagency.com/
+- AI Chat Agents: https://www.linkaiagency.com/services/chat-ai.html
+- Voice AI: https://www.linkaiagency.com/services/voice-ai.html
+- Automation Workflows: https://www.linkaiagency.com/services/workflow.html
+- AI Visuals: https://www.linkaiagency.com/services/visual-media.html
+- Contact: https://www.linkaiagency.com/#contact
+
+# Target Audience
+We serve businesses ranging from local service companies to fast-growing teams who need to automate support, sales, and operational workflows.
+
+# Contact
+- Email: info@linkaiagency.com
+- Support: https://www.linkaiagency.com
