@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Assistant - Stop met Klanten Verliezen</title>
+    <meta name="description"
+        content="Elk onbeantwoord bericht kost je klanten. WhatsApp Assist antwoordt binnen enkele seconden — zelfs als je druk bent.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/motion.css">
+    <link rel="stylesheet" href="styles/cost-section.css">
+    <link rel="stylesheet" href="styles/chat-mockup.css">
+</head>
+
+<body>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Sticky Live Chat Preview / Mobile CTA -->
+    <div class="sticky-cta" id="stickyCta">
+        <a href="https://wa.me/31686447995" class="btn btn-primary btn-whatsapp-premium">
+            <!-- WhatsApp Icon -->
+            <svg class="whatsapp-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            <span>Start WhatsApp Assist</span>
+        </a>
+    </div>
+
+    <!-- SECTION 1: HERO -->
+    <header class="hero-section section-padding">
+        <div class="container grid-hero">
+            <div class="hero-content" data-scroll="fade-up">
+                <h1>Elk onbeantwoord bericht kost je klanten.</h1>
+                <p class="text-hero-sub">WhatsApp Assist antwoordt binnen enkele seconden — zelfs als je druk bent,
+                    offline bent of slaapt.</p>
+
+                <div class="hero-actions">
+                    <a href="https://wa.me/31686447995" class="btn btn-primary btn-whatsapp-premium">
+                        <!-- WhatsApp Icon -->
+                        <svg class="whatsapp-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        <span>Start WhatsApp Assist</span>
+                    </a>
+                    <p class="micro-copy"><a href="https://wa.me/31686447995" class="link-subtle">See it working in your
+                            own WhatsApp.</a></p>
+                </div>
+
+                <div class="trust-badge">
+                    <span>Een product van</span> <a href="https://linkaiagency.com" target="_blank"><strong>Link AI
+                            Agency</strong></a>
+                </div>
+            </div>
+
+            <div class="hero-visual" data-scroll="slide-in-right">
+                <!-- Chat Simulation Container -->
+                <div class="chat-phone-mockup">
+                    <div class="chat-header">
+                        <div class="avatar-circle">
+                            <img src="assets/images/profile_lady.png" alt="Profile">
+                        </div>
+                        <div class="chat-info">
+                            <span class="chat-name">My Business</span>
+                            <span class="chat-status">Online</span>
+                        </div>
+                    </div>
+                    <div class="chat-body" id="heroChatBody">
+                        <!-- JS will inject messages here -->
+                    </div>
+                    <div class="chat-input-bar"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Divider: White to Light -->
+    <div class="divider">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" style="height: 60px; width: 100%; display: block;"
+            fill="#F0F2F5">
+            <path fill-opacity="1"
+                d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,202.7C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    </div>
+
+    <!-- PARTNER MARQUEE (Copied from Link AI) -->
+    <section class="partner-section">
+        <div class="marquee-title">Gebruikt door de beste MKB-bedrijven wereldwijd</div>
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <!-- Set 1 -->
+                <a href="https://liquidbeauty.nl/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_liquid_beauty.png" alt="Liquid Beauty" class="partner-logo-img">
+                </a>
+                <a href="https://november.nl/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_november.png" alt="November" class="partner-logo-img">
+                </a>
+                <a href="https://thegym.amsterdam/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_the_gym.png" alt="The Gym Amsterdam" class="partner-logo-img">
+                </a>
+                <a href="https://baliluxeconcierge.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_bali_luxe.png" alt="Bali Luxe Concierge"
+                        class="partner-logo-img partner-logo-large">
+                </a>
+                <a href="https://liquidbeautyshop.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_liquid_shop.png" alt="Liquid Beauty Shop"
+                        class="partner-logo-img partner-logo-large">
+                </a>
+                <a href="https://hi-tec.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_hitec.png" alt="Hi-Tec" class="partner-logo-img">
+                </a>
+                <a href="https://www.uluwatuparadise.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_ngh.png" alt="NGH Bali Property Group" class="partner-logo-img">
+                </a>
+
+                <!-- Set 2 (Duplicate) -->
+                <a href="https://liquidbeauty.nl/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_liquid_beauty.png" alt="Liquid Beauty" class="partner-logo-img">
+                </a>
+                <a href="https://november.nl/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_november.png" alt="November" class="partner-logo-img">
+                </a>
+                <a href="https://thegym.amsterdam/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_the_gym.png" alt="The Gym Amsterdam" class="partner-logo-img">
+                </a>
+                <a href="https://baliluxeconcierge.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_bali_luxe.png" alt="Bali Luxe Concierge"
+                        class="partner-logo-img partner-logo-large">
+                </a>
+                <a href="https://liquidbeautyshop.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_liquid_shop.png" alt="Liquid Beauty Shop"
+                        class="partner-logo-img partner-logo-large">
+                </a>
+                <a href="https://hi-tec.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_hitec.png" alt="Hi-Tec" class="partner-logo-img">
+                </a>
+                <a href="https://www.uluwatuparadise.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_ngh.png" alt="NGH Bali Property Group" class="partner-logo-img">
+                </a>
+
+                <!-- Set 3 (Duplicate) -->
+                <a href="https://liquidbeauty.nl/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_liquid_beauty.png" alt="Liquid Beauty" class="partner-logo-img">
+                </a>
+                <a href="https://november.nl/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_november.png" alt="November" class="partner-logo-img">
+                </a>
+                <a href="https://thegym.amsterdam/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_the_gym.png" alt="The Gym Amsterdam" class="partner-logo-img">
+                </a>
+                <a href="https://baliluxeconcierge.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_bali_luxe.png" alt="Bali Luxe Concierge"
+                        class="partner-logo-img partner-logo-large">
+                </a>
+                <a href="https://liquidbeautyshop.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_liquid_shop.png" alt="Liquid Beauty Shop"
+                        class="partner-logo-img partner-logo-large">
+                </a>
+                <a href="https://hi-tec.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_hitec.png" alt="Hi-Tec" class="partner-logo-img">
+                </a>
+                <a href="https://www.uluwatuparadise.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_ngh.png" alt="NGH Bali Property Group" class="partner-logo-img">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: PROBLEM -->
+    <section class="problem-section section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-scroll="fade-up">
+                <h2>WhatsApp is je drukste kanaal —<br>en je grootste knelpunt.</h2>
+            </div>
+
+            <div class="problem-grid">
+                <!-- New Layout: Floating Bubbles & Cards -->
+                <div class="problem-content-wrapper">
+                    <!-- Floating Bubbles -->
+                    <div class="floating-bubbles">
+                        <div class="float-bubble">
+                            <div class="avatar-sm">
+                                <svg viewBox="0 0 24 24" fill="#ccc" class="avatar-icon">
+                                    <path
+                                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                </svg>
+                            </div>
+                            <div class="bubble-text">Kunnen jullie vanavond nog reageren?</div>
+                        </div>
+                        <div class="float-bubble bubble-delayed">
+                            <div class="avatar-sm">
+                                <svg viewBox="0 0 24 24" fill="#ccc" class="avatar-icon">
+                                    <path
+                                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                </svg>
+                            </div>
+                            <div class="bubble-text">Wat kost een intake?</div>
+                        </div>
+                    </div>
+
+                    <!-- Warning Label -->
+                    <div class="warning-label">
+                        <span class="warning-icon">⚠️</span>
+                        <span>Geen reactie = <strong>gemiste lead</strong></span>
+                    </div>
+
+                    <!-- Problem Cards Stack -->
+                    <div class="problem-cards-stack">
+                        <!-- Card 1 -->
+                        <div class="problem-card">
+                            <div class="problem-icon-box icon-clock">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="problem-text">
+                                <h4>Buiten openingstijden</h4>
+                                <p>Klanten appen wanneer je team offline is</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="problem-card">
+                            <div class="problem-icon-box icon-hourglass">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 22h14"></path>
+                                    <path d="M5 2h14"></path>
+                                    <path
+                                        d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22">
+                                    </path>
+                                    <path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="problem-text">
+                                <h4>Trage reacties</h4>
+                                <p>Antwoorden komen te laat of helemaal niet</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="problem-card">
+                            <div class="problem-icon-box icon-refresh">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M23 4v6h-6"></path>
+                                    <path d="M1 20v-6h6"></path>
+                                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="problem-text">
+                                <h4>Herhaalvragen</h4>
+                                <p>Elke dag dezelfde WhatsApp-gesprekken</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="problem-card">
+                            <div class="problem-icon-box icon-chat">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="problem-text">
+                                <h4>Tijdverspilling</h4>
+                                <p>Personeel zit vast in chats</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-visual relative">
+                    <!-- Animated WhatsApp Chat Mockup (Same as Hero) -->
+                    <div class="chat-phone-mockup chat-phone-sm">
+                        <div class="chat-header">
+                            <div class="avatar-circle">
+                                <img src="assets/images/profile_lady.png" alt="Profile">
+                            </div>
+                            <div class="chat-info">
+                                <span class="chat-name">My Business</span>
+                                <span class="chat-status">Online</span>
+                            </div>
+                        </div>
+                        <div class="chat-body" id="problemChatBody">
+                            <!-- JS will inject messages here -->
+                        </div>
+                        <div class="chat-input-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="confrontation-box text-center margin-top-xl" data-scroll="scale-up">
+                <h3>Klanten wachten minuten. <span class="text-error">Geen dagen.</span></h3>
+                <a href="https://wa.me/31686447995" class="link-cta">Zie hoeveel chats je mist &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider: Light to White -->
+    <div class="divider">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none"
+            style="height: 60px; width: 100%; display: block; transform: rotate(180deg);" fill="#F0F2F5">
+            <path fill-opacity="1"
+                d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,202.7C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    </div>
+
+    <!-- SECTION 3: THE COST (PIXEL-PERFECT CLONE) -->
+    <section class="cost-section" id="costSection">
+        <div class="container">
+
+            <!-- BLOCK A: HEADER -->
+            <div class="cost-header">
+                <div class="live-badge">
+                    <span class="badge-dot"></span>
+                    <span>LIVE SCENARIO</span>
+                </div>
+                <h2 class="cost-title">Gemiste omzet door trage WhatsApp reacties</h2>
+                <p class="cost-subtitle">Progressie gebaseerd op handmatige afhandeling</p>
+            </div>
+
+            <!-- BLOCK B: TWO-PANEL DASHBOARD -->
+            <div class="dashboard-container" id="costDashboard">
+                <!-- Sparkle BG -->
+                <div class="sparkle-bg"></div>
+
+                <div class="dashboard-panels">
+                    <!-- LEFT PANEL: Loss Cluster -->
+                    <div class="panel-loss">
+                        <div class="panel-loss-header">Zonder automatisering</div>
+
+                        <div class="rings-cluster">
+                            <!-- Top Center Ring: Leads Verloren -->
+                            <div class="ring-item ring-top">
+                                <div class="ring-wrapper">
+                                    <svg viewBox="0 0 100 100" class="ring-svg">
+                                        <circle class="ring-bg" cx="50" cy="50" r="42" />
+                                        <circle class="ring-progress" cx="50" cy="50" r="42" stroke-dasharray="0 264"
+                                            stroke-dashoffset="66" />
+                                    </svg>
+                                    <div class="ring-inner">
+                                        <span class="ring-value">94%</span>
+                                    </div>
+                                </div>
+                                <span class="ring-label">Leads<br>Verloren</span>
+                            </div>
+
+                            <!-- Bottom Left Ring: Gemiste Omzet -->
+                            <div class="ring-item ring-left">
+                                <div class="ring-wrapper">
+                                    <svg viewBox="0 0 100 100" class="ring-svg">
+                                        <circle class="ring-bg" cx="50" cy="50" r="42" />
+                                        <circle class="ring-progress" cx="50" cy="50" r="42" stroke-dasharray="0 264"
+                                            stroke-dashoffset="66" />
+                                    </svg>
+                                    <div class="ring-inner">
+                                        <span class="ring-value">94%</span>
+                                    </div>
+                                </div>
+                                <span class="ring-label">Gemiste Omzet</span>
+                            </div>
+
+                            <!-- Bottom Right Ring: Buiten Uren -->
+                            <div class="ring-item ring-right">
+                                <div class="ring-wrapper">
+                                    <svg viewBox="0 0 100 100" class="ring-svg">
+                                        <circle class="ring-bg" cx="50" cy="50" r="42" />
+                                        <circle class="ring-progress" cx="50" cy="50" r="42" stroke-dasharray="0 264"
+                                            stroke-dashoffset="66" />
+                                    </svg>
+                                    <div class="ring-inner">
+                                        <span class="ring-value">94%</span>
+                                    </div>
+                                </div>
+                                <span class="ring-label">Buiten Uren</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT PANEL: Live Feed -->
+                    <div class="panel-feed">
+                        <!-- Feed Header -->
+                        <div class="feed-header-row">
+                            <div class="feed-header-left">
+                                <span class="moon-sparkle">🌙<span class="sparkle">✨</span></span>
+                                <span class="feed-time-pill" id="feedClock">04:16</span>
+                                <span class="feed-header-text">Berichten gemist tijdens slapen:</span>
+                            </div>
+                            <span class="feed-total-pill">€<span id="feedTotal">216</span></span>
+                        </div>
+
+                        <!-- Feed Rows -->
+                        <div class="feed-list" id="liveFeed">
+                            <div class="feed-row">
+                                <span class="feed-icon">🌙</span>
+                                <span class="feed-row-time">04:16</span>
+                                <span class="feed-row-msg">Bericht gemist</span>
+                                <span class="feed-dotted"></span>
+                                <span class="feed-row-loss">€216</span>
+                                <span class="feed-arrow">›</span>
+                            </div>
+                            <div class="feed-row">
+                                <span class="feed-icon">✨</span>
+                                <span class="feed-row-time">04:25</span>
+                                <span class="feed-row-msg">Bericht gemist</span>
+                                <span class="feed-dotted"></span>
+                                <span class="feed-row-loss">€258</span>
+                                <span class="feed-arrow">›</span>
+                            </div>
+                            <div class="feed-row">
+                                <span class="feed-icon">✨</span>
+                                <span class="feed-row-time">04:32</span>
+                                <span class="feed-row-msg">Bericht gemist</span>
+                                <span class="feed-dotted"></span>
+                                <span class="feed-row-loss">€287</span>
+                                <span class="feed-arrow">›</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOCK C: SLIDER BAR -->
+                <div class="slider-bar" id="sliderBar">
+                    <div class="slider-left">
+                        <span class="slider-flame">🔥</span>
+                        <span class="slider-text slider-text-red">Verlies blijft groeien</span>
+                    </div>
+                    <div class="slider-track-wrap">
+                        <div class="slider-track">
+                            <div class="slider-gradient"></div>
+                            <div class="slider-knob" id="sliderKnob"></div>
+                        </div>
+                    </div>
+                    <div class="slider-right">
+                        <span class="slider-check">✅</span>
+                        <span class="slider-text slider-text-green">Verlies gestopt</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOCK D: WITH WHATSAPP ASSIST -->
+            <div class="assist-section">
+                <div class="assist-header-text">WITH WHATSAPP ASSIST</div>
+                <div class="assist-content">
+                    <div class="assist-cards">
+                        <div class="assist-card">
+                            <div class="assist-icon assist-icon-check">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <path d="M20 6L9 17L4 12" />
+                                </svg>
+                            </div>
+                            <div class="assist-card-text">
+                                <strong>Omzet Beschermd</strong>
+                                <span>0% Verlies</span>
+                            </div>
+                        </div>
+                        <div class="assist-card">
+                            <div class="assist-icon assist-icon-clock">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="12" cy="12" r="9" />
+                                    <path d="M12 7v5l3 3" />
+                                </svg>
+                            </div>
+                            <div class="assist-card-text">
+                                <strong>24/7 Reactie</strong>
+                                <span>Geen Lead Gemist</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/31686447995" class="btn btn-primary btn-whatsapp-premium">
+                        <!-- WhatsApp Icon -->
+                        <svg class="whatsapp-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        <span>Stop het verlies op WhatsApp</span>
+                    </a>
+                </div>
+                <p class="assist-micro">Start in WhatsApp. De assistent laat zien wat mogelijk is.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Divider: White to Light -->
+    <div class="divider">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" style="height: 60px; width: 100%; display: block;"
+            fill="#F0F2F5">
+            <path fill-opacity="1"
+                d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    </div>
+
+    <!-- SECTION 4: SOLUTION (Premium Feature Grid with Photo BGs) -->
+    <section class="solution-section section-padding bg-light">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header text-center" data-scroll="fade-up">
+                <h2>WhatsApp Assist neemt je klantenservice over.</h2>
+                <p class="section-subtitle">Focus op de belangrijke zaken, WhatsApp Assist handelt de rest af. Raak
+                    nooit meer leads kwijt.</p>
+            </div>
+
+            <!-- Feature Grid -->
+            <div class="feature-grid-premium">
+                <!-- Row 1: 3 Cards -->
+                <div class="feature-card-photo" data-scroll="hover-card">
+                    <img src="assets/images/feature_direct_antwoord.png" alt="Direct Antwoord" class="card-bg-image">
+                    <div class="card-overlay">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                            </svg>
+                        </div>
+                        <h3>Direct Antwoord</h3>
+                        <p>Antwoordt direct op veelgestelde vragen.</p>
+                        <span class="result-pill">Direct binnen 3 sec.</span>
+                    </div>
+                </div>
+
+                <div class="feature-card-photo" data-scroll="hover-card" data-delay="100">
+                    <img src="assets/images/feature_stuurt_info.png" alt="Stuurt Info Automatisch"
+                        class="card-bg-image">
+                    <div class="card-overlay">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                            </svg>
+                        </div>
+                        <h3>Stuurt Info Automatisch</h3>
+                        <p>Stuurt brochures, prijslijsten of links op verzoek.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card-photo" data-scroll="hover-card" data-delay="200">
+                    <img src="assets/images/feature_escaleert.png" alt="Escaleert Echte Zaken" class="card-bg-image">
+                    <div class="card-overlay">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                        <h3>Escaleert Echte Zaken</h3>
+                        <p>Complexe vragen direct naar jou.</p>
+                        <span class="result-pill">Escalatie naar jou.</span>
+                    </div>
+                </div>
+
+                <!-- Row 2: 2 Cards -->
+                <div class="feature-card-photo" data-scroll="hover-card" data-delay="300">
+                    <img src="assets/images/feature_plant_afspraken.png" alt="Plant Afspraken" class="card-bg-image">
+                    <div class="card-overlay">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
+                        </div>
+                        <h3>Plant Afspraken</h3>
+                        <p>Plant afspraken in je agenda.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card-photo" data-scroll="hover-card" data-delay="400">
+                    <img src="assets/images/feature_crm_koppelt.png" alt="Koppelt met je CRM" class="card-bg-image">
+                    <div class="card-overlay">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                            </svg>
+                        </div>
+                        <h3>Koppelt met je CRM</h3>
+                        <p>Logt klantgegevens direct in je systeem.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom CTA link -->
+            <div class="text-center margin-top-lg" data-scroll="fade-up">
+                <a href="https://wa.me/31686447995" class="link-arrow">Bekijk hoe het werkt</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: TRUST STRIP + CTA (Premium Redesign) -->
+    <section class="trust-cta-section">
+        <div class="container">
+            <!-- Trust Strip -->
+            <div class="trust-strip" data-scroll="fade-up">
+                <div class="trust-stars">
+                    <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                </div>
+                <span class="trust-bullet">Gebruikt door MKB bedrijven</span>
+                <span class="trust-divider"></span>
+                <span class="trust-bullet">Live binnen 48–72 uur</span>
+                <span class="trust-divider"></span>
+                <span class="trust-bullet">Geen app. Geen training. Geen gedoe.</span>
+            </div>
+
+            <!-- Headline Block -->
+            <div class="headline-block" data-scroll="fade-up">
+                <p class="headline-neutral">Meer bedrijven automatiseren dit elke maand.</p>
+                <p class="headline-accent">Jij antwoordt nog steeds handmatig.</p>
+            </div>
+
+            <!-- CTA Row -->
+            <div class="cta-row" data-scroll="fade-up">
+                <a href="https://wa.me/31686447995" class="btn btn-primary btn-whatsapp-premium">
+                    <!-- WhatsApp Icon -->
+                    <svg class="whatsapp-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    <span>Activeer WhatsApp Assist</span>
+                </a>
+                <p class="cta-support">Start in WhatsApp. De assistent laat zien wat mogelijk is.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: HOW IT WORKS -->
+    <section class="steps-section section-padding bg-dark text-white">
+        <div class="container">
+            <div class="steps-container flex justify-between relative">
+                <!-- Connecting Line SVG -->
+                <svg class="steps-line" preserveAspectRatio="none">
+                    <!-- Path drawn via CSS/JS -->
+                    <path d="M0,50 L1000,50" />
+                </svg>
+
+                <div class="step-item" data-scroll="step-slide">
+                    <div class="step-num">1</div>
+                    <h3>Klik op de knop</h3>
+                    <p>Start de chat om het in actie te zien.</p>
+                </div>
+                <div class="step-item" data-scroll="step-slide" data-delay="200">
+                    <div class="step-num">2</div>
+                    <h3>Vertel je bedrijfstype</h3>
+                    <p>Wij passen de flow voor je aan.</p>
+                </div>
+                <div class="step-item" data-scroll="step-slide" data-delay="400">
+                    <div class="step-num">3</div>
+                    <h3>Wij stellen het in</h3>
+                    <p>Live op jouw nummer binnen 72u.</p>
+                </div>
+            </div>
+
+            <div class="center-cta text-center margin-top-lg">
+                <a href="https://wa.me/31686447995" class="btn btn-primary-inv">Start in WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNER MARQUEE (BOTTOM) -->
+    <section class="partner-section partner-section-bottom">
+        <div class="marquee-title">Gebruikt door de beste MKB-bedrijven wereldwijd</div>
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <!-- Set 1 -->
+                <a href="https://liquidbeauty.nl/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_liquid_beauty.png" alt="Liquid Beauty" class="partner-logo-img">
+                </a>
+                <a href="https://november.nl/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_november.png" alt="November" class="partner-logo-img">
+                </a>
+                <a href="https://thegym.amsterdam/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_the_gym.png" alt="The Gym Amsterdam" class="partner-logo-img">
+                </a>
+                <a href="https://baliluxeconcierge.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_bali_luxe.png" alt="Bali Luxe Concierge"
+                        class="partner-logo-img partner-logo-large">
+                </a>
+                <a href="https://liquidbeautyshop.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_liquid_shop.png" alt="Liquid Beauty Shop"
+                        class="partner-logo-img partner-logo-large">
+                </a>
+                <a href="https://hi-tec.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_hitec.png" alt="Hi-Tec" class="partner-logo-img">
+                </a>
+                <a href="https://www.uluwatuparadise.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_ngh.png" alt="NGH Bali Property Group" class="partner-logo-img">
+                </a>
+
+                <!-- Set 2 (Duplicate) -->
+                <a href="https://liquidbeauty.nl/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_liquid_beauty.png" alt="Liquid Beauty" class="partner-logo-img">
+                </a>
+                <a href="https://november.nl/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_november.png" alt="November" class="partner-logo-img">
+                </a>
+                <a href="https://thegym.amsterdam/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_the_gym.png" alt="The Gym Amsterdam" class="partner-logo-img">
+                </a>
+                <a href="https://baliluxeconcierge.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_bali_luxe.png" alt="Bali Luxe Concierge"
+                        class="partner-logo-img partner-logo-large">
+                </a>
+                <a href="https://liquidbeautyshop.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_liquid_shop.png" alt="Liquid Beauty Shop"
+                        class="partner-logo-img partner-logo-large">
+                </a>
+                <a href="https://hi-tec.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_hitec.png" alt="Hi-Tec" class="partner-logo-img">
+                </a>
+                <a href="https://www.uluwatuparadise.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_ngh.png" alt="NGH Bali Property Group" class="partner-logo-img">
+                </a>
+
+                <!-- Set 3 (Duplicate) -->
+                <a href="https://liquidbeauty.nl/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_liquid_beauty.png" alt="Liquid Beauty" class="partner-logo-img">
+                </a>
+                <a href="https://november.nl/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_november.png" alt="November" class="partner-logo-img">
+                </a>
+                <a href="https://thegym.amsterdam/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_the_gym.png" alt="The Gym Amsterdam" class="partner-logo-img">
+                </a>
+                <a href="https://baliluxeconcierge.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_bali_luxe.png" alt="Bali Luxe Concierge"
+                        class="partner-logo-img partner-logo-large">
+                </a>
+                <a href="https://liquidbeautyshop.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_liquid_shop.png" alt="Liquid Beauty Shop"
+                        class="partner-logo-img partner-logo-large">
+                </a>
+                <a href="https://hi-tec.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_hitec.png" alt="Hi-Tec" class="partner-logo-img">
+                </a>
+                <a href="https://www.uluwatuparadise.com/" target="_blank" class="partner-link">
+                    <img src="assets/partners/partner_ngh.png" alt="NGH Bali Property Group" class="partner-logo-img">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: FINAL CONFRONTATION & FOOTER -->
+    <footer class="footer-section section-padding text-center">
+        <div class="container" data-scroll="scale-up">
+            <h2>Wil je klanten blijven verliezen?</h2>
+            <p class="text-hero-sub">Of wil je directe antwoorden vanaf vandaag?</p>
+
+            <a href="https://wa.me/31686447995" class="btn btn-primary btn-whatsapp-premium btn-large margin-top-md">
+                <!-- WhatsApp Icon -->
+                <svg class="whatsapp-icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                <span>Start WhatsApp Assist nu</span>
+            </a>
+            <p class="micro-copy margin-top-sm">Start in WhatsApp. De assistent laat zien wat mogelijk is.</p>
+        </div>
+
+        <div class="footer-legal margin-top-xl">
+            <p><strong>WhatsApp Assist</strong></p>
+            <p>Een product van <a href="https://linkaiagency.com" target="_blank">Link AI Agency</a></p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/cost-animation.js"></script>
+    <script src="js/hero-chat.js?v=2"></script>
+</body>
+
+</html>

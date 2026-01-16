@@ -1,0 +1,192 @@
+/* Motion & Animation Styles */
+
+/* Base transitions */
+[data-scroll] {
+    opacity: 0;
+    transition: all 0.8s var(--ease-smooth);
+}
+
+[data-scroll].in-view {
+    opacity: 1;
+}
+
+/* Fade Up */
+[data-scroll="fade-up"] {
+    transform: translateY(30px);
+}
+
+[data-scroll="fade-up"].in-view {
+    transform: translateY(0);
+}
+
+/* Slide In Right */
+[data-scroll="slide-in-right"] {
+    transform: translateX(50px);
+}
+
+[data-scroll="slide-in-right"].in-view {
+    transform: translateX(0);
+}
+
+/* Stagger Items */
+[data-scroll="stagger-item"] {
+    transform: translateX(-20px);
+    opacity: 0;
+}
+
+[data-scroll="stagger-item"].in-view {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Stagger delays handled in JS or calculated via nth-child loops if static, 
+   but for this project we'll use a simple JS loop to add 'in-view' with delay 
+   OR CSS delays */
+
+/* Scale Up */
+[data-scroll="scale-up"] {
+    transform: scale(0.9);
+}
+
+[data-scroll="scale-up"].in-view {
+    transform: scale(1);
+}
+
+/* Toast Slide (Top Right or embedded) */
+[data-scroll="toast-slide"] {
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+[data-scroll="toast-slide"].in-view {
+    animation: toastPop 0.6s var(--ease-elastic) forwards;
+}
+
+@keyframes toastPop {
+    0% {
+        transform: translateY(20px) scale(0.9);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Pulse Animations */
+.pulse-subtle {
+    animation: pulseGreen 6s infinite;
+}
+
+@keyframes pulseGreen {
+
+    0%,
+    90% {
+        box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+        transform: scale(1);
+    }
+
+    95% {
+        box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
+        transform: scale(1.02);
+    }
+
+    100% {
+        box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+        transform: scale(1);
+    }
+}
+
+.icon-pulse {
+    display: inline-block;
+    animation: pulseErr 2s infinite;
+}
+
+@keyframes pulseErr {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+        color: red;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Checkmark Animation */
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: var(--wa-primary);
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+    stroke: var(--wa-primary);
+    stroke-width: 3;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Chat Bubbles Loop */
+@keyframes floatBubble {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.chat-bubble {
+    animation: floatBubble 0.4s ease-out forwards;
+}
+
+.typing-dot {
+    animation: typing 1.4s infinite ease-in-out both;
+    width: 6px;
+    height: 6px;
+    background: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.typing-dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes typing {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+}

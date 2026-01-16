@@ -1,0 +1,301 @@
+/* Hero Chat Mockup - WhatsApp Style Phone Frame */
+
+.hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+.chat-phone-mockup {
+    width: 320px;
+    max-width: 100%;
+    background: #ece5dd;
+    /* WhatsApp background */
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 0 0 8px #1c1c1e,
+        0 0 0 10px #3a3a3c;
+    position: relative;
+}
+
+/* Phone Notch */
+.chat-phone-mockup::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 24px;
+    background: #1c1c1e;
+    border-radius: 12px;
+    z-index: 10;
+}
+
+/* Chat Header */
+.chat-header {
+    background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+    padding: 45px 16px 16px;
+    /* Extra top for notch */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #128C7E;
+    font-size: 1rem;
+    overflow: hidden;
+    /* Ensure image stays inside circle */
+}
+
+.avatar-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.chat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-name {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.chat-status {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+}
+
+/* Chat Body */
+.chat-body {
+    min-height: 280px;
+    max-height: 320px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    background-image:
+        radial-gradient(circle at 2px 2px, rgba(0, 0, 0, 0.03) 1px, transparent 0);
+    background-size: 20px 20px;
+}
+
+/* Chat Bubbles */
+.chat-bubble {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    position: relative;
+    animation: bubbleFadeIn 0.4s ease-out;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.chat-bubble.user {
+    background: #fff;
+    color: #1f2937;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.chat-bubble.bot {
+    background: #dcf8c6;
+    color: #1f2937;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+/* Typing Indicator */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 16px;
+    background: #dcf8c6;
+    border-radius: 12px;
+    align-self: flex-end;
+    max-width: 60px;
+}
+
+.typing-indicator span {
+    width: 8px;
+    height: 8px;
+    background: #128C7E;
+    border-radius: 50%;
+    animation: typingBounce 1.4s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Chat Input Bar */
+.chat-input-bar {
+    background: #f0f0f0;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-input-bar::before {
+    content: "Type a message";
+    flex: 1;
+    background: #fff;
+    padding: 10px 14px;
+    border-radius: 24px;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* Handled Pill - Positioned BELOW the phone */
+.handled-pill {
+    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+    color: #166534;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+    border: 1px solid rgba(22, 163, 74, 0.2);
+    margin-top: 1.5rem;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+/* Animations */
+@keyframes bubbleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes typingBounce {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-4px);
+    }
+}
+
+/* Desktop Layout */
+@media (min-width: 900px) {
+    .grid-hero {
+        grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    .chat-phone-mockup {
+        width: 340px;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .chat-phone-mockup {
+        width: 280px;
+    }
+
+    .chat-body {
+        min-height: 220px;
+    }
+}
+
+/* Smaller Variant for Problem Section */
+.chat-phone-sm {
+    width: 250px;
+    /* Explicit smaller width */
+    /* Removed transform: scale(0.9) to fix centering alignment */
+    margin: 0 !important;
+    /* Override main.css auto margin */
+}
+
+.chat-phone-sm .chat-header {
+    padding: 35px 12px 12px;
+}
+
+.chat-phone-sm .avatar-circle {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+}
+
+.chat-phone-sm .chat-name {
+    font-size: 0.9rem;
+}
+
+.chat-phone-sm .chat-body {
+    min-height: 200px;
+    max-height: 240px;
+    padding: 12px;
+}
+
+.chat-phone-sm .chat-bubble {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+}
+
+/* Problem section layout fix */
+.problem-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Strict Center */
+    justify-content: center;
+    gap: 0;
+    text-align: center;
+}
+
+.problem-visual .handled-pill {
+    /* Ensure no margins interfere */
+    margin-left: 0;
+    margin-right: 0;
+    align-self: center;
+}
+/* Inverted Colors for Problem Section (Image Match) */
+.chat-bubble.business-left-green {
+    background: #dcf8c6;
+    color: #1f2937;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.chat-bubble.customer-right-white {
+    background: #fff;
+    color: #1f2937;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
