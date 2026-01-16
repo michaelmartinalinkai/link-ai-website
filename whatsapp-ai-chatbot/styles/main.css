@@ -1347,3 +1347,51 @@ h1:hover {
     line-height: 1.4;
 }
 
+
+/* === MOBILE PROBLEM SECTION FIXES === */
+@media (max-width: 899px) {
+    /* Hide phone mockup on mobile */
+    .problem-visual {
+        display: none;
+    }
+
+    /* Full width for problem content wrapper */
+    .problem-content-wrapper {
+        max-width: 100%;
+        padding: 0 16px;
+    }
+
+    /* Align bubbles to left edge */
+    .float-bubble {
+        max-width: 90%;
+    }
+
+    .bubble-delayed {
+        margin-left: 16px;
+    }
+
+    /* Smaller padding on mobile cards */
+    .problem-card {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .problem-icon-box {
+        width: 36px;
+        height: 36px;
+    }
+
+    .problem-icon-box svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .problem-text h4 {
+        font-size: 0.95rem;
+    }
+
+    .problem-text p {
+        font-size: 0.8rem;
+    }
+}
+

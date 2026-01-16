@@ -447,9 +447,134 @@
     <script src="js/app.js"></script>
     <script src="js/process-animation.js"></script>
 
-    <!-- ElevenLabs Voice Widget -->
+    <!-- Custom ElevenLabs Trigger Implementation (DISABLED) -->
+    <!--
+    <style>
+        /* Hide default widget initially */
+        elevenlabs-convai {
+            opacity: 0;
+            pointer-events: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Visible state */
+        elevenlabs-convai.is-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Custom Launcher Button */
+        .ai-launcher-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            background: #000;
+            border: 1px solid rgba(0, 255, 128, 0.3);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 255, 128, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .ai-launcher-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 255, 128, 0.4);
+            border-color: rgba(0, 255, 128, 0.6);
+        }
+
+        .ai-launcher-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: #00ff80;
+        }
+
+        /* Pulse animation for the dot */
+        .ai-status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00ff80;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff80;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+
+    <div id="ai-custom-trigger" class="ai-launcher-btn">
+        <div class="ai-status-dot"></div>
+        <span>TALK TO AI</span>
+    </div>
+
     <elevenlabs-convai agent-id="agent_01jzzvcvgxekzrafhqzfpw8y29"></elevenlabs-convai>
     <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const trigger = document.getElementById('ai-custom-trigger');
+
+            // Function to find and open the widget
+            const openWidget = () => {
+                const widget = document.querySelector('elevenlabs-convai');
+                if (!widget) return;
+
+                // 1. Show the widget container
+                widget.classList.add('is-active');
+
+                // 2. Hide the custom button (optional, keeps UI clean)
+                trigger.style.display = 'none';
+
+                // 3. Attempt to click the internal button
+                // We poll briefly in case shadow DOM is initializing
+                let attempts = 0;
+                const clickInternal = setInterval(() => {
+                    attempts++;
+                    const btn = widget.shadowRoot ? widget.shadowRoot.querySelector('button[title="Start a call"]') : null;
+
+                    if (btn) {
+                        btn.click();
+                        clearInterval(clickInternal);
+                    } else if (attempts > 20) {
+                        clearInterval(clickInternal); // Stop after 2 seconds
+                    }
+                }, 100);
+            };
+
+            if (trigger) {
+                trigger.addEventListener('click', openWidget);
+            }
+        });
+    </script>
+    -->
     <script>
         // OPTIONAL: mouse tilt on the header (works for both text + image wrapper)
         (function () {

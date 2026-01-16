@@ -1,0 +1,27 @@
+# Allow all search engines and AI crawlers
+User-agent: *
+Allow: /
+
+# Allow specific AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Sitemap location
+Sitemap: https://linkaiagency.com/whatsapp-ai-chatbot/sitemap.xml
+
+# Disallow specific paths (optional)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
