@@ -1,27 +1,23 @@
 // ========================================
-// LINKEDIN QUIZ POPUP - 5 STEP FLOW
+// QUIZ POPUP - 2 QUESTIONS + CONTACT
 // ========================================
 
 (function () {
-    // Direct webhook to n8n workflow (NOT the form trigger)
+    // Direct webhook to n8n workflow
     const WEBHOOK_URL = 'https://linkai020.app.n8n.cloud/webhook/lead-quiz';
 
     // Quiz answers storage
     const answers = {
-        linkedin_status: '',
-        ai_maturity_level: '',
-        primary_goal: '',
-        urgency_level: '',
+        ai_interest: '',
+        urgency: '',
         name: '',
         email: '',
-        company: '',
         phone: ''
     };
 
     let currentStep = 1;
-    const totalSteps = 5;
 
-    // Build popup HTML
+    // Build popup HTML - 3 steps only
     const html = `
     <div class="quiz-overlay" id="quizOverlay">
         <div class="quiz-modal">
@@ -32,105 +28,49 @@
                 <div class="quiz-dot active" data-step="1"></div>
                 <div class="quiz-dot" data-step="2"></div>
                 <div class="quiz-dot" data-step="3"></div>
-                <div class="quiz-dot" data-step="4"></div>
-                <div class="quiz-dot" data-step="5"></div>
             </div>
             
-            <!-- Step 1: LinkedIn Status -->
+            <!-- Step 1: AI Interest -->
             <div class="quiz-step active" data-step="1">
-                <h2 class="quiz-question">What best describes your current LinkedIn situation?</h2>
+                <h2 class="quiz-question">What AI solution interests you most?</h2>
                 <div class="quiz-options">
-                    <div class="quiz-option" onclick="answer(1, 'linkedin_status', 'views_no_leads')">
+                    <div class="quiz-option" onclick="answer(1, 'ai_interest', 'chatbot')">
                         <span class="quiz-option-letter">A</span>
-                        <span>We get views, but no real leads</span>
+                        <span>AI Chatbot or Voice Agent</span>
                     </div>
-                    <div class="quiz-option" onclick="answer(1, 'linkedin_status', 'posts_no_conversion')">
+                    <div class="quiz-option" onclick="answer(1, 'ai_interest', 'automation')">
                         <span class="quiz-option-letter">B</span>
-                        <span>We post, but it doesn't convert</span>
+                        <span>Workflow Automation</span>
                     </div>
-                    <div class="quiz-option" onclick="answer(1, 'linkedin_status', 'not_using')">
+                    <div class="quiz-option" onclick="answer(1, 'ai_interest', 'full_system')">
                         <span class="quiz-option-letter">C</span>
-                        <span>We don't really use LinkedIn yet</span>
-                    </div>
-                    <div class="quiz-option" onclick="answer(1, 'linkedin_status', 'working_well')">
-                        <span class="quiz-option-letter">D</span>
-                        <span>LinkedIn already works well for us</span>
+                        <span>Complete AI System</span>
                     </div>
                 </div>
             </div>
             
-            <!-- Step 2: AI Maturity -->
+            <!-- Step 2: Urgency -->
             <div class="quiz-step" data-step="2">
-                <h2 class="quiz-question">How are you currently using AI in your sales or marketing?</h2>
+                <h2 class="quiz-question">When do you want to get started?</h2>
                 <div class="quiz-options">
-                    <div class="quiz-option" onclick="answer(2, 'ai_maturity_level', 'not_using')">
+                    <div class="quiz-option" onclick="answer(2, 'urgency', 'asap')">
                         <span class="quiz-option-letter">A</span>
-                        <span>Not using AI at all</span>
+                        <span>ASAP - this is urgent</span>
                     </div>
-                    <div class="quiz-option" onclick="answer(2, 'ai_maturity_level', 'manual_chatgpt')">
+                    <div class="quiz-option" onclick="answer(2, 'urgency', 'soon')">
                         <span class="quiz-option-letter">B</span>
-                        <span>Using tools like ChatGPT manually</span>
+                        <span>Within 1-3 months</span>
                     </div>
-                    <div class="quiz-option" onclick="answer(2, 'ai_maturity_level', 'some_automation')">
-                        <span class="quiz-option-letter">C</span>
-                        <span>Some automation, but not connected</span>
-                    </div>
-                    <div class="quiz-option" onclick="answer(2, 'ai_maturity_level', 'fully_automated')">
-                        <span class="quiz-option-letter">D</span>
-                        <span>Fully automated flows</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Step 3: Primary Goal -->
-            <div class="quiz-step" data-step="3">
-                <h2 class="quiz-question">What would help you most right now?</h2>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="answer(3, 'primary_goal', 'more_leads')">
-                        <span class="quiz-option-letter">A</span>
-                        <span>More qualified leads automatically</span>
-                    </div>
-                    <div class="quiz-option" onclick="answer(3, 'primary_goal', 'less_manual_work')">
-                        <span class="quiz-option-letter">B</span>
-                        <span>Less manual follow-up work</span>
-                    </div>
-                    <div class="quiz-option" onclick="answer(3, 'primary_goal', 'better_conversion')">
-                        <span class="quiz-option-letter">C</span>
-                        <span>Better conversion from LinkedIn</span>
-                    </div>
-                    <div class="quiz-option" onclick="answer(3, 'primary_goal', 'understand_ai')">
-                        <span class="quiz-option-letter">D</span>
-                        <span>Understanding how AI could help us</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Step 4: Urgency -->
-            <div class="quiz-step" data-step="4">
-                <h2 class="quiz-question">If this worked, when would you want results?</h2>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="answer(4, 'urgency_level', 'asap')">
-                        <span class="quiz-option-letter">A</span>
-                        <span>ASAP — this is urgent</span>
-                    </div>
-                    <div class="quiz-option" onclick="answer(4, 'urgency_level', '1_3_months')">
-                        <span class="quiz-option-letter">B</span>
-                        <span>Within 1–3 months</span>
-                    </div>
-                    <div class="quiz-option" onclick="answer(4, 'urgency_level', 'exploring')">
+                    <div class="quiz-option" onclick="answer(2, 'urgency', 'exploring')">
                         <span class="quiz-option-letter">C</span>
                         <span>Just exploring options</span>
                     </div>
-                    <div class="quiz-option" onclick="answer(4, 'urgency_level', 'no_timeline')">
-                        <span class="quiz-option-letter">D</span>
-                        <span>No clear timeline yet</span>
-                    </div>
                 </div>
             </div>
             
-            <!-- Step 5: Contact -->
-            <div class="quiz-step" data-step="5">
-                <h2 class="quiz-question">Almost done! Where can we reach you?</h2>
+            <!-- Step 3: Contact -->
+            <div class="quiz-step" data-step="3">
+                <h2 class="quiz-question">Where can we reach you?</h2>
                 <form class="quiz-form" id="quizForm" onsubmit="submitQuiz(event)">
                     <div class="quiz-input">
                         <label>Name *</label>
@@ -141,15 +81,11 @@
                         <input type="email" id="qEmail" placeholder="you@company.com" required>
                     </div>
                     <div class="quiz-input">
-                        <label>Company</label>
-                        <input type="text" id="qCompany" placeholder="Company name">
-                    </div>
-                    <div class="quiz-input">
                         <label>Phone</label>
                         <input type="tel" id="qPhone" placeholder="+31 6 12345678">
                     </div>
                     <button type="submit" class="quiz-submit" id="quizSubmit">
-                        See what AI can do for us →
+                        Get Free Consultation →
                     </button>
                 </form>
             </div>
@@ -157,9 +93,9 @@
             <!-- Success -->
             <div class="quiz-step" data-step="success">
                 <div class="quiz-success">
-                    <div class="quiz-success-icon">🎉</div>
+                    <div class="quiz-success-icon">✓</div>
                     <h2>Thank you!</h2>
-                    <p>We'll reach out within 24 hours with personalized insights.</p>
+                    <p>We'll be in touch within 24 hours.</p>
                 </div>
             </div>
         </div>
@@ -192,7 +128,7 @@
         event.currentTarget.classList.add('selected');
 
         // Next step after delay
-        setTimeout(() => goToStep(step + 1), 350);
+        setTimeout(() => goToStep(step + 1), 300);
     };
 
     // Go to step
@@ -226,22 +162,16 @@
 
         answers.name = document.getElementById('qName').value;
         answers.email = document.getElementById('qEmail').value;
-        answers.company = document.getElementById('qCompany').value || '';
         answers.phone = document.getElementById('qPhone').value || '';
 
         const payload = {
-            // Map to existing n8n form fields
             fullName: answers.name,
             emailAddress: answers.email,
-            companyName: answers.company,
             phoneNumber: answers.phone,
-            companySize: '',
-            helpWith: `LinkedIn: ${answers.linkedin_status}, AI: ${answers.ai_maturity_level}, Goal: ${answers.primary_goal}, Timeline: ${answers.urgency_level}`,
-            // Quiz-specific fields
-            linkedin_status: answers.linkedin_status,
-            ai_maturity_level: answers.ai_maturity_level,
-            primary_goal: answers.primary_goal,
-            urgency_level: answers.urgency_level,
+            companyName: '',
+            helpWith: `Interest: ${answers.ai_interest}, Timeline: ${answers.urgency}`,
+            ai_interest: answers.ai_interest,
+            urgency: answers.urgency,
             source: 'website_quiz',
             completed_at: new Date().toISOString()
         };
@@ -262,13 +192,12 @@
         // Close after 3s
         setTimeout(() => {
             closeQuiz();
-            // Reset
             document.getElementById('quizForm').reset();
             document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
             goToStep(1);
             btn.disabled = false;
-            btn.textContent = 'See what AI can do for us →';
-        }, 3500);
+            btn.textContent = 'Get Free Consultation →';
+        }, 3000);
     };
 
     // ESC to close
