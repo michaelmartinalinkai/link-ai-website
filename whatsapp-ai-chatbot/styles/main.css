@@ -1457,3 +1457,340 @@ h1:hover {
         font-size: 0.8rem;
     }
 }
+
+/* ===========================================
+   PROBLEM SECTION V2 - REDESIGNED WITH VIDEO BG
+   =========================================== */
+
+/* Green text accent */
+.text-wa-green {
+    color: var(--wa-primary-dark);
+}
+
+/* Section Container */
+.problem-section-v2 {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+    min-height: 700px;
+}
+
+/* Video Background Layer (z-index: 0) */
+.problem-video-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.problem-video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay A: White wash (z-index: 1) */
+.problem-overlay-white {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.88) 0%,
+        rgba(255,255,255,0.72) 40%,
+        rgba(255,255,255,0.62) 100%
+    );
+    pointer-events: none;
+}
+
+/* Overlay B: Green tint (z-index: 2) */
+.problem-overlay-green {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: radial-gradient(
+        circle at 70% 30%,
+        rgba(52,199,89,0.18),
+        rgba(52,199,89,0.00) 55%
+    );
+    pointer-events: none;
+}
+
+/* Overlay C: WhatsApp pattern (z-index: 3) */
+.problem-overlay-pattern {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    opacity: 0.12;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath fill='%2325D366' fill-opacity='0.4' d='M30 5c-13.807 0-25 11.193-25 25s11.193 25 25 25 25-11.193 25-25-11.193-25-25-25zm0 45c-11.028 0-20-8.972-20-20s8.972-20 20-20 20 8.972 20 20-8.972 20-20 20z'/%3E%3C/svg%3E");
+    background-size: 120px 120px;
+}
+
+/* Overlay D: Grain (z-index: 4) */
+.problem-overlay-grain {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    opacity: 0.08;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Content Layer (z-index: 10+) */
+.problem-content-layer {
+    position: relative;
+    z-index: 10;
+}
+
+/* Two Column Grid */
+.problem-grid-v2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 48px;
+}
+
+/* Glass Panel Styling */
+.problem-glass-panel {
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 18px 60px rgba(0,0,0,0.08);
+}
+
+/* Micro Label */
+.glass-micro-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(15,23,42,0.65);
+    margin-bottom: 12px;
+}
+
+/* Punch Line */
+.glass-punch-line {
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: rgba(15,23,42,0.9);
+    margin-bottom: 24px;
+}
+
+.glass-punch-line strong {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+/* Glass Rows Container */
+.glass-rows {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Individual Row */
+.glass-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.glass-row:last-child {
+    border-bottom: none;
+}
+
+/* Row Icon */
+.glass-row-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border: 1.5px solid rgba(0,0,0,0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.6);
+}
+
+.glass-row-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: #128C7E;
+}
+
+/* Row Content */
+.glass-row-content {
+    flex: 1;
+}
+
+.glass-row-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(15,23,42,0.9);
+    margin-bottom: 2px;
+}
+
+.glass-row-desc {
+    font-size: 0.85rem;
+    color: rgba(15,23,42,0.65);
+}
+
+/* Row Chip */
+.glass-row-chip {
+    background: rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.08);
+    color: rgba(15,23,42,0.65);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+/* Reassurance */
+.glass-reassurance {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    font-size: 0.9rem;
+    color: rgba(15,23,42,0.75);
+    line-height: 1.5;
+}
+
+.glass-reassurance strong {
+    color: #128C7E;
+    font-weight: 600;
+}
+
+/* Phone Wrapper - TRANSPARENT */
+.problem-phone-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Transparent Phone Mockup */
+.chat-phone-transparent {
+    background: transparent !important;
+    box-shadow: 0 28px 80px rgba(0,0,0,0.18);
+}
+
+/* Chat Header Extended with Status Pills */
+.chat-status-pills {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.9);
+}
+
+.status-pill svg {
+    width: 10px;
+    height: 10px;
+}
+
+.status-active svg {
+    fill: #4ADE80;
+}
+
+.status-speed svg {
+    stroke: rgba(255,255,255,0.8);
+}
+
+/* Chat Input Placeholder */
+.chat-input-placeholder {
+    font-size: 0.85rem;
+    color: #999;
+    padding: 12px 16px;
+    display: block;
+}
+
+.chat-input-bar {
+    background: #f0f0f0;
+    border-radius: 0 0 22px 22px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+/* CTA Pill Button */
+.problem-cta-pill {
+    margin-top: 24px;
+    animation: none !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .problem-section-v2 {
+        padding: 60px 0;
+        min-height: auto;
+    }
+
+    .problem-grid-v2 {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .problem-glass-panel {
+        order: 1;
+    }
+
+    .problem-phone-wrapper {
+        order: 2;
+    }
+
+    .glass-punch-line {
+        font-size: 1.15rem;
+    }
+
+    .chat-status-pills {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .problem-glass-panel {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .glass-row {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .glass-row-chip {
+        margin-left: auto;
+    }
+
+    .glass-punch-line {
+        font-size: 1.05rem;
+    }
+
+    .glass-row-title {
+        font-size: 0.9rem;
+    }
+
+    .glass-row-desc {
+        font-size: 0.8rem;
+    }
+}

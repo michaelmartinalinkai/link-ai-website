@@ -197,133 +197,163 @@
         </div>
     </section>
 
-    <!-- SECTION 2: PROBLEM -->
-    <section class="problem-section section-padding bg-light">
-        <div class="container">
-            <div class="section-header text-center" data-scroll="fade-up">
-                <h2>WhatsApp is je drukste kanaal —<br>en je grootste knelpunt.</h2>
-            </div>
+    <!-- SECTION 2: PROBLEM (REDESIGNED WITH VIDEO BG) -->
+    <section class="problem-section-v2" id="problemSection">
+        <!-- Video Background Layer (z-index: 0) -->
+        <div class="problem-video-bg">
+            <video autoplay muted loop playsinline preload="metadata">
+                <source src="assets/videos/hero_bg.mp4" type="video/mp4">
+            </video>
+        </div>
 
-            <div class="problem-grid">
-                <!-- New Layout: Floating Bubbles & Cards -->
-                <div class="problem-content-wrapper">
-                    <!-- Floating Bubbles -->
-                    <div class="floating-bubbles">
-                        <div class="float-bubble">
-                            <div class="avatar-sm">
-                                <svg viewBox="0 0 24 24" fill="#ccc" class="avatar-icon">
-                                    <path
-                                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                                </svg>
-                            </div>
-                            <div class="bubble-text">Kunnen jullie vanavond nog reageren?</div>
-                        </div>
-                        <div class="float-bubble bubble-delayed">
-                            <div class="avatar-sm">
-                                <svg viewBox="0 0 24 24" fill="#ccc" class="avatar-icon">
-                                    <path
-                                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                                </svg>
-                            </div>
-                            <div class="bubble-text">Wat kost een intake?</div>
-                        </div>
-                    </div>
+        <!-- Overlay A: White wash (z-index: 1) -->
+        <div class="problem-overlay-white"></div>
 
-                    <!-- Warning Label -->
-                    <div class="warning-label">
-                        <span class="warning-icon">⚠️</span>
-                        <span>Geen reactie = <strong>gemiste lead</strong></span>
-                    </div>
+        <!-- Overlay B: Green tint (z-index: 2) -->
+        <div class="problem-overlay-green"></div>
 
-                    <!-- Problem Cards Stack -->
-                    <div class="problem-cards-stack">
-                        <!-- Card 1 -->
-                        <div class="problem-card">
-                            <div class="problem-icon-box icon-clock">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                            </div>
-                            <div class="problem-text">
-                                <h4>Buiten openingstijden</h4>
-                                <p>Klanten appen wanneer je team offline is</p>
-                            </div>
-                        </div>
+        <!-- Overlay C: WhatsApp pattern (z-index: 3) -->
+        <div class="problem-overlay-pattern"></div>
 
-                        <!-- Card 2 -->
-                        <div class="problem-card">
-                            <div class="problem-icon-box icon-hourglass">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 22h14"></path>
-                                    <path d="M5 2h14"></path>
-                                    <path
-                                        d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22">
-                                    </path>
-                                    <path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div class="problem-text">
-                                <h4>Trage reacties</h4>
-                                <p>Antwoorden komen te laat of helemaal niet</p>
-                            </div>
-                        </div>
+        <!-- Overlay D: Grain (z-index: 4) -->
+        <div class="problem-overlay-grain"></div>
 
-                        <!-- Card 3 -->
-                        <div class="problem-card">
-                            <div class="problem-icon-box icon-refresh">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M23 4v6h-6"></path>
-                                    <path d="M1 20v-6h6"></path>
-                                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div class="problem-text">
-                                <h4>Herhaalvragen</h4>
-                                <p>Elke dag dezelfde WhatsApp-gesprekken</p>
-                            </div>
-                        </div>
-
-                        <!-- Card 4 -->
-                        <div class="problem-card">
-                            <div class="problem-icon-box icon-chat">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                                </svg>
-                            </div>
-                            <div class="problem-text">
-                                <h4>Tijdverspilling</h4>
-                                <p>Personeel zit vast in chats</p>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Content Layer (z-index: 10+) -->
+        <div class="problem-content-layer">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header text-center" data-scroll="fade-up">
+                    <h2><span class="text-wa-green">WhatsApp</span> is je drukste kanaal —<br>en je <span class="text-wa-green">grootste</span> knelpunt.</h2>
                 </div>
 
-                <div class="problem-visual relative">
-                    <!-- Animated WhatsApp Chat Mockup (Same as Hero) -->
-                    <div class="chat-phone-mockup chat-phone-sm">
-                        <div class="chat-header">
-                            <div class="avatar-circle">
-                                <img src="assets/images/profile_lady.png" alt="Profile">
+                <!-- Two Column Grid -->
+                <div class="problem-grid-v2">
+                    <!-- LEFT: Glass Panel -->
+                    <div class="problem-glass-panel" data-scroll="fade-up">
+                        <!-- Micro Label -->
+                        <div class="glass-micro-label">WAAROM DIT JE OMZET KOST</div>
+
+                        <!-- Punch Line -->
+                        <div class="glass-punch-line">
+                            Als je niet binnen minuten reageert,<br>
+                            pakt iemand anders de <strong>lead</strong>.
+                        </div>
+
+                        <!-- 4 Rows -->
+                        <div class="glass-rows">
+                            <!-- Row 1 -->
+                            <div class="glass-row">
+                                <div class="glass-row-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="glass-row-content">
+                                    <div class="glass-row-title">Buiten openingstijden</div>
+                                    <div class="glass-row-desc">Klanten appen wanneer je team offline is.</div>
+                                </div>
+                                <div class="glass-row-chip">24/7 druk</div>
                             </div>
-                            <div class="chat-info">
-                                <span class="chat-name">My Business</span>
-                                <span class="chat-status">Online</span>
+
+                            <!-- Row 2 -->
+                            <div class="glass-row">
+                                <div class="glass-row-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 22h14"></path>
+                                        <path d="M5 2h14"></path>
+                                        <path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"></path>
+                                        <path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"></path>
+                                    </svg>
+                                </div>
+                                <div class="glass-row-content">
+                                    <div class="glass-row-title">Trage reacties</div>
+                                    <div class="glass-row-desc">Antwoorden komen te laat of helemaal niet.</div>
+                                </div>
+                                <div class="glass-row-chip">Lead weg</div>
+                            </div>
+
+                            <!-- Row 3 -->
+                            <div class="glass-row">
+                                <div class="glass-row-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M23 4v6h-6"></path>
+                                        <path d="M1 20v-6h6"></path>
+                                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                                    </svg>
+                                </div>
+                                <div class="glass-row-content">
+                                    <div class="glass-row-title">Herhaalvragen</div>
+                                    <div class="glass-row-desc">Elke dag dezelfde WhatsApp-gesprekken.</div>
+                                </div>
+                                <div class="glass-row-chip">Frictie</div>
+                            </div>
+
+                            <!-- Row 4 -->
+                            <div class="glass-row">
+                                <div class="glass-row-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </div>
+                                <div class="glass-row-content">
+                                    <div class="glass-row-title">Tijdverspilling</div>
+                                    <div class="glass-row-desc">Personeel zit vast in chats i.p.v. werk.</div>
+                                </div>
+                                <div class="glass-row-chip">Kosten</div>
                             </div>
                         </div>
-                        <div class="chat-body" id="problemChatBody">
-                            <!-- JS will inject messages here -->
+
+                        <!-- Divider + Reassurance -->
+                        <div class="glass-reassurance">
+                            <strong>Oplossing:</strong> de WhatsApp Assist reageert direct,<br>
+                            stelt intakevragen en <strong>plant afspraken</strong>.
                         </div>
-                        <div class="chat-input-bar"></div>
+                    </div>
+
+                    <!-- RIGHT: Phone Mockup (Transparent Wrapper) -->
+                    <div class="problem-phone-wrapper" data-scroll="fade-up">
+                        <div class="chat-phone-mockup chat-phone-transparent">
+                            <div class="chat-header">
+                                <div class="avatar-circle">
+                                    <img src="assets/images/profile_lady.png" alt="Profile">
+                                </div>
+                                <div class="chat-info">
+                                    <span class="chat-name">My Business</span>
+                                    <span class="chat-status">Online</span>
+                                </div>
+                                <!-- Status pills -->
+                                <div class="chat-status-pills">
+                                    <span class="status-pill status-active">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><circle cx="12" cy="12" r="5"/></svg>
+                                        24/7 actief
+                                    </span>
+                                    <span class="status-pill status-speed">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                        </svg>
+                                        Avg reactie: 8 sec.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="chat-body" id="problemChatBody">
+                                <!-- JS will inject messages here -->
+                            </div>
+                            <div class="chat-input-bar">
+                                <span class="chat-input-placeholder">Type a message</span>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp CTA Button -->
+                        <a href="https://wa.me/31686447995" class="problem-cta-pill btn btn-primary btn-whatsapp-premium">
+                            <svg class="whatsapp-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            <span>Start WhatsApp Assist</span>
+                        </a>
                     </div>
                 </div>
-            </div>
-
-            <div class="confrontation-box text-center margin-top-xl" data-scroll="scale-up">
-                <h3>Klanten wachten minuten. <span class="text-error">Geen dagen.</span></h3>
-                <a href="https://wa.me/31686447995" class="link-cta">Zie hoeveel chats je mist &rarr;</a>
             </div>
         </div>
     </section>
