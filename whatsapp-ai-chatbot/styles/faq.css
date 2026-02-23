@@ -1,0 +1,304 @@
+/* FAQ Section Variables */
+:root {
+    --faq-bg-gradient: linear-gradient(180deg, #FDFBF7 0%, #FFFFFF 100%);
+    --faq-container-bg: #FFFFFF;
+    --faq-card-bg: #F9FAFB;
+    --faq-border-light: #E8ECF2;
+    --faq-text-main: #111827;
+    --faq-text-sub: #6B7280;
+    --faq-green: #22C55E;
+    --faq-green-dark: #16A34A;
+    --faq-shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+    --faq-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+}
+
+/* 1. Background & Section Layout */
+.faq-section {
+    position: relative;
+    padding: 120px 0;
+    background: var(--faq-bg-gradient);
+    overflow: hidden;
+}
+
+/* Background Blobs */
+.faq-bg-blobs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.faq-bg-blobs::before,
+.faq-bg-blobs::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+}
+
+.faq-bg-blobs::before {
+    width: 600px;
+    height: 600px;
+    background: #DCFCE7;
+    /* Light green */
+    top: -100px;
+    left: -200px;
+}
+
+.faq-bg-blobs::after {
+    width: 500px;
+    height: 500px;
+    background: #DBEAFE;
+    /* Light blue */
+    bottom: -100px;
+    right: -100px;
+}
+
+/* 2. Container */
+.faq-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    background: var(--faq-container-bg);
+    border-radius: 28px;
+    border: 1px solid var(--faq-border-light);
+    box-shadow: 0 20px 40px -4px rgba(0, 0, 0, 0.05);
+    /* Very soft shadow */
+}
+
+/* 3. Header */
+.faq-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.faq-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--faq-text-main);
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.faq-header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    color: var(--faq-text-sub);
+    font-weight: 400;
+}
+
+/* 4. FAQ Grid */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+/* 5. FAQ Card */
+.faq-item {
+    background: var(--faq-card-bg);
+    border: 1px solid var(--faq-border-light);
+    border-radius: 18px;
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--faq-shadow-soft);
+}
+
+.faq-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--faq-shadow-hover);
+    border-color: rgba(34, 197, 94, 0.2);
+    /* Subtle green hint */
+}
+
+/* Card Content Header (Icon + Question) */
+.faq-question-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+/* Icon */
+.faq-icon-wrapper {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--faq-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+}
+
+.faq-icon-wrapper svg {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2.5;
+}
+
+.faq-item.active .faq-icon-wrapper {
+    transform: rotate(45deg);
+    /* Rotates + to x, or just use rotation logic */
+    background: var(--faq-green);
+    color: white;
+}
+
+/* Text Content */
+.faq-content {
+    flex: 1;
+}
+
+.faq-question {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    /* 16px */
+    color: var(--faq-text-main);
+    margin-bottom: 4px;
+    line-height: 1.5;
+}
+
+/* Preview Text (Always visible initially, hidden when open? Or stays description?) 
+   Design requested: "Short answer preview (max 2 lines)" -> "Full answer expands"
+*/
+.faq-preview {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    /* 15px */
+    color: var(--faq-text-sub);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: opacity 0.2s ease;
+}
+
+.faq-item.active .faq-preview {
+    display: none;
+    /* Hide preview when full answer shows? Or just let full answer take over */
+}
+
+/* Full Answer (Hidden by default) */
+.faq-full-answer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    color: var(--faq-text-sub);
+    line-height: 1.6;
+    margin-top: 0;
+    /* Animated */
+}
+
+.faq-item.active .faq-full-answer {
+    max-height: 200px;
+    /* Arbitrary large enough height */
+    opacity: 1;
+    margin-top: 8px;
+}
+
+/* 6. CTA Block */
+.faq-cta {
+    background: linear-gradient(135deg, var(--faq-green) 0%, var(--faq-green-dark) 100%);
+    border-radius: 22px;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 20px 25px -5px rgba(22, 163, 74, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.faq-cta-content h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+
+.faq-cta-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    opacity: 0.95;
+    margin: 0;
+    max-width: 600px;
+}
+
+.faq-btn {
+    background: white;
+    color: var(--faq-green-dark);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px 28px;
+    border-radius: 16px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Micro Interactions */
+/* Animation for entering viewport handled by opacity/transform classes triggering via JS Observer */
+.faq-animate-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.faq-animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 60px 0;
+    }
+
+    .faq-container {
+        padding: 40px 20px;
+        border-radius: 20px;
+        margin: 0 16px;
+        /* Edges spacing */
+    }
+
+    .faq-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-cta {
+        padding: 32px 24px;
+    }
+
+    .faq-cta-content h3 {
+        font-size: 1.5rem;
+    }
+}

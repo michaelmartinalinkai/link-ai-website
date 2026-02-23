@@ -1494,12 +1494,10 @@ h1:hover {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(
-        135deg,
-        rgba(255,255,255,0.88) 0%,
-        rgba(255,255,255,0.72) 40%,
-        rgba(255,255,255,0.62) 100%
-    );
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.88) 0%,
+            rgba(255, 255, 255, 0.72) 40%,
+            rgba(255, 255, 255, 0.62) 100%);
     pointer-events: none;
 }
 
@@ -1508,11 +1506,9 @@ h1:hover {
     position: absolute;
     inset: 0;
     z-index: 2;
-    background: radial-gradient(
-        circle at 70% 30%,
-        rgba(52,199,89,0.18),
-        rgba(52,199,89,0.00) 55%
-    );
+    background: radial-gradient(circle at 70% 30%,
+            rgba(52, 199, 89, 0.18),
+            rgba(52, 199, 89, 0.00) 55%);
     pointer-events: none;
 }
 
@@ -1555,13 +1551,13 @@ h1:hover {
 
 /* Glass Panel Styling */
 .problem-glass-panel {
-    background: rgba(255,255,255,0.55);
-    border: 1px solid rgba(255,255,255,0.75);
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-radius: 24px;
     padding: 32px;
-    box-shadow: 0 18px 60px rgba(0,0,0,0.08);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.08);
 }
 
 /* Micro Label */
@@ -1570,7 +1566,7 @@ h1:hover {
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(15,23,42,0.65);
+    color: rgba(15, 23, 42, 0.65);
     margin-bottom: 12px;
 }
 
@@ -1579,7 +1575,7 @@ h1:hover {
     font-size: 1.35rem;
     font-weight: 500;
     line-height: 1.4;
-    color: rgba(15,23,42,0.9);
+    color: rgba(15, 23, 42, 0.9);
     margin-bottom: 24px;
 }
 
@@ -1600,7 +1596,7 @@ h1:hover {
     align-items: center;
     gap: 16px;
     padding: 16px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .glass-row:last-child {
@@ -1612,12 +1608,12 @@ h1:hover {
     width: 40px;
     height: 40px;
     min-width: 40px;
-    border: 1.5px solid rgba(0,0,0,0.12);
+    border: 1.5px solid rgba(0, 0, 0, 0.12);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255,255,255,0.6);
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .glass-row-icon svg {
@@ -1634,20 +1630,20 @@ h1:hover {
 .glass-row-title {
     font-size: 0.95rem;
     font-weight: 600;
-    color: rgba(15,23,42,0.9);
+    color: rgba(15, 23, 42, 0.9);
     margin-bottom: 2px;
 }
 
 .glass-row-desc {
     font-size: 0.85rem;
-    color: rgba(15,23,42,0.65);
+    color: rgba(15, 23, 42, 0.65);
 }
 
 /* Row Chip */
 .glass-row-chip {
-    background: rgba(0,0,0,0.06);
-    border: 1px solid rgba(0,0,0,0.08);
-    color: rgba(15,23,42,0.65);
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: rgba(15, 23, 42, 0.65);
     font-size: 0.75rem;
     font-weight: 600;
     padding: 6px 12px;
@@ -1659,9 +1655,9 @@ h1:hover {
 .glass-reassurance {
     margin-top: 20px;
     padding-top: 16px;
-    border-top: 1px solid rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
     font-size: 0.9rem;
-    color: rgba(15,23,42,0.75);
+    color: rgba(15, 23, 42, 0.75);
     line-height: 1.5;
 }
 
@@ -1681,7 +1677,7 @@ h1:hover {
 /* Transparent Phone Mockup */
 .chat-phone-transparent {
     background: transparent !important;
-    box-shadow: 0 28px 80px rgba(0,0,0,0.18);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.18);
 }
 
 /* Chat Header Extended with Status Pills */
@@ -1699,8 +1695,8 @@ h1:hover {
     font-weight: 600;
     padding: 4px 8px;
     border-radius: 12px;
-    background: rgba(255,255,255,0.2);
-    color: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .status-pill svg {
@@ -1713,7 +1709,7 @@ h1:hover {
 }
 
 .status-speed svg {
-    stroke: rgba(255,255,255,0.8);
+    stroke: rgba(255, 255, 255, 0.8);
 }
 
 /* Chat Input Placeholder */
@@ -1793,4 +1789,24 @@ h1:hover {
     .glass-row-desc {
         font-size: 0.8rem;
     }
+}
+
+/* --- Social Buttons --- */
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover .social-icon {
+    color: #25D366;
+    transform: translateY(-2px);
 }

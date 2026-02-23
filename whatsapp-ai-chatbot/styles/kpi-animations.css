@@ -1,0 +1,166 @@
+/* KPI Animations CSS */
+
+/* --- Container & Layout --- */
+.kpi-dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 10px;
+    width: 100%;
+}
+
+.kpi-main-card {
+    background: linear-gradient(135deg, #1f1f1f 0%, #2a2a2a 100%);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Revenue Value */
+.kpi-revenue-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    text-shadow: 0 0 20px rgba(255, 77, 77, 0.3);
+    transition: text-shadow 0.3s ease;
+}
+
+.kpi-revenue-sub {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* Pulse Animation Class (Applied via JS) */
+.kpi-pulse-red {
+    animation: textGlowPulse 1.5s ease-out;
+}
+
+@keyframes textGlowPulse {
+    0% {
+        text-shadow: 0 0 20px rgba(255, 77, 77, 0.3);
+        transform: scale(1);
+    }
+
+    50% {
+        text-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
+        transform: scale(1.02);
+    }
+
+    100% {
+        text-shadow: 0 0 20px rgba(255, 77, 77, 0.3);
+        transform: scale(1);
+    }
+}
+
+/* --- Metrics & Progress Bars --- */
+.kpi-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 10px 0;
+}
+
+.kpi-metric-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.kpi-metric-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.kpi-metric-percent {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #333;
+    /* Dark text for contrast against light BG */
+    font-family: 'Inter', sans-serif;
+}
+
+.kpi-metric-label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Progress Track */
+.kpi-progress-track {
+    background: rgba(0, 0, 0, 0.05);
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* Progress Fill */
+.kpi-progress-fill {
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #ff8a8a 0%, #ff4d4d 50%, #ff0000 100%);
+    width: 0%;
+    /* Starts at 0 */
+    position: relative;
+    transition: width 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+    /* Smooth ease-out */
+}
+
+/* Shimmer Effect on Bar */
+.kpi-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+    transform: translateX(-100%);
+    animation: shimmerSlide 2s infinite;
+}
+
+@keyframes shimmerSlide {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* --- Continuous Pulse for Bars --- */
+.bar-pulse {
+    animation: barOpacityPulse 3s infinite ease-in-out;
+}
+
+@keyframes barOpacityPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.85;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .kpi-revenue-value {
+        font-size: 2.5rem;
+    }
+}

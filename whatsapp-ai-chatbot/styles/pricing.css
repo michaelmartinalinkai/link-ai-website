@@ -1,0 +1,293 @@
+/* =========================================
+   PRICING SECTION STYLES
+   ========================================= */
+
+.pricing-section {
+    padding: 80px 0;
+    background-color: #F0F2F5;
+    /* Neutral background */
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+    align-items: center;
+    /* Align cards vertically */
+}
+
+/* --- CARD BASE --- */
+.pricing-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 32px 24px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* --- TIERS SPECIFIC --- */
+
+/* Basic (Neutral) */
+.card-basic {
+    border-top: 4px solid #999;
+}
+
+/* Growth (Gold/Yellow) - Decoy/Most Popular */
+.card-growth {
+    border: 2px solid #FFD700;
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+    transform: scale(1.05);
+    /* Slightly larger */
+    z-index: 2;
+}
+
+.card-growth:hover {
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 25px 50px rgba(255, 215, 0, 0.2);
+}
+
+/* Pro (Purple) - Anchor/Best Value */
+.card-pro {
+    border: 2px solid #8A2BE2;
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.15);
+}
+
+/* --- BADGES --- */
+.card-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.badge-growth {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #000;
+}
+
+.badge-pro {
+    background: linear-gradient(135deg, #8A2BE2 0%, #4B0082 100%);
+}
+
+/* --- HEADER IN CARD --- */
+.pricing-header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #eee;
+}
+
+.plan-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.plan-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.plan-period {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #888;
+}
+
+.plan-setup {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.setup-strike {
+    text-decoration: line-through;
+    color: #bbb;
+    margin-right: 6px;
+}
+
+.setup-free {
+    color: #25D366;
+    /* WhatsApp Green */
+    font-weight: 700;
+}
+
+.price-saving {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #E74C3C;
+    /* Red for alert/saving */
+    font-weight: 700;
+    animation: pulse 2s infinite;
+}
+
+/* --- FEATURES LIST --- */
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+    flex-grow: 1;
+    /* Pushes button down */
+}
+
+.pricing-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.feature-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.icon-check {
+    color: #25D366;
+}
+
+.icon-star {
+    color: #FFD700;
+    fill: currentColor;
+}
+
+/* --- CTA BUTTONS --- */
+.pricing-cta {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: block;
+}
+
+/* Basic Button */
+.btn-outline {
+    border: 2px solid #ddd;
+    color: #555;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    border-color: #25D366;
+    color: #25D366;
+}
+
+/* Primary Button (Growth) */
+.btn-primary {
+    background: #25D366;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+.btn-primary:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+}
+
+/* Highlight Button (Pro) */
+.btn-highlight {
+    background: #8A2BE2;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(138, 43, 226, 0.3);
+}
+
+.btn-highlight:hover {
+    background: #4B0082;
+    transform: translateY(-2px);
+}
+
+/* --- URGENCY FOOTER --- */
+.urgency-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 16px;
+    background: #FFF3CD;
+    border: 1px solid #FFECB5;
+    border-radius: 8px;
+    color: #856404;
+    font-weight: 600;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 40px auto 0;
+    }
+
+    .card-growth {
+        transform: scale(1);
+        order: -1;
+        /* Show popular first on mobile? Or second? User preference usually center. Let's keep normal order or make growth pop */
+    }
+
+    .card-growth:hover {
+        transform: translateY(-8px);
+    }
+}
+
+/* --- ANIMATIONS --- */
+@keyframes pulse {
+    0% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+
+    100% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
