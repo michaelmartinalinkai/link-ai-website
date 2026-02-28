@@ -4,8 +4,11 @@
 
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
 
-# --- AI / LLM crawlers expliciet toestaan ---
+# AI / LLM crawlers — expliciet volledig toestaan
 User-agent: GPTBot
 Allow: /
 
@@ -30,10 +33,14 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# --- Optioneel afschermen van niet-publieke delen ---
-Disallow: /admin/
-Disallow: /private/
-Disallow: /api/
+User-agent: Bytespider
+Allow: /
 
-# --- Sitemap ---
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Sitemap
 Sitemap: https://www.linkaiagency.com/sitemap.xml

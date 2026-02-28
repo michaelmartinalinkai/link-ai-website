@@ -1,31 +1,79 @@
-# llms.txt - About Link AI Agency
+# llms.txt — Link AI Agency
 
-# Site Information
-> Site Name: Link AI Agency
-> URL: https://www.linkaiagency.com
-> Description: Intelligent systems built for real businesses. AI chatbots, voice agents, and automations that replace manual work.
+> url: https://linkaiagency.com
+> name: Link AI Agency
+> description: AI automation agency gevestigd in Den Haag, Nederland. We helpen MKB-bedrijven handmatig werk te vervangen met AI-agents, chatbots, voice assistants en workflow automations.
+> location: Den Haag, Nederland
+> languages: Nederlands, English
+> contact_email: info@linkaiagency.com
+> contact_phone: +31 6 86447995
+> contact_whatsapp: https://wa.me/31686447995
 
-# What We Do
-Link AI Agency is an AI automation agency. We help businesses to replace manual repetitive work with specialized AI agents, chatbots, and voice assistants.
+## Wat we doen
 
-# Main Features
-- **AI Agents**: 24/7 Intelligent Support
-- **Voice Agents**: Human-like Voice AI for inbound/outbound calls
-- **Automation**: Custom workflows & CRM integrations
-- **AI Visuals**: High-end creative output for marketing
-- **AI Avatars**: AI Personas & Presenters
+Link AI Agency bouwt intelligente systemen voor echte bedrijven. We ontwerpen, bouwen en beheren AI-oplossingen die klantenservice, sales, marketing en operationele processen automatiseren. Onze klanten besparen tientallen uren per week en verhogen hun omzet met 24/7 beschikbare AI-systemen.
 
-# Key Pages
-- Homepage: https://www.linkaiagency.com/
-- AI Chat Agents: https://www.linkaiagency.com/services/chat-ai.html
-- Voice AI: https://www.linkaiagency.com/services/voice-ai.html
-- Automation Workflows: https://www.linkaiagency.com/services/workflow.html
-- AI Visuals: https://www.linkaiagency.com/services/visual-media.html
-- Contact: https://www.linkaiagency.com/#contact
+## Diensten
 
-# Target Audience
-We serve businesses ranging from local service companies to fast-growing teams who need to automate support, sales, and operational workflows.
+### AI Agents
+24/7 intelligente klantenservice agents die vragen beantwoorden, afspraken inplannen, leads kwalificeren en support tickets afhandelen. Getraind op jouw bedrijfsdata, tone of voice en processen.
 
-# Contact
-- Email: info@linkaiagency.com
-- Support: https://www.linkaiagency.com
+### Chatbots
+Geautomatiseerde gesprekken via WhatsApp, webchat en social media. Van simpele FAQ-bots tot geavanceerde conversational AI die orders verwerkt en klantdata verzamelt.
+
+### Voice Agents
+Menselijke AI-stemassistenten voor inbound en outbound telefoongesprekken. Ideaal voor telefonische klantenservice, afspraakbevestigingen, herinneringen en sales calls.
+
+### Automation Workflows
+Custom workflows die CRM-systemen, kalenders, WhatsApp, email en andere tools koppelen tot een naadloos systeem. Inclusief lead nurturing, follow-up sequences en rapportages.
+
+### AI Visuals
+High-end AI-gegenereerde visuele content voor marketing: social media visuals, product foto's, advertentie-afbeeldingen en branded content.
+
+### AI Avatars
+Digitale AI-presentatoren en persona's voor video content, trainingsmaterialen en interactieve klantervaringen.
+
+## Werkwijze (4 fases)
+
+1. **Discovery & Direction** — We analyseren je huidige processen, doelen en knelpunten.
+2. **AI Foundation** — We definiëren de agent-logica, tone of voice, kennisbank en gedrag.
+3. **System Integration** — We koppelen CRM, kalenders, WhatsApp en workflows tot één systeem.
+4. **Optimization & Growth** — Continue monitoring, verbetering en uitbreiding van het systeem.
+
+## Doelgroep
+
+- MKB-bedrijven die klantenservice willen automatiseren
+- Dienstverleners (beauty, fitness, vastgoed, automotive, horeca)
+- Groeiende teams die sales en lead generation willen opschalen
+- Bedrijven die 24/7 bereikbaar willen zijn zonder extra personeel
+
+## Veelgestelde Vragen
+
+**Wat kost een AI chatbot of voice agent?**
+De kosten variëren op basis van complexiteit en integraties. We bieden pakketten met eenmalige setup en maandelijks beheer. Boek een gratis demo van 15 minuten voor een offerte op maat.
+
+**Hoe lang duurt implementatie?**
+Een standaard chatbot of voice agent is binnen 1-2 weken live. Complexere systemen met CRM-koppelingen en custom workflows duren 2-4 weken.
+
+**Voor welke bedrijven is dit geschikt?**
+Elk MKB-bedrijf dat tijd wil besparen op klantenservice, leadgeneratie, planning of administratie. Van lokale dienstverleners tot snelgroeiende teams.
+
+## Pagina's
+
+- Homepage: https://linkaiagency.com/
+- AI Chat Agents: https://linkaiagency.com/services/chat-ai.html
+- Voice AI: https://linkaiagency.com/services/voice-ai.html
+- Automation Workflows: https://linkaiagency.com/services/workflow.html
+- AI Visuals: https://linkaiagency.com/services/visual-media.html
+- AI Avatars: https://linkaiagency.com/services/ai-avatars.html
+- Contact: https://linkaiagency.com/#contact
+
+## Social Media
+
+- Instagram: https://www.instagram.com/ai_visionamsterdam
+- TikTok: https://www.tiktok.com/@aivisionamsterdam
+- LinkedIn: https://www.linkedin.com/in/mike-martina-310942372/
+
+## Trusted By
+
+Meer dan 20 bedrijven vertrouwen op Link AI Agency, waaronder Liquid Beauty, November, The Gym Amsterdam, Bali Luxe Concierge en Hi-Tec.
