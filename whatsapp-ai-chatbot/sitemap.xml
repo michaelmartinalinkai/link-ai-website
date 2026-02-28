@@ -3,8 +3,52 @@
   <!-- WhatsApp AI Chatbot Landing Page -->
   <url>
     <loc>https://linkaiagency.com/whatsapp-ai-chatbot/</loc>
-    <lastmod>2026-01-16</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Blog Index -->
+  <url>
+    <loc>https://linkaiagency.com/whatsapp-ai-chatbot/blog/</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://linkaiagency.com/whatsapp-ai-chatbot/blog/whatsapp-business-automation.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://linkaiagency.com/whatsapp-ai-chatbot/blog/klanten-verliezen-door-trage-reactie.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://linkaiagency.com/whatsapp-ai-chatbot/blog/whatsapp-chatbot-salon-kapper.html</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://linkaiagency.com/whatsapp-ai-chatbot/blog/ai-chatbot-vs-live-chat.html</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://linkaiagency.com/whatsapp-ai-chatbot/blog/whatsapp-marketing-tips.html</loc>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

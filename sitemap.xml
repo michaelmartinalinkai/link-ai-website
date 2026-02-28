@@ -3,11 +3,11 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.linkaiagency.com/</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
+
   <!-- Services -->
   <url>
     <loc>https://www.linkaiagency.com/services/chat-ai.html</loc>
@@ -15,7 +15,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
     <loc>https://www.linkaiagency.com/services/voice-ai.html</loc>
     <lastmod>2026-01-14</lastmod>
@@ -29,7 +29,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
     <loc>https://www.linkaiagency.com/services/visual-media.html</loc>
     <lastmod>2026-01-14</lastmod>
@@ -43,7 +43,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
     <loc>https://www.linkaiagency.com/services/consultancy.html</loc>
     <lastmod>2026-01-14</lastmod>
@@ -54,6 +54,49 @@
   <url>
     <loc>https://www.linkaiagency.com/services/review-seo.html</loc>
     <lastmod>2026-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://www.linkaiagency.com/blog/</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.linkaiagency.com/blog/wat-is-ai-automation.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.linkaiagency.com/blog/whatsapp-chatbot-voor-bedrijven.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.linkaiagency.com/blog/ai-klantenservice-24-7.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.linkaiagency.com/blog/kosten-ai-chatbot.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.linkaiagency.com/blog/ai-voor-mkb-5-toepassingen.html</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
