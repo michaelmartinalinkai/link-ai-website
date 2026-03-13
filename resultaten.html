@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultaten & Case Studies | Link AI Agency</title>
+    <meta name="description" content="Bekijk de resultaten die Link AI Agency heeft behaald voor klanten. Van SEO-audits tot AI-chatbots en complete website builds. Echte resultaten, echte bedrijven.">
+    <link rel="canonical" href="https://linkaiagency.com/resultaten.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Resultaten & Case Studies | Link AI Agency">
+    <meta property="og:description" content="Bekijk de resultaten die Link AI Agency heeft behaald voor klanten. Echte resultaten, echte bedrijven.">
+    <meta property="og:url" content="https://linkaiagency.com/resultaten.html">
+    <meta property="og:image" content="https://linkaiagency.com/logo.png">
+    <meta property="og:locale" content="nl_NL">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css?v=2">
+
+    <style>
+        /* Override for detail page */
+        body {
+            overflow-y: auto;
+            background: #050510;
+            color: rgba(255,255,255,.92);
+        }
+        .scroller {
+            overflow-y: auto;
+            scroll-snap-type: none;
+            height: auto;
+            min-height: 100vh;
+        }
+        .section {
+            height: auto;
+            min-height: auto;
+            scroll-snap-align: none;
+        }
+
+        /* --- HERO --- */
+        .results-hero {
+            padding: 140px 20px 60px;
+            text-align: center;
+            background: radial-gradient(800px 400px at 50% 0%, rgba(124,58,237,.18), transparent 70%);
+        }
+        .results-hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.6rem);
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
+        }
+        .results-hero h1 span {
+            background: linear-gradient(90deg, #7c3aed, #a78bfa, #7c3aed);
+            background-size: 220% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .results-hero p {
+            color: rgba(255,255,255,.6);
+            font-size: 1.15rem;
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* --- STATS BAR --- */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            padding: 40px 20px 60px;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #00ff80;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: .82rem;
+            color: rgba(255,255,255,.45);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 6px;
+        }
+
+        /* --- CASE STUDIES --- */
+        .cases-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 20px 80px;
+        }
+        .case-card {
+            background: rgba(255,255,255,.03);
+            border: 1px solid rgba(124,58,237,.14);
+            border-radius: 22px;
+            padding: 48px 40px;
+            margin-bottom: 32px;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 48px;
+            align-items: start;
+            transition: border-color .3s ease;
+        }
+        .case-card:hover {
+            border-color: rgba(124,58,237,.28);
+        }
+        .case-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .case-logo {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            object-fit: contain;
+            background: rgba(255,255,255,.06);
+            padding: 6px;
+            border: 1px solid rgba(255,255,255,.08);
+        }
+        .case-header-text h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        .case-header-text .case-industry {
+            font-size: .78rem;
+            color: rgba(255,255,255,.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .case-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .case-tag {
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: .72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            background: rgba(124,58,237,.1);
+            border: 1px solid rgba(124,58,237,.2);
+            color: #a78bfa;
+        }
+        .case-body p {
+            color: rgba(255,255,255,.6);
+            font-size: .95rem;
+            line-height: 1.75;
+            margin-bottom: 12px;
+        }
+        .case-body strong {
+            color: rgba(255,255,255,.85);
+        }
+
+        /* Metrics sidebar */
+        .case-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .metric-card {
+            background: rgba(255,255,255,.03);
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+        }
+        .metric-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #00ff80;
+            line-height: 1.1;
+        }
+        .metric-label {
+            font-size: .76rem;
+            color: rgba(255,255,255,.4);
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            margin-top: 4px;
+        }
+
+        /* Testimonial quote */
+        .case-quote {
+            margin-top: 20px;
+            padding: 16px 20px;
+            border-left: 3px solid rgba(124,58,237,.4);
+            background: rgba(124,58,237,.04);
+            border-radius: 0 10px 10px 0;
+        }
+        .case-quote p {
+            font-style: italic;
+            color: rgba(255,255,255,.65);
+            font-size: .9rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .case-quote .quote-author {
+            font-style: normal;
+            color: rgba(255,255,255,.4);
+            font-size: .78rem;
+            margin-top: 8px;
+        }
+
+        /* --- BOTTOM CTA --- */
+        .results-cta {
+            text-align: center;
+            padding: 80px 20px 100px;
+            background: radial-gradient(600px 300px at 50% 100%, rgba(124,58,237,.15), transparent 70%);
+        }
+        .results-cta h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .results-cta p {
+            color: rgba(255,255,255,.55);
+            font-size: 1.05rem;
+            max-width: 500px;
+            margin: 0 auto 28px;
+            line-height: 1.7;
+        }
+        .btn-pulse-green {
+            display: inline-block;
+            padding: 16px 32px;
+            background: linear-gradient(90deg, #00ff80, #00cc66);
+            color: #000;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: .95rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            border-radius: 50px;
+            box-shadow: 0 0 30px rgba(0,255,128,.2);
+            transition: all .3s ease;
+            animation: pulse-green-glow 3s infinite ease-in-out;
+        }
+        .btn-pulse-green:hover {
+            box-shadow: 0 0 50px rgba(0,255,128,.4);
+            transform: translateY(-2px);
+        }
+        @keyframes pulse-green-glow {
+            0% { box-shadow: 0 0 0 0 rgba(0,255,128,.4); }
+            50% { box-shadow: 0 0 20px 10px rgba(0,255,128,.2); }
+            100% { box-shadow: 0 0 0 0 rgba(0,255,128,0); }
+        }
+        .results-note {
+            color: rgba(255,255,255,.35);
+            font-size: .8rem;
+            margin-top: 14px;
+        }
+
+        /* --- BACK LINK --- */
+        .back-link {
+            position: fixed;
+            top: 100px;
+            left: 2rem;
+            text-decoration: none;
+            color: rgba(255,255,255,.5);
+            font-weight: 600;
+            z-index: 100;
+            transition: color .3s;
+            background: rgba(10,10,10,.7);
+            padding: .5rem 1rem;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,.08);
+            font-size: .85rem;
+        }
+        .back-link:hover { color: #00ff80; }
+
+        /* --- NAVBAR OVERRIDE --- */
+        .navbar {
+            background: rgba(5,5,16,.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,.05);
+        }
+        .navbar .nav-btn { color: rgba(255,255,255,.7); }
+        .navbar .nav-btn:hover { color: #00ff80; background: rgba(255,255,255,.05); }
+        .nav-partner-logo { filter: grayscale(100%) brightness(2); opacity: .3; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 860px) {
+            .case-card {
+                grid-template-columns: 1fr;
+                padding: 32px 24px;
+                gap: 28px;
+            }
+            .case-metrics {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .metric-card {
+                flex: 1;
+                min-width: 120px;
+            }
+            .stats-bar {
+                gap: 28px;
+            }
+        }
+        @media (max-width: 640px) {
+            .back-link { top: 70px; left: 1rem; font-size: .78rem; }
+            .navbar { padding: .5rem 1rem; }
+            .nav-marquee-container { display: none; }
+            .nav-links { display: none; }
+            .case-card { padding: 24px 18px; }
+            .case-metrics { flex-direction: column; }
+            .stats-bar { gap: 20px; }
+            .stat-number { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="/" class="nav-logo">
+            <img src="logo.png" alt="Link AI" class="nav-logo-img">
+        </a>
+        <div class="nav-marquee-container">
+            <div class="nav-marquee-track">
+                <a href="https://liquidbeauty.nl/" target="_blank" class="nav-partner-link"><img src="partner_liquid_beauty.png" alt="Liquid Beauty" class="nav-partner-logo"></a>
+                <a href="https://november.nl/" target="_blank" class="nav-partner-link"><img src="partner_november.png" alt="November" class="nav-partner-logo"></a>
+                <a href="https://thegym.amsterdam/" target="_blank" class="nav-partner-link"><img src="partner_the_gym.png" alt="The Gym" class="nav-partner-logo"></a>
+                <a href="https://baliluxeconcierge.com/" target="_blank" class="nav-partner-link"><img src="partner_bali_luxe.png" alt="Bali Luxe" class="nav-partner-logo nav-partner-logo-lg"></a>
+                <a href="https://liquidbeautyshop.com/" target="_blank" class="nav-partner-link"><img src="partner_liquid_shop.png" alt="Liquid Shop" class="nav-partner-logo nav-partner-logo-lg"></a>
+                <a href="https://hi-tec.com/" target="_blank" class="nav-partner-link"><img src="partner_hitec.png" alt="Hi-Tec" class="nav-partner-logo"></a>
+                <a href="https://liquidbeauty.nl/" target="_blank" class="nav-partner-link"><img src="partner_liquid_beauty.png" alt="Liquid Beauty" class="nav-partner-logo"></a>
+                <a href="https://november.nl/" target="_blank" class="nav-partner-link"><img src="partner_november.png" alt="November" class="nav-partner-logo"></a>
+                <a href="https://thegym.amsterdam/" target="_blank" class="nav-partner-link"><img src="partner_the_gym.png" alt="The Gym" class="nav-partner-logo"></a>
+                <a href="https://baliluxeconcierge.com/" target="_blank" class="nav-partner-link"><img src="partner_bali_luxe.png" alt="Bali Luxe" class="nav-partner-logo nav-partner-logo-lg"></a>
+                <a href="https://liquidbeautyshop.com/" target="_blank" class="nav-partner-link"><img src="partner_liquid_shop.png" alt="Liquid Shop" class="nav-partner-logo nav-partner-logo-lg"></a>
+                <a href="https://hi-tec.com/" target="_blank" class="nav-partner-link"><img src="partner_hitec.png" alt="Hi-Tec" class="nav-partner-logo"></a>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="/" class="nav-btn">Home</a>
+            <a href="/#services" class="nav-btn">Services</a>
+            <a href="/prijzen.html" class="nav-btn">Prijzen</a>
+            <a href="/blog/" class="nav-btn">Blog</a>
+            <a href="/#contact" class="nav-btn">Contact</a>
+        </div>
+    </nav>
+
+    <a href="/" class="back-link">&#8592; Terug</a>
+
+    <!-- Hero -->
+    <section class="results-hero">
+        <h1>Onze <span>Resultaten</span></h1>
+        <p>Geen vage beloftes. Dit is wat we concreet hebben bereikt voor onze klanten met AI-automatisering, websites en marketing.</p>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Klanten geholpen</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">AI-systemen live</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Automatisering actief</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">93%</div>
+            <div class="stat-label">Klanttevredenheid</div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="cases-section">
+
+        <!-- Case 1: The Gym Amsterdam -->
+        <article class="case-card">
+            <div class="case-body">
+                <div class="case-header">
+                    <img src="partner_the_gym.png" alt="The Gym Amsterdam" class="case-logo">
+                    <div class="case-header-text">
+                        <h3>The Gym Amsterdam</h3>
+                        <span class="case-industry">Fitness &amp; Sport</span>
+                    </div>
+                </div>
+                <div class="case-tags">
+                    <span class="case-tag">SEO Audit</span>
+                    <span class="case-tag">Technische Optimalisatie</span>
+                    <span class="case-tag">Content Strategie</span>
+                </div>
+                <p><strong>De uitdaging:</strong> The Gym Amsterdam had een sterke reputatie in de buurt, maar was online nauwelijks vindbaar. Hun website scoorde slecht op technische SEO en miste gestructureerde data voor lokale zoekresultaten.</p>
+                <p><strong>Onze aanpak:</strong> We voerden een volledige SEO-audit uit, optimaliseerden de technische basis (laadsnelheid, meta tags, schema.org markup), en bouwden een contentstrategie rondom lokale zoekwoorden zoals "sportschool Amsterdam-Oost" en "fitness Amsterdam".</p>
+                <p><strong>Het resultaat:</strong> Binnen 3 maanden steeg de organische zichtbaarheid met 156%. De website scoort nu 90+ op alle Google Lighthouse metrics. Lokale zoektermen ranken in de top 5.</p>
+                <div class="case-quote">
+                    <p>"Link AI heeft onze online zichtbaarheid compleet getransformeerd. We krijgen nu dagelijks nieuwe aanmeldingen via Google."</p>
+                    <div class="quote-author">-- The Gym Amsterdam</div>
+                </div>
+            </div>
+            <div class="case-metrics">
+                <div class="metric-card">
+                    <div class="metric-value">+156%</div>
+                    <div class="metric-label">Organisch verkeer</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">92</div>
+                    <div class="metric-label">Lighthouse score</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">Top 5</div>
+                    <div class="metric-label">Lokale ranking</div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Case 2: Liquid Beauty -->
+        <article class="case-card">
+            <div class="case-body">
+                <div class="case-header">
+                    <img src="partner_liquid_beauty.png" alt="Liquid Beauty" class="case-logo">
+                    <div class="case-header-text">
+                        <h3>Liquid Beauty</h3>
+                        <span class="case-industry">Beauty &amp; Cosmetica</span>
+                    </div>
+                </div>
+                <div class="case-tags">
+                    <span class="case-tag">Content Strategie</span>
+                    <span class="case-tag">Social Media</span>
+                    <span class="case-tag">AI Visuals</span>
+                </div>
+                <p><strong>De uitdaging:</strong> Liquid Beauty had moeite met consistent content publiceren op social media. Het team had geen tijd voor het maken van professionele visuals en het bijhouden van meerdere platformen.</p>
+                <p><strong>Onze aanpak:</strong> We ontwikkelden een complete contentstrategie met AI-gegenereerde visuals, geautomatiseerde posting op Instagram en Facebook, en een contentkalender die aansluit bij seizoensgebonden beauty-trends.</p>
+                <p><strong>Het resultaat:</strong> De engagement op social media steeg met 210%. Het team bespaart nu 15+ uur per week op contentcreatie. De online boekingen zijn met 45% gestegen dankzij consistente online aanwezigheid.</p>
+                <div class="case-quote">
+                    <p>"Eindelijk consistent content zonder dat we er zelf uren aan kwijt zijn. De AI-visuals zijn verbluffend goed."</p>
+                    <div class="quote-author">-- Liquid Beauty</div>
+                </div>
+            </div>
+            <div class="case-metrics">
+                <div class="metric-card">
+                    <div class="metric-value">+210%</div>
+                    <div class="metric-label">Social engagement</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">15+ uur</div>
+                    <div class="metric-label">Bespaard per week</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">+45%</div>
+                    <div class="metric-label">Online boekingen</div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Case 3: AutoSleutelSpoed -->
+        <article class="case-card">
+            <div class="case-body">
+                <div class="case-header">
+                    <img src="logo.png" alt="AutoSleutelSpoed" class="case-logo">
+                    <div class="case-header-text">
+                        <h3>AutoSleutelSpoed</h3>
+                        <span class="case-industry">Noodservice &amp; Slotenmaker</span>
+                    </div>
+                </div>
+                <div class="case-tags">
+                    <span class="case-tag">Website</span>
+                    <span class="case-tag">24/7 Noodservice</span>
+                    <span class="case-tag">SEO</span>
+                    <span class="case-tag">WhatsApp</span>
+                </div>
+                <p><strong>De uitdaging:</strong> AutoSleutelSpoed is een 24/7 noodservice voor autosleutels. Ze hadden geen professionele website en misten potentiele klanten die 's nachts of in het weekend hulp nodig hadden.</p>
+                <p><strong>Onze aanpak:</strong> We bouwden een complete website geoptimaliseerd voor noodzoektermen ("autosleutel verloren", "slotenmaker auto"). Inclusief click-to-call buttons, WhatsApp-integratie voor directe hulpvragen, en lokale SEO voor de Randstad.</p>
+                <p><strong>Het resultaat:</strong> De website genereert nu dagelijks leads via Google. De gemiddelde reactietijd daalde van 30+ minuten naar onder de 5 minuten dankzij WhatsApp-automatisering. Het aantal online aanvragen is verdrievoudigd.</p>
+                <div class="case-quote">
+                    <p>"Onze website draait nu 24/7 mee als een extra medewerker. Klanten vinden ons direct als ze spoed hebben."</p>
+                    <div class="quote-author">-- AutoSleutelSpoed</div>
+                </div>
+            </div>
+            <div class="case-metrics">
+                <div class="metric-card">
+                    <div class="metric-value">3x</div>
+                    <div class="metric-label">Meer online leads</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">&lt;5 min</div>
+                    <div class="metric-label">Reactietijd</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">24/7</div>
+                    <div class="metric-label">Online bereikbaar</div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Case 4: VR-Elektro -->
+        <article class="case-card">
+            <div class="case-body">
+                <div class="case-header">
+                    <img src="logo.png" alt="VR-Elektro" class="case-logo">
+                    <div class="case-header-text">
+                        <h3>VR-Elektro</h3>
+                        <span class="case-industry">Elektrotechniek &amp; Installatie</span>
+                    </div>
+                </div>
+                <div class="case-tags">
+                    <span class="case-tag">Website</span>
+                    <span class="case-tag">Blog Content</span>
+                    <span class="case-tag">SEO</span>
+                </div>
+                <p><strong>De uitdaging:</strong> VR-Elektro is een elektrotechnisch installatiebedrijf dat vooral via mond-tot-mondreclame nieuwe klanten krijgt. Ze wilden een professionele online aanwezigheid om ook via Google gevonden te worden.</p>
+                <p><strong>Onze aanpak:</strong> We bouwden een moderne, snelle website met een blog gericht op informatieve content ("elektrische installatie kosten", "groepenkast vervangen"). Elke blogpost is SEO-geoptimaliseerd en bevat interne links naar hun diensten.</p>
+                <p><strong>Het resultaat:</strong> De website rankt inmiddels op meerdere relevante zoektermen. Het blog genereert maandelijks organisch verkeer dat converteert naar offerteaanvragen. De online zichtbaarheid is van nul naar consistent doorgegroeid.</p>
+                <div class="case-quote">
+                    <p>"We hadden nooit verwacht dat een blog zoveel klanten zou opleveren. Link AI snapt hoe je online groeit."</p>
+                    <div class="quote-author">-- VR-Elektro</div>
+                </div>
+            </div>
+            <div class="case-metrics">
+                <div class="metric-card">
+                    <div class="metric-value">Van 0</div>
+                    <div class="metric-label">Naar organisch verkeer</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">8+</div>
+                    <div class="metric-label">SEO-blogposts live</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">+85%</div>
+                    <div class="metric-label">Meer offertes</div>
+                </div>
+            </div>
+        </article>
+
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="results-cta">
+        <h2>Jouw bedrijf als volgende?</h2>
+        <p>Ontdek wat AI-automatisering voor jouw bedrijf kan betekenen. Boek een gratis demo van 15 minuten.</p>
+        <a href="https://wa.me/31686447995?text=Ik%20wil%20graag%20bespreken%20wat%20AI%20voor%20mijn%20bedrijf%20kan%20doen" class="btn-pulse-green" target="_blank">BOEK EEN GRATIS DEMO</a>
+        <p class="results-note">Geen spam. Geen verkooppraatjes. Gewoon een helder plan.</p>
+    </section>
+
+</body>
+</html>

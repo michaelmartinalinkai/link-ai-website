@@ -3,7 +3,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.linkaiagency.com/</loc>
-    <lastmod>2026-02-28</lastmod>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -58,6 +58,22 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Pricing -->
+  <url>
+    <loc>https://www.linkaiagency.com/prijzen.html</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Case Studies / Resultaten -->
+  <url>
+    <loc>https://www.linkaiagency.com/resultaten.html</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Blog -->
   <url>
     <loc>https://www.linkaiagency.com/blog/</loc>
@@ -103,6 +119,56 @@
   <url>
     <loc>https://linkaiagency.com/blog/ai-chatbot-voor-bedrijven-gids.html</loc>
     <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- WhatsApp Assist -->
+  <url>
+    <loc>https://linkaiagency.com/whatsapp-ai-chatbot/</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://linkaiagency.com/whatsapp-ai-chatbot/vergelijking.html</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://linkaiagency.com/whatsapp-ai-chatbot/branches/salon.html</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://linkaiagency.com/whatsapp-ai-chatbot/branches/makelaar.html</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://linkaiagency.com/whatsapp-ai-chatbot/branches/restaurant.html</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://linkaiagency.com/whatsapp-ai-chatbot/branches/tandarts.html</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://linkaiagency.com/whatsapp-ai-chatbot/branches/webshop.html</loc>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
